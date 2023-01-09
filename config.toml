@@ -65,6 +65,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     name = "Categories"
     url = "/categories/"
     title = ""
+  [[menu.main]]
+    weight = 3
+    identifier = "resume"
+    pre = ""
+    post = ""
+    name = "Resume"
+    url = "/resume.pdf/"
+    title = ""
 
 [params]
   # site default theme ["auto", "light", "dark"]
