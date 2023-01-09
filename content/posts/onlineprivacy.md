@@ -5,9 +5,9 @@ draft: false
 weight: 2
 ---
 
-Privacy is just a myth and here is how you can protect it.
+1. Privacy is just a myth and here is how you can protect it.
 [Read here](https://harisheoran.hashnode.dev/privacy-for-everyone)  
 
-Be Anonymous using Tor.
+2. Be Anonymous using Tor.
 [Read here](https://harisheoran.hashnode.dev/be-anonymous-using-tor)
 --- 
