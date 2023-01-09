@@ -1,8 +1,5 @@
----
-title: "College Hub"
-date: 2023-01-09T11:37:36+05:30
-draft: false
----
+# College Hub
+
 
 I am a sophomore student currently and I have been facing a problem for quite some time, not having study materials for my semester exams and monthly tests and I notice that my friends & many fellow students are also facing this problem.
 

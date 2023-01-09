@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - Harish Sheoran</title>
+        <link>http://example.org/posts/</link>
+        <description>All Posts | Harish Sheoran</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>harishsheoran10@protonmail.com (Harish Sheoran)</managingEditor>
+            <webMaster>harishsheoran10@protonmail.com (Harish Sheoran)</webMaster><lastBuildDate>Mon, 09 Jan 2023 11:37:36 &#43;0530</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>College Hub</title>
+    <link>http://example.org/collegehub/</link>
+    <pubDate>Mon, 09 Jan 2023 11:37:36 &#43;0530</pubDate>
+    <author>Harish Sheoran</author>
+    <guid>http://example.org/collegehub/</guid>
+    <description><![CDATA[I am a sophomore student currently and I have been facing a problem for quite some time, not having study materials for my semester exams and monthly tests and I notice that my friends &amp; many fellow students are also facing this problem.
+I solve this problem in my first semester by making a website for my class to get all study materials, practicals and books, at that time my solution was only for my class but there were many departments only in B.]]></description>
+</item>
+</channel>
+</rss>

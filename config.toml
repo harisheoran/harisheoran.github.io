@@ -4,7 +4,7 @@ baseURL = "http://example.org/"
 theme = "LoveIt"
 
 # website title
-title = "My New Hugo Site"
+title = "Harish Sheoran"
 
 # language code ["en", "zh-CN", "fr", "pl", ...]
 languageCode = "en"
@@ -32,8 +32,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
 # Author config
 [author]
-  name = "xxxx"
-  email = ""
+  name = "Harish Sheoran"
+  email = "harishsheoran10@protonmail.com"
   link = ""
 
 # Menu config
@@ -94,7 +94,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # URL of the LOGO
       logo = ""
       # title name
-      name = ""
+      name = "Harish Sheoran"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre = ""
       # you can add extra information after the name (HTML format is supported), such as icons
@@ -114,11 +114,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     #  whether to show the author
     author = true
     # Site creation time
-    since = 2019
+    since = 2023
     # ICP info only in China (HTML format is supported)
     icp = ""
     # license info (HTML format is supported)
-    license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+    #license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
   #  Section (all posts) page config
   [params.section]
@@ -141,7 +141,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   #  App icon config
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
-    title = "My cool site"
+    title = "Harish Sheoran"
     # whether to omit favicon resource links
     noFavicon = false
     # modern SVG favicon to use in place of older style .png and .ico files
@@ -185,11 +185,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
       # URL of avatar shown in home page
-      avatarURL = "/images/avatar.png"
+      avatarURL = "/profilepic03.jpg"
       #  title shown in home page (HTML format is supported)
       title = ""
       # subtitle shown in home page (HTML format is supported)
-      subtitle = "This is My New Hugo Site"
+      subtitle = "Android Developer"
       # whether to use typeit animation for subtitle
       typeit = true
       # whether to show social links
@@ -207,12 +207,12 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
   # Social config about the author
   [params.social]
-    GitHub = "xxxx"
-    Linkedin = ""
-    Twitter = "xxxx"
-    Instagram = "xxxx"
-    Facebook = "xxxx"
-    Telegram = "xxxx"
+    Twitter = "harisheoran"
+    GitHub = "harisheoran"
+    Linkedin = "harishsheoran01"
+    Instagram = ""
+    Facebook = ""
+    Telegram = ""
     Medium = ""
     Gitlab = ""
     Youtubelegacy = ""
@@ -222,7 +222,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     Quora = ""
     Keybase = ""
     Pinterest = ""
-    Reddit = ""
+    Reddit = "haris958"
     Codepen = ""
     FreeCodeCamp = ""
     Bitbucket = ""
@@ -269,7 +269,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     XMPP = ""
     Matrix = ""
     Bilibili = ""
-    Discord = ""
+    Discord = "haris#1311"
     DiscordInvite = ""
     Lichess = ""
     ORCID = ""
@@ -280,7 +280,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     HackTheBox = ""
     RootMe= ""
     Phone = ""
-    Email = "xxxx@xxxx.com"
+    Email = "harishsheoran10@protonmail.com"
     RSS = true # 
 
   #  Page global config
