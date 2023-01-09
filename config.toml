@@ -71,7 +71,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     pre = ""
     post = ""
     name = "Resume"
-    url = "/resume.pdf/"
+    url = "/resume.pdf"
     title = ""
 
 [params]
