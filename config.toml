@@ -67,6 +67,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     title = ""
   [[menu.main]]
     weight = 3
+    identifier = "projects"
+    pre = ""
+    post = ""
+    name = "Projects"
+    url = "/projects"
+    title = ""
+  [[menu.main]]
+    weight = 4
     identifier = "resume"
     pre = ""
     post = ""
@@ -115,7 +123,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     enable = true
     #  Custom content (HTML format is supported)
     custom = ''
-    #  whether to show Hugo and theme info
     hugo = false
     #  whether to show copyright info
     copyright = true
