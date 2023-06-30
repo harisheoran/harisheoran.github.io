@@ -12,25 +12,47 @@
 # config/_default/menus.toml
 
 [[main]]
-  name = "Blog"
-  url = "https://harisheoran.hashnode.dev"
+  name = "About"
+  pageRef = "about"
   weight = 10
 
 [[main]]
-  name = "Topics"
-  pageRef = "topics"
+  name = "Projects"
+  pageRef = "projects"
   weight = 20
 
 [[main]]
-  pre = "github"
-  name = "GitHub"
-  url = "https://github.com/harisheoran"
+  name = "Blog"
+  url = "https://harisheoran.hashnode.dev"
   weight = 30
 
+[[main]]
+  name = "Resume"
+  url = "https://drive.google.com/drive/folders/1IPdGm9x5IiecaWJEzPrvbsXj5Dl3FbZG?usp=sharing"
+  weight = 40
 
-[[footer]]
-  name = "Privacy"
-  url = "https://external-link"
+
+[[main]]
+  identifier = "twitter"
+  pre = "twitter"
+  url = "https://twitter.com/harisheoran"
+  weight = 200
+
+[[main]]
+  identifier = "github"
+  pre = "github"
+  url = "https://github.com/harisheoran"
+  weight = 300
+
+[[main]]
+  identifier = "linkedin"
+  pre = "linkedin"
+  url = "https://www.linkedin.com/in/harishsheoran01/"
+  weight = 300
+
+#[[footer]]
+#  name = "Privacy"
+#  url = "https://external-link"
 
 
 

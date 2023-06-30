@@ -1,17 +1,6 @@
 title = "Harish Sheoran"
 theme = "blowfish"
 
-[author]
-name = "Harish Sheoran"
-image = "img/author.jpg"
-headline = "Software Developer"
-bio = "A little bit about me"
-links = [
-  { twitter = "https://twitter.com/harisheoran" },
-  { linkedin = "https://www.linkedin.com/in/harishsheoran01" },
-  { github = "https://github.com/harisheoran" }
-]
-
 baseURL = "https://harisheoran.github.io/"
 defaultContentLanguage = "en"
 
@@ -28,6 +17,7 @@ summaryLength = 0
 
 buildDrafts = false
 buildFuture = false
+
 
 # googleAnalytics = "G-XXXXXXXXX"
 
