@@ -34,5 +34,14 @@
       <description>App to browse memes.</description>
     </item>
     
+    <item>
+      <title>Web Projects</title>
+      <link>https://harisheoran.github.io/projects/webprojects/</link>
+      <pubDate>Sat, 29 Oct 2022 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/webprojects/</guid>
+      <description>Programmer Server # A place for programmers to discuss, share thier ideas and make connections.</description>
+    </item>
+    
   </channel>
 </rss>
