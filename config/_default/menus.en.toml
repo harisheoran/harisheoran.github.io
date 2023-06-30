@@ -36,19 +36,20 @@
   identifier = "twitter"
   pre = "twitter"
   url = "https://twitter.com/harisheoran"
-  weight = 200
-
-[[main]]
-  identifier = "github"
-  pre = "github"
-  url = "https://github.com/harisheoran"
-  weight = 300
+  weight = 50
 
 [[main]]
   identifier = "linkedin"
   pre = "linkedin"
   url = "https://www.linkedin.com/in/harishsheoran01/"
-  weight = 300
+  weight = 60
+
+[[main]]
+  pre = "github"
+  Name = "Github"
+  url = "https://github.com/harisheoran"
+  weight = 60
+
 
 #[[footer]]
 #  name = "Privacy"
