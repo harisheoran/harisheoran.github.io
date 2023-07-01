@@ -28,7 +28,7 @@ disableImageOptimization = true
   showScrollToTop = true
 
 [homepage]
-  layout = "hero" # valid options: page, profile, hero, card, background, custom
+  layout = "background" # valid options: page, profile, hero, card, background, custom
   homepageImage = "img/home_bg.jpg" # used in: hero, and card
   showRecent = true
   showRecentItems = 5
@@ -108,13 +108,13 @@ disableImageOptimization = true
   cardViewScreenWidth = false
 
 [firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
+  apiKey = "AIzaSyBtkn8N_njw4ICKLkzqSSBsuV5uQOzQyLM"
+  authDomain = "harisheoran-c3a13.firebaseapp.com"
+  projectId = "harisheoran-c3a13"
+  storageBucket = "harisheoran-c3a13.appspot.com"
+  messagingSenderId = "962244538381"
+  appId = "1:962244538381:web:6d1644b8dbe03390fda544"
+  measurementId = "G-5TXFZLWMBX"
 
 [fathomAnalytics]
   # site = "ABC12345"
