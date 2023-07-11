@@ -1,5 +1,5 @@
 ---
-title: "Rick & Morty App"
+title: "Rick & Morty Colleection App"
 date: 2023-06-29T20:54:47+01:00
 draft: false
 description: ""
@@ -7,22 +7,41 @@ categories: ["Android"]
 tags: ["MVVM", "Kotlin"]
 ---
 
-## Rick & Morty App
+{{< lead >}}
+App to browse characters, episodes and search details from Rick & Morty Tv show.
+{{< /lead >}}
 
-App to browse characters, Episodes and search details from Rick & Morty App.
 
+{{< button href="https://github.com/harisheoran/rick-morty-app/releases" target="blank" >}}
+Download app 
+{{< /button >}}
 
-#### Download the app [here](https://github.com/harisheoran/rick-morty-app/releases).
-
-#### View code on Github
+#### View source code on Github
 {{< github repo="harisheoran/rick-morty-app" >}}
 
+--- 
+### Gallery
+{{< gallery >}}
+  <img src="gallery/01.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="gallery/02.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="gallery/03.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="gallery/04.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="gallery/05.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="gallery/06.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="gallery/07.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="gallery/08.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+{{< /gallery >}}
 
+--- 
 
+### Demo
+{{< youtube id="BJ37aAP6ghU" autoplay="true" >}}
+
+---
 
 #### Read about its MVVM architecture [here](https://sparrowbit.hashnode.dev/basic-mvvm-android-app).
 
-#### Tech Stack
+#### Tech Stack & Libraries
 - Kotlin Language
 - MVVM Architecture 
 - Retrofit
@@ -30,6 +49,9 @@ App to browse characters, Episodes and search details from Rick & Morty App.
 - Epoxy RecyclerView
 - Paging 3
 - Moshi
+
+#### API
+- [The Rick and Morty API](https://rickandmortyapi.com/)
 
 ### MVVM Architecture
 ![Alt text](arch.jpg "Image caption")
@@ -79,6 +101,8 @@ interface RickAndMortyService {
     - It has the methods to talk to API
 
 - Network Error handling
+
+
 
 
 
