@@ -1,5 +1,5 @@
 ---
-title: "Rick & Morty Colleection App"
+title: "Rick & Morty Collection App"
 date: 2023-06-29T20:54:47+01:00
 draft: false
 description: ""
