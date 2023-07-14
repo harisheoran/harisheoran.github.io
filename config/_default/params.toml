@@ -14,8 +14,8 @@ disableImageOptimization = true
 # defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
 
 # highlightCurrentMenuArea = true
-# smartTOC = true
-# smartTOCHideUnfocusedChildren = true
+smartTOC = true
+smartTOCHideUnfocusedChildren = true
 
 [header]
   layout = "basic" # valid options: basic, fixed, fixed-fill, fixed-fill-blur
@@ -42,7 +42,7 @@ disableImageOptimization = true
   showDate = true
   showViews = true
   showLikes = true
-  showDateUpdated = false
+  showDateUpdated = true
   showAuthor = true
   showHero = true
   heroStyle = "background" # valid options: basic, big, background, thumbAndBackground

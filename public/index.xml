@@ -8,6 +8,26 @@
     <language>en</language>
     <lastBuildDate>Thu, 29 Jun 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Contact me</title>
+      <link>https://harisheoran.github.io/contact/</link>
+      <pubDate>Wed, 12 Jul 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/contact/</guid>
+      <description>Contact I am currently open for full-time engineering roles, which involves Android app developmenet.</description>
+      
+    </item>
+    
+    <item>
+      <title>Hire me</title>
+      <link>https://harisheoran.github.io/hire/</link>
+      <pubDate>Wed, 12 Jul 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/hire/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>About</title>
       <link>https://harisheoran.github.io/about/</link>
       <pubDate>Thu, 29 Jun 2023 20:54:47 +0100</pubDate>
@@ -18,7 +38,7 @@
     </item>
     
     <item>
-      <title>Rick &amp; Morty Colleection App</title>
+      <title>Rick &amp; Morty Collection App</title>
       <link>https://harisheoran.github.io/projects/rickmorty/</link>
       <pubDate>Thu, 29 Jun 2023 20:54:47 +0100</pubDate>
       
