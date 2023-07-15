@@ -1,8 +1,35 @@
 ---
-title: "Contact me"
+title: ""
 date: 2023-07-12T20:54:47+01:00
 draft: false
 description: ""
+---
+
+{{< typeit 
+  tag=h1
+  lifeLike=true
+>}}
+Lets get in touch
+{{< /typeit >}}
+
+{{< button href="mailto: harisheoran205@gmail.com" target="_self" >}}{{< icon "envelope" >}}  Mail me {{< /button >}} 
+    
+📧  harisheoran205@gmail.com
+
+---
+
+{{< lead >}}
+Lets Connect
+{{< /lead >}}
+
+
+{{< icon "twitter" >}} [Twitter](https://twitter.com/harisheoran)
+
+{{< icon "linkedin" >}} [LinkedIn](https://www.linkedin.com/in/harishsheoran01/)
+
+{{< icon "github" >}} [Github](https://github.com/harisheoran)
+
+
 ---
 
 <head>
