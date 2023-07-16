@@ -58,7 +58,7 @@ Download app
 
 Start from Network Layer
 
-#### 1. **Network Layer**
+### 1. **Network Layer**
 
 4 main components are
 
@@ -98,15 +98,56 @@ interface RickAndMortyService {
 
 - API Client
     - Through which our app will talk to server.
-    - It has the methods to talk to API
+    - It has the methods to talk to API and return the response inside our Network Error handling
 
-- Network Error handling
+- Network Error handling Class *SimpleResponse*
+
+    A simple kind of wrapper class 
+
+    - It have 3 constructor as a parameter - Status, reponse from API client and exception
+
+    - It has some properties to check weather the response is successfull or failed
 
 
+### 2. **Repository Layer**
+
+We have 3 repository for fetching Character list( for home screen), Single Charater and Episodes.
+
+```
+class CharacterListRepository {
+    suspend fun getCharactersPage(pageIndex: Int): GetCharactersPageResponse? {
+        val request = NetworkLayer.apiClient.getCharactersPages(pageIndex)
+
+        if (request.failed || !request.isSucceed) {
+            return null
+        }
+        return request.body
+    }
+}
+```
+
+- Sending request to api using Api client 
+
+``` 
+val request = NetworkLayer.apiClient.getCharactersPages(pageIndex)
+```
+then checking the request and return accordingly.
+
+### Paging 3 
+
+...
+
+### ViewModel 
+
+...
+
+### UI
+...
 
 
+### Epoxy UI
+...
 
 
-
-writing ....
---- 
+### Data binding
+...
