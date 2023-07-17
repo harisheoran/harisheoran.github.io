@@ -2,7 +2,7 @@
 title: "Web Projects"
 date: 2022-10-29T20:54:47+01:00
 draft: false
-description: ""
+description: "Various web projects"
 categories: ["Web"]
 tags: ["MongoDB","Express JS", "NodeJs", "Bootstrap", "Cloudflare"]
 ---

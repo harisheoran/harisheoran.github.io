@@ -2,7 +2,7 @@
 title: "Rick & Morty Collection App"
 date: 2023-06-29T20:54:47+01:00
 draft: false
-description: ""
+description: "App to browse characters, episodes and search details from Rick & Morty Tv show."
 categories: ["Android"]
 tags: ["MVVM", "Kotlin"]
 ---

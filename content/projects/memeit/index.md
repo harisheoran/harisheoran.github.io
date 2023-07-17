@@ -2,7 +2,7 @@
 title: "Memeit App"
 date: 2022-12-30T20:55:37+01:00
 draft: false
-description: ""
+description: "Basic app to demonstrate usage of Retrofit."
 categories: ["Android"]
 tags: ["Java","Kotlin", "ImgFlip API", "Reddit API"]
 ---
