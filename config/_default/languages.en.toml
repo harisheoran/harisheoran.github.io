@@ -9,7 +9,7 @@ title = "Harish Sheoran"
   rtl = false
   dateFormat = "2 January 2006"
   #logo = "img/profile.jpg"
-   secondaryLogo = "img/profile.jpg"
+  secondaryLogo = "img/profile.jpg"
   # description = "My awesome website"
   # copyright = "Copy, _right?_ :thinking_face:"
 
