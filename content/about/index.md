@@ -94,6 +94,7 @@ Unleashing My Skillful Wizardry and Tech-tastic Tools!
       <div>{{< icon "linux">}} Linux</div>
       <div>{{< icon "vscode">}} VScode</div>
       <div>{{< icon "rest">}} Rest</div>
+      <div>{{< icon "postman">}} Postman</div>
     </div>
   </body>
 </html>
