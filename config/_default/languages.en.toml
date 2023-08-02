@@ -15,7 +15,7 @@ title = "Harish Sheoran"
 
  [author]
    name = "Harish Sheoran"
-   image = "img/profile.jpg"
+   image = "img/profile1.jpeg"
    headline = "Software Developer"
    bio = "Creating apps that make life a byte more interesting! 📱🌟"
    links = [
@@ -61,4 +61,6 @@ title = "Harish Sheoran"
 #     { whatsapp = "https://wa.me/phone-number" },
      { youtube = "https://www.youtube.com/channel/UCkL3XhMfEA46NH57gVSb_Fw" },
 #     { ko-fi = "https://ko-fi.com/username" },
+      { rss = "https://harisheoran.github.io/index.xml"},
+
    ]

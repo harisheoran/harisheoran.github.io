@@ -19,7 +19,7 @@ smartTOCHideUnfocusedChildren = true
 showComments = true
 
 [header]
-  layout = "basic" # valid options: basic, fixed, fixed-fill, fixed-fill-blur
+  layout = "fixed-fill-blur" # valid options: basic, fixed, fixed-fill, fixed-fill-blur
 
 [footer]
   showMenu = true
@@ -30,7 +30,7 @@ showComments = true
 
 [homepage]
   layout = "background" # valid options: page, profile, hero, card, background, custom
-  homepageImage = "img/wallpaperflare.com_wallpaper.jpg" # used in: hero, and card
+  homepageImage = "img/code.png" # used in: hero, and card
   showRecent = true
   showRecentItems = 10
   showMoreLink = false

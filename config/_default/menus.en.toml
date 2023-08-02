@@ -1,16 +1,3 @@
-# -- Main Menu --
-# The main menu is displayed in the header at the top of the page.
-# Acceptable parameters are name, pageRef, page, url, title, weight.
-# 
-# The simplest menu configuration is to provide:
-#   name = The name to be displayed for this menu link
-#   pageRef = The identifier of the page or section to link to
-#
-# By default the menu is ordered alphabetically. This can be
-# overridden by providing a weight value. The menu will then be
-# ordered by weight from lowest to highest.
-# config/_default/menus.toml
-
 [[main]]
   name = "About"
   pageRef = "about"
@@ -22,19 +9,18 @@
   weight = 20
 
 [[main]]
-  name = "Hire me"
-  pageRef = "hire"
+  name = "Contact"
+  pageRef = "contact"
   weight = 30
 
 [[main]]
-  name = "Contact"
-  pageRef = "contact"
+  name = "Mini Blogs"
+  pageRef = "miniblogs"
   weight = 40
 
-
 [[main]]
-  name = "Blog"
-  url = "https://harisheoran.hashnode.dev"
+  name = "Hire me"
+  pageRef = "hire"
   weight = 50
 
 [[main]]
@@ -64,11 +50,16 @@
 [[footer]]
   name = "Contact me"
   pageRef = "contact"
-
+  weight = 10
 
 [[footer]]
   name = "Hire me"
   pageRef = "hire"
+
+[[footer]]
+  name = "Blog"
+  pageRef = "https://harisheoran.hashnode.dev"
+
 #[[main]]
 #  name = "example sub-menu 1"
 #  parent = "Parent"
