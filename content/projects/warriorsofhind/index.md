@@ -24,3 +24,5 @@ Warriors Of Hind App
 
 #### View source code on Github
 {{< github repo="harisheoran/Warriors-Of-Hind" >}}
+
+Documentation is coming soon...
