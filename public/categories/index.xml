@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Harish Sheoran</title>
+    <link>https://harisheoran.github.io/categories/</link>
+    <description>Recent content in Categories on Harish Sheoran</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 30 Jul 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android</title>
+      <link>https://harisheoran.github.io/categories/android/</link>
+      <pubDate>Sun, 30 Jul 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/categories/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>https://harisheoran.github.io/categories/web/</link>
+      <pubDate>Sat, 29 Oct 2022 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/categories/web/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
