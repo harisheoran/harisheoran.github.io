@@ -19,8 +19,8 @@
   weight = 40
 
 [[main]]
-  name = "Hire me"
-  pageRef = "hire"
+  name = "Work with me"
+  url = "https://sparrowbit.github.io/"
   weight = 50
 
 [[main]]

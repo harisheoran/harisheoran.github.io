@@ -12,9 +12,9 @@ description: ""
 Lets get in touch
 {{< /typeit >}}
 
-{{< button href="mailto: harisheoran205@gmail.com" target="_self" >}}{{< icon "envelope" >}}  Mail me {{< /button >}} 
+{{< button href="mailto: harisheoran01@gmail.com" target="_self" >}}{{< icon "envelope" >}}  Mail me {{< /button >}} 
     
-📧  harisheoran205@gmail.com
+📧  harisheoran01@gmail.com
 
 ---
 
