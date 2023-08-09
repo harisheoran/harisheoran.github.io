@@ -26,10 +26,6 @@ Furthermore, my journey began with web development, where I cultivated a strong 
 Driven by my passion for software development and armed with a versatile toolkit encompassing Kotlin, modern Android app architecture, Firebase, Linux, Git, GitHub, and web development, I am eager to contribute my skills and expertise to projects that push the boundaries of innovation.
 
 
-### Github Stats
-![Harish's GitHub stats](https://github-readme-stats.vercel.app/api?username=harisheoran&show_icons=true&theme=radical)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=harisheoran&layout=donut&show_icons=true&theme=radical)
 
 ### Wakatime Stats (starting 1st August)
 ![Harish's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=harisheoran\&layout=compact)
