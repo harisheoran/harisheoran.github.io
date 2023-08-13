@@ -29,32 +29,16 @@
   weight = 60
 
 [[main]]
-  identifier = "twitter"
-  pre = "twitter"
-  url = "https://twitter.com/harisheoran"
-  weight = 70
-
-[[main]]
-  identifier = "linkedin"
-  pre = "linkedin"
-  url = "https://www.linkedin.com/in/harishsheoran01/"
-  weight = 70
-
-[[main]]
   identifier = "github"
   pre = "github"
+  name = "Github"
   url = "https://github.com/harisheoran"
   weight = 400
-
 
 [[footer]]
   name = "Contact me"
   pageRef = "contact"
   weight = 10
-
-[[footer]]
-  name = "Hire me"
-  pageRef = "hire"
 
 [[footer]]
   name = "Blog"

@@ -10,12 +10,12 @@ title = "Harish Sheoran"
   dateFormat = "2 January 2006"
   #logo = "img/profile.jpg"
   secondaryLogo = "img/profile.jpg"
-  # description = "My awesome website"
+  description = "Harish Sheoran, Android Developer, Full Stack Developer"
   # copyright = "Copy, _right?_ :thinking_face:"
 
  [author]
    name = "Harish Sheoran"
-   image = "img/profile1.jpeg"
+   image = "img/profile3.jpeg"
    headline = "Software Developer"
    bio = "Creating apps that make life a byte more interesting! 📱🌟"
    links = [
@@ -41,7 +41,7 @@ title = "Harish Sheoran"
 #     { kickstarter = "https://www.kickstarter.com/profile/username" },
 #     { lastfm = "https://lastfm.com/user/username" },
      { linkedin = "https://linkedin.com/in/harishsheoran01" },
-#     { mastodon = "https://mastodon.instance/@username" },
+     { mastodon = "https://mastodon.social/@harisheoran" },
 #     { medium = "https://medium.com/username" },
 #     { microsoft = "https://www.microsoft.com/" },
 #     { orcid = "https://orcid.org/userid" },
