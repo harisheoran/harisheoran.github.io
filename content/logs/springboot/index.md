@@ -3,6 +3,8 @@ title: "Spring Boot with Kotlin"
 date: 2023-08-05T19:54:47+01:00
 draft: false
 description: ""
+categories: ["Backend"]
+tags: ["Spring Boot", "Kotlin"]
 ---
 
 # Day 1

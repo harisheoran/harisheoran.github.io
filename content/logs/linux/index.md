@@ -3,7 +3,14 @@ title: "Linux"
 date: 2023-08-15T06:54:47+01:00
 draft: false
 description: ""
+categories: ["OS"]
+tags: ["Linux"]
 ---
+
+## Linux Blogs
+- [Linux Journey](https://linuxjourney.com)
+
+
 ### Linux File system
 ```bash
 /
@@ -103,3 +110,16 @@ groups chris
 cat /etc/group
 
 ```
+---
+## Services & Git
+
+### systemd 
+Service which control all other services
+
+```
+ps -aux | grep systemd
+```
+
+> More on [Processes/Services in Linux](https://harisheoran.hashnode.dev/processes-in-linux)
+
+
