@@ -4,13 +4,13 @@
   weight = 10
 
 [[main]]
-  name = "Projects"
-  pageRef = "projects"
+  name = "Contact"
+  pageRef = "contact"
   weight = 20
 
 [[main]]
-  name = "Contact"
-  pageRef = "contact"
+  name = "Projects"
+  pageRef = "projects"
   weight = 30
 
 [[main]]
@@ -19,14 +19,19 @@
   weight = 40
 
 [[main]]
-  name = "Work with me"
+  name = "Sparrow Bit"
   url = "https://sparrowbit.github.io/"
   weight = 50
 
 [[main]]
   name = "Resume"
-  url = "https://harisheoran.github.io/resume"
+  url = "https://drive.google.com/drive/u/0/folders/1IPdGm9x5IiecaWJEzPrvbsXj5Dl3FbZG"
   weight = 60
+
+[[main]]
+  name = "Blogs"
+  url = "https://harisheoran.hashnode.dev"
+  weight = 70
 
 [[main]]
   identifier = "github"
@@ -42,7 +47,13 @@
 
 [[footer]]
   name = "Blog"
-  pageRef = "https://harisheoran.hashnode.dev"
+  url = "https://harisheoran.hashnode.dev"
+  weight = 20
+
+[[footer]]
+  name = "Resume"
+  url = "https://drive.google.com/drive/u/0/folders/1IPdGm9x5IiecaWJEzPrvbsXj5Dl3FbZG"
+  weight = 30
 
 #[[main]]
 #  name = "example sub-menu 1"
