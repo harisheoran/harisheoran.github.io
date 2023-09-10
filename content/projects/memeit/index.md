@@ -8,21 +8,16 @@ tags: ["Java","Kotlin", "ImgFlip API", "Reddit API"]
 ---
 
 ## App to browse memes.
-
-### Java Version
-For browsing memes from Reddit API.
-
-#### [View on Github](https://github.com/harisheoran/memeit/tree/beta)
-
-### Kotlin Version
 For bowsing meme templates from ImgFlip API.
+
+#### [View on Github](https://github.com/harisheoran/memeit)
 
 Tech Stack
 - Kotlin
-- Jectpack Navigation Components
+- Jetpack Navigation Components
 - Retrofit for networking
 - Coil to display images
 
-#### [View on Github](https://github.com/harisheoran/memeit/tree/retrofit)
-
+### Demo
+{{< youtube id="802Hji-v8yM" autoplay="true" >}}
 
