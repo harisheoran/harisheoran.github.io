@@ -9,6 +9,10 @@ tags: ["Python", "Openai API", "Langchain"]
 
 Talk to your pdfs using GPT.
 
+### Tech Stack
+- Python
+- Open AI
+- Langchain
 
-01. Create GUI
-02. Read the PDF.
+### Progress so far
+![](featured.png)
