@@ -6,6 +6,7 @@
     <description>Recent content in Firebase on Harish Sheoran</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2023 Harish Sheoran</copyright>
     <lastBuildDate>Sat, 15 Apr 2023 18:45:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/firebase/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>College Hub App</title>
@@ -14,6 +15,7 @@
       
       <guid>https://harisheoran.github.io/projects/collegehub/</guid>
       <description>App to get access of study materials for college students.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/collegehub/featured.png" />
     </item>
     
   </channel>

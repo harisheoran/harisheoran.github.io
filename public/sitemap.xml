@@ -5,7 +5,7 @@
     
       <url>
             <loc>https://harisheoran.github.io/</loc>
-            <lastmod>2023-07-30T20:54:47+01:00</lastmod>
+            <lastmod>2023-09-07T10:55:37+01:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -14,7 +14,7 @@
     
       <url>
             <loc>https://harisheoran.github.io/projects/</loc>
-            <lastmod>2023-07-30T20:54:47+01:00</lastmod>
+            <lastmod>2023-09-07T10:55:37+01:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -22,6 +22,17 @@
   
     
   
+    
+  
+    
+  
+    
+      <url>
+            <loc>https://harisheoran.github.io/projects/gptfordoc/</loc>
+            <lastmod>2023-09-07T10:55:37+01:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
     
   
     
@@ -34,11 +45,104 @@
   
     
       <url>
-            <loc>https://harisheoran.github.io/projects/warriorsofhind/</loc>
-            <lastmod>2023-07-30T20:54:47+01:00</lastmod>
+            <loc>https://harisheoran.github.io/logs/</loc>
+            <lastmod>2023-08-22T06:54:47+01:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
+    
+  
+    
+      <url>
+            <loc>https://harisheoran.github.io/logs/cicd/</loc>
+            <lastmod>2023-08-22T06:54:47+01:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <url>
+            <loc>https://harisheoran.github.io/logs/docker/</loc>
+            <lastmod>2023-08-15T06:54:47+01:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+  
+    
+      <url>
+            <loc>https://harisheoran.github.io/logs/linux/</loc>
+            <lastmod>2023-08-15T06:54:47+01:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <url>
+            <loc>https://harisheoran.github.io/projects/sparrowbot/</loc>
+            <lastmod>2023-08-13T10:54:47+01:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <url>
+            <loc>https://harisheoran.github.io/logs/springboot/</loc>
+            <lastmod>2023-08-05T19:54:47+01:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <url>
+            <loc>https://harisheoran.github.io/logs/navigation/</loc>
+            <lastmod>2023-08-03T20:54:47+01:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://harisheoran.github.io/logs/roomdb/</loc>
+            <lastmod>2023-08-03T20:54:47+01:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
     
   
     
@@ -65,20 +169,13 @@
   
     
       <url>
-            <loc>https://harisheoran.github.io/hire/</loc>
-            <lastmod>2023-07-12T20:54:47+01:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
             <loc>https://harisheoran.github.io/about/</loc>
             <lastmod>2023-06-29T20:54:47+01:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
+    
+  
     
   
     
@@ -137,6 +234,18 @@
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
+    
+  
+    
+      <url>
+            <loc>https://harisheoran.github.io/projects/adi_app/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+  
     
   
     

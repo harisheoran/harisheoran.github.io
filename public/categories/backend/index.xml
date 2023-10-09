@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backend on Harish Sheoran</title>
+    <link>https://harisheoran.github.io/categories/backend/</link>
+    <description>Recent content in Backend on Harish Sheoran</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2023 Harish Sheoran</copyright>
+    <lastBuildDate>Sat, 05 Aug 2023 19:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/categories/backend/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Boot with Kotlin</title>
+      <link>https://harisheoran.github.io/logs/springboot/</link>
+      <pubDate>Sat, 05 Aug 2023 19:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/logs/springboot/</guid>
+      <description>Day 1 # Application Class # Main entry point of Spring Boot</description>
+      
+    </item>
+    
+  </channel>
+</rss>

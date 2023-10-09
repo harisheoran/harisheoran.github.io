@@ -14,5 +14,5 @@ Talk to your pdfs using GPT.
 - Open AI
 - Langchain
 
-### Progress so far
-![](featured.png)
+### Demo
+{{< youtube id="UjBRoEvh2DQ" autoplay="true" >}}

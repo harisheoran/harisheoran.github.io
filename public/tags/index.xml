@@ -6,32 +6,136 @@
     <description>Recent content in Tags on Harish Sheoran</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Jul 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2023 Harish Sheoran</copyright>
+    <lastBuildDate>Thu, 07 Sep 2023 10:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Jetpack Compose</title>
-      <link>https://harisheoran.github.io/tags/jetpack-compose/</link>
-      <pubDate>Sun, 30 Jul 2023 20:54:47 +0100</pubDate>
+      <title>Langchain</title>
+      <link>https://harisheoran.github.io/tags/langchain/</link>
+      <pubDate>Thu, 07 Sep 2023 10:55:37 +0100</pubDate>
       
-      <guid>https://harisheoran.github.io/tags/jetpack-compose/</guid>
+      <guid>https://harisheoran.github.io/tags/langchain/</guid>
       <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Openai API</title>
+      <link>https://harisheoran.github.io/tags/openai-api/</link>
+      <pubDate>Thu, 07 Sep 2023 10:55:37 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/openai-api/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://harisheoran.github.io/tags/python/</link>
+      <pubDate>Thu, 07 Sep 2023 10:55:37 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/python/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Github Action</title>
+      <link>https://harisheoran.github.io/tags/github-action/</link>
+      <pubDate>Tue, 22 Aug 2023 06:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/github-action/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://harisheoran.github.io/tags/docker/</link>
+      <pubDate>Tue, 15 Aug 2023 06:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/docker/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://harisheoran.github.io/tags/linux/</link>
+      <pubDate>Tue, 15 Aug 2023 06:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/linux/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>GPT</title>
+      <link>https://harisheoran.github.io/tags/gpt/</link>
+      <pubDate>Sun, 13 Aug 2023 10:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/gpt/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Slack bot</title>
+      <link>https://harisheoran.github.io/tags/slack-bot/</link>
+      <pubDate>Sun, 13 Aug 2023 10:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/slack-bot/</guid>
+      <description></description>
+      
     </item>
     
     <item>
       <title>Kotlin</title>
       <link>https://harisheoran.github.io/tags/kotlin/</link>
-      <pubDate>Sun, 30 Jul 2023 20:54:47 +0100</pubDate>
+      <pubDate>Sat, 05 Aug 2023 19:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/kotlin/</guid>
       <description></description>
+      
     </item>
     
     <item>
-      <title>MVVM</title>
-      <link>https://harisheoran.github.io/tags/mvvm/</link>
-      <pubDate>Sun, 30 Jul 2023 20:54:47 +0100</pubDate>
+      <title>Spring Boot</title>
+      <link>https://harisheoran.github.io/tags/spring-boot/</link>
+      <pubDate>Sat, 05 Aug 2023 19:54:47 +0100</pubDate>
       
-      <guid>https://harisheoran.github.io/tags/mvvm/</guid>
+      <guid>https://harisheoran.github.io/tags/spring-boot/</guid>
       <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Database</title>
+      <link>https://harisheoran.github.io/tags/database/</link>
+      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/database/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Navigation</title>
+      <link>https://harisheoran.github.io/tags/navigation/</link>
+      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/navigation/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SQLite</title>
+      <link>https://harisheoran.github.io/tags/sqlite/</link>
+      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/sqlite/</guid>
+      <description></description>
+      
     </item>
     
     <item>
@@ -41,6 +145,7 @@
       
       <guid>https://harisheoran.github.io/tags/dependency-injection/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -50,6 +155,17 @@
       
       <guid>https://harisheoran.github.io/tags/hilt/</guid>
       <description></description>
+      
+    </item>
+    
+    <item>
+      <title>MVVM</title>
+      <link>https://harisheoran.github.io/tags/mvvm/</link>
+      <pubDate>Thu, 29 Jun 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/mvvm/</guid>
+      <description></description>
+      
     </item>
     
     <item>
@@ -59,6 +175,7 @@
       
       <guid>https://harisheoran.github.io/tags/cloud-firestore/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -68,6 +185,7 @@
       
       <guid>https://harisheoran.github.io/tags/firebase/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -77,6 +195,7 @@
       
       <guid>https://harisheoran.github.io/tags/imgflip-api/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -86,6 +205,7 @@
       
       <guid>https://harisheoran.github.io/tags/java/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -95,6 +215,7 @@
       
       <guid>https://harisheoran.github.io/tags/reddit-api/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -104,6 +225,7 @@
       
       <guid>https://harisheoran.github.io/tags/bootstrap/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -113,6 +235,7 @@
       
       <guid>https://harisheoran.github.io/tags/cloudflare/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -122,6 +245,7 @@
       
       <guid>https://harisheoran.github.io/tags/express-js/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -131,6 +255,7 @@
       
       <guid>https://harisheoran.github.io/tags/mongodb/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -140,6 +265,17 @@
       
       <guid>https://harisheoran.github.io/tags/nodejs/</guid>
       <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Jetpack Compose</title>
+      <link>https://harisheoran.github.io/tags/jetpack-compose/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/jetpack-compose/</guid>
+      <description></description>
+      
     </item>
     
   </channel>

@@ -6,14 +6,26 @@
     <description>Recent content on Harish Sheoran</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Jul 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2023 Harish Sheoran</copyright>
+    <lastBuildDate>Thu, 07 Sep 2023 10:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Warriors Of Hind App</title>
-      <link>https://harisheoran.github.io/projects/warriorsofhind/</link>
-      <pubDate>Sun, 30 Jul 2023 20:54:47 +0100</pubDate>
+      <title>GPT for PDFs</title>
+      <link>https://harisheoran.github.io/projects/gptfordoc/</link>
+      <pubDate>Thu, 07 Sep 2023 10:55:37 +0100</pubDate>
       
-      <guid>https://harisheoran.github.io/projects/warriorsofhind/</guid>
-      <description>Warriors Of Hind App</description>
+      <guid>https://harisheoran.github.io/projects/gptfordoc/</guid>
+      <description>Talk to your pdfs using GPT.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/gptfordoc/featured.png" />
+    </item>
+    
+    <item>
+      <title>Sparrow Bot</title>
+      <link>https://harisheoran.github.io/projects/sparrowbot/</link>
+      <pubDate>Sun, 13 Aug 2023 10:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/sparrowbot/</guid>
+      <description>Our project utilizes AI to enhance Slack, streamlining tasks and sparking creativity for seamless teamwork.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/sparrowbot/featured.png" />
     </item>
     
     <item>
@@ -23,6 +35,7 @@
       
       <guid>https://harisheoran.github.io/projects/basichiltdemo/</guid>
       <description>We are going to learn about Hilt by using of Hilt as dependency Injection in a basic MVVM app.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/basichiltdemo/featured.png" />
     </item>
     
     <item>
@@ -32,6 +45,7 @@
       
       <guid>https://harisheoran.github.io/projects/rickmorty/</guid>
       <description>App to browse characters, episodes and search details from Rick &amp;amp; Morty Tv show.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/rickmorty/featured.png" />
     </item>
     
     <item>
@@ -41,6 +55,7 @@
       
       <guid>https://harisheoran.github.io/projects/collegehub/</guid>
       <description>App to get access of study materials for college students.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/collegehub/featured.png" />
     </item>
     
     <item>
@@ -50,6 +65,7 @@
       
       <guid>https://harisheoran.github.io/projects/memeit/</guid>
       <description>App to browse memes.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/memeit/featured.png" />
     </item>
     
     <item>
@@ -59,6 +75,17 @@
       
       <guid>https://harisheoran.github.io/projects/webprojects/</guid>
       <description>Programmer Server # A place for programmers to discuss, share thier ideas and make connections.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/webprojects/featured.png" />
+    </item>
+    
+    <item>
+      <title>Adi App</title>
+      <link>https://harisheoran.github.io/projects/adi_app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/adi_app/</guid>
+      <description>Warriors Of Hind App</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/adi_app/featured.png" />
     </item>
     
   </channel>

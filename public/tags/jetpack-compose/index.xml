@@ -6,14 +6,16 @@
     <description>Recent content in Jetpack Compose on Harish Sheoran</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Jul 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/jetpack-compose/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2023 Harish Sheoran</copyright>
+    <atom:link href="https://harisheoran.github.io/tags/jetpack-compose/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Warriors Of Hind App</title>
-      <link>https://harisheoran.github.io/projects/warriorsofhind/</link>
-      <pubDate>Sun, 30 Jul 2023 20:54:47 +0100</pubDate>
+      <title>Adi App</title>
+      <link>https://harisheoran.github.io/projects/adi_app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://harisheoran.github.io/projects/warriorsofhind/</guid>
+      <guid>https://harisheoran.github.io/projects/adi_app/</guid>
       <description>Warriors Of Hind App</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/adi_app/featured.png" />
     </item>
     
   </channel>

@@ -6,6 +6,7 @@
     <description>Recent content in ImgFlip API on Harish Sheoran</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2023 Harish Sheoran</copyright>
     <lastBuildDate>Fri, 30 Dec 2022 20:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/imgflip-api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Memeit App</title>
@@ -14,6 +15,7 @@
       
       <guid>https://harisheoran.github.io/projects/memeit/</guid>
       <description>App to browse memes.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/memeit/featured.png" />
     </item>
     
   </channel>

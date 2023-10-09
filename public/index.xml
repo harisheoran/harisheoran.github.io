@@ -6,15 +6,86 @@
     <description>Recent content on Harish Sheoran</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Jul 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2023 Harish Sheoran</copyright>
+    <lastBuildDate>Thu, 07 Sep 2023 10:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Warriors Of Hind App</title>
-      <link>https://harisheoran.github.io/projects/warriorsofhind/</link>
-      <pubDate>Sun, 30 Jul 2023 20:54:47 +0100</pubDate>
+      <title>GPT for PDFs</title>
+      <link>https://harisheoran.github.io/projects/gptfordoc/</link>
+      <pubDate>Thu, 07 Sep 2023 10:55:37 +0100</pubDate>
       
-      <guid>https://harisheoran.github.io/projects/warriorsofhind/</guid>
-      <description>Warriors Of Hind App</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/warriorsofhind/featured.png" />
+      <guid>https://harisheoran.github.io/projects/gptfordoc/</guid>
+      <description>Talk to your pdfs using GPT.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/gptfordoc/featured.png" />
+    </item>
+    
+    <item>
+      <title>CI/CD</title>
+      <link>https://harisheoran.github.io/logs/cicd/</link>
+      <pubDate>Tue, 22 Aug 2023 06:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/logs/cicd/</guid>
+      <description>Basic Github Action Workflow # # name of the workflow name: ci # defining when should the wokflow should be triggered, in our case it should be when code is pushed on the main branch on: push: branches: - &amp;#34;main&amp;#34; # jobs - contain a list of jobs which will be executed # build - it is the name of our first job # runs-on - it is the name of OS which it will run on.</description>
+      
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://harisheoran.github.io/logs/docker/</link>
+      <pubDate>Tue, 15 Aug 2023 06:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/logs/docker/</guid>
+      <description>Resources # Docker Official Docs Building Dockerfile # docker init to initialize the dockerfile.</description>
+      
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://harisheoran.github.io/logs/linux/</link>
+      <pubDate>Tue, 15 Aug 2023 06:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/logs/linux/</guid>
+      <description>Linux Blogs # Linux Journey Linux File system # / /home # home directories and files from users /bin # user command binaries (cat, echo, etc.</description>
+      
+    </item>
+    
+    <item>
+      <title>Sparrow Bot</title>
+      <link>https://harisheoran.github.io/projects/sparrowbot/</link>
+      <pubDate>Sun, 13 Aug 2023 10:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/sparrowbot/</guid>
+      <description>Our project utilizes AI to enhance Slack, streamlining tasks and sparking creativity for seamless teamwork.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/sparrowbot/featured.png" />
+    </item>
+    
+    <item>
+      <title>Spring Boot with Kotlin</title>
+      <link>https://harisheoran.github.io/logs/springboot/</link>
+      <pubDate>Sat, 05 Aug 2023 19:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/logs/springboot/</guid>
+      <description>Day 1 # Application Class # Main entry point of Spring Boot</description>
+      
+    </item>
+    
+    <item>
+      <title>Navigation in Android</title>
+      <link>https://harisheoran.github.io/logs/navigation/</link>
+      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/logs/navigation/</guid>
+      <description>3 main componenets of Navigation # NavHost NavGraph NavController NavHost is the container which is responsible to display destinations(each destinations have a unique specific route) screens</description>
+      
+    </item>
+    
+    <item>
+      <title>Room DB</title>
+      <link>https://harisheoran.github.io/logs/roomdb/</link>
+      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/logs/roomdb/</guid>
+      <description> 3 main components to Room DB # </description>
+      
     </item>
     
     <item>
@@ -33,17 +104,7 @@
       <pubDate>Wed, 12 Jul 2023 20:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/contact/</guid>
-      <description>Mail me 📧 harisheoran205@gmail.</description>
-      
-    </item>
-    
-    <item>
-      <title>Hire me</title>
-      <link>https://harisheoran.github.io/hire/</link>
-      <pubDate>Wed, 12 Jul 2023 20:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/hire/</guid>
-      <description></description>
+      <description>Mail me 📧 harisheoran01@gmail.</description>
       
     </item>
     
@@ -53,7 +114,7 @@
       <pubDate>Thu, 29 Jun 2023 20:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/about/</guid>
-      <description>I am an software developer who finds great joy in leveraging a variety of tools to create exceptional solutions.</description>
+      <description>A passionate full stack developer from India.</description>
       
     </item>
     
@@ -95,6 +156,16 @@
       <guid>https://harisheoran.github.io/projects/webprojects/</guid>
       <description>Programmer Server # A place for programmers to discuss, share thier ideas and make connections.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/webprojects/featured.png" />
+    </item>
+    
+    <item>
+      <title>Adi App</title>
+      <link>https://harisheoran.github.io/projects/adi_app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/adi_app/</guid>
+      <description>Warriors Of Hind App</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/adi_app/featured.png" />
     </item>
     
   </channel>

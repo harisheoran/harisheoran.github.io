@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Navigation on Harish Sheoran</title>
+    <link>https://harisheoran.github.io/tags/navigation/</link>
+    <description>Recent content in Navigation on Harish Sheoran</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2023 Harish Sheoran</copyright>
+    <lastBuildDate>Thu, 03 Aug 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/navigation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Navigation in Android</title>
+      <link>https://harisheoran.github.io/logs/navigation/</link>
+      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/logs/navigation/</guid>
+      <description>3 main componenets of Navigation # NavHost NavGraph NavController NavHost is the container which is responsible to display destinations(each destinations have a unique specific route) screens</description>
+      
+    </item>
+    
+  </channel>
+</rss>

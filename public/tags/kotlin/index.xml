@@ -6,14 +6,16 @@
     <description>Recent content in Kotlin on Harish Sheoran</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Jul 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2023 Harish Sheoran</copyright>
+    <lastBuildDate>Sat, 05 Aug 2023 19:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Warriors Of Hind App</title>
-      <link>https://harisheoran.github.io/projects/warriorsofhind/</link>
-      <pubDate>Sun, 30 Jul 2023 20:54:47 +0100</pubDate>
+      <title>Spring Boot with Kotlin</title>
+      <link>https://harisheoran.github.io/logs/springboot/</link>
+      <pubDate>Sat, 05 Aug 2023 19:54:47 +0100</pubDate>
       
-      <guid>https://harisheoran.github.io/projects/warriorsofhind/</guid>
-      <description>Warriors Of Hind App</description>
+      <guid>https://harisheoran.github.io/logs/springboot/</guid>
+      <description>Day 1 # Application Class # Main entry point of Spring Boot</description>
+      
     </item>
     
     <item>
@@ -23,6 +25,7 @@
       
       <guid>https://harisheoran.github.io/projects/basichiltdemo/</guid>
       <description>We are going to learn about Hilt by using of Hilt as dependency Injection in a basic MVVM app.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/basichiltdemo/featured.png" />
     </item>
     
     <item>
@@ -32,6 +35,7 @@
       
       <guid>https://harisheoran.github.io/projects/rickmorty/</guid>
       <description>App to browse characters, episodes and search details from Rick &amp;amp; Morty Tv show.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/rickmorty/featured.png" />
     </item>
     
     <item>
@@ -41,6 +45,7 @@
       
       <guid>https://harisheoran.github.io/projects/collegehub/</guid>
       <description>App to get access of study materials for college students.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/collegehub/featured.png" />
     </item>
     
     <item>
@@ -50,6 +55,17 @@
       
       <guid>https://harisheoran.github.io/projects/memeit/</guid>
       <description>App to browse memes.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/memeit/featured.png" />
+    </item>
+    
+    <item>
+      <title>Adi App</title>
+      <link>https://harisheoran.github.io/projects/adi_app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/adi_app/</guid>
+      <description>Warriors Of Hind App</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/adi_app/featured.png" />
     </item>
     
   </channel>
