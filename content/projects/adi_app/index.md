@@ -1,6 +1,6 @@
 ---
 title: "Adi App"
-date: 2023-10-05T20:54:47+01:00
+date: 2023-09-05T20:54:47+01:00
 draft: false
 description: "App to browse ancients knowledge of Hinduism."
 categories: ["Android"]

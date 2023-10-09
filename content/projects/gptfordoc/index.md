@@ -1,6 +1,6 @@
 ---
 title: "GPT for PDFs"
-date: 2023-09-07T10:55:37+01:00
+date: 2023-09-02T10:55:37+01:00
 draft: false
 description: ""
 categories: ["GPT", "AI"]
