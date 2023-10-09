@@ -58,6 +58,6 @@ Our primary objective is to create a comprehensive prototype for election scenar
 
 ### Team Members
 - [Maaz Khan](https://www.linkedin.com/in/maaz-khan-2316a31ba/)
-- [Ridhi Bansal](https://github.com/ridhibansal107)
-- [Richa Mathur](https://github.com/richa-m)
+- [Ridhi Bansal](https://www.linkedin.com/in/ridhi-bansal-84b0a120b/)
+- [Richa Mathur](http://linkedin.com/in/richa-mathur-4724791bb)
 - me
