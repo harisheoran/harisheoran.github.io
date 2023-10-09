@@ -5,7 +5,7 @@ autoSwitchAppearance = true
 enableSearch = true
 enableCodeCopy = true
 
-mainSections = ["projects"]
+mainSections = ["projects", "journey"]
 # robots = ""
 
 disableImageOptimization = true
