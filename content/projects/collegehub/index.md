@@ -5,7 +5,6 @@ draft: false
 description: "App to get access of study materials for college students."
 categories: ["Android"]
 tags: ["Kotlin", "Firebase", "Cloud Firestore"]
-
 ---
 ### App to get access of study materials for college students.
 
