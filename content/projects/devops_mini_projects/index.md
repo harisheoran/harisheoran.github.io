@@ -10,3 +10,5 @@ tags: ["AWS", "EC2", "Hugo"]
 ## 1. Hugo application on AWS EC2 instance
 
 [Read here](https://github.com/harisheoran/DevOpsDays/blob/main/days/day09.md)
+
+{{< youtube id="svlQSzPNUmw" autoplay="true" >}}
