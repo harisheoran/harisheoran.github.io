@@ -9,15 +9,15 @@ title = "Harish Sheoran"
   rtl = false
   dateFormat = "2 January 2006"
   #logo = "img/profile.jpg"
-  secondaryLogo = "img/profile.jpg"
-  description = "Harish Sheoran, Android Developer, Full Stack Developer"
+  secondaryLogo = "img/event.png"
+  description = "Harish Sheoran, DevOps Engineer"
   # copyright = "Copy, _right?_ :thinking_face:"
 
  [author]
    name = "Harish Sheoran"
-   image = "img/profile3.jpeg"
-   headline = "Software Developer"
-   bio = "Creating apps that make life a byte more interesting! 📱🌟"
+   image = "img/event.png"
+   headline = "DevOps Engineer"
+   bio = "DevOps Wizard | Crafting seamless pipelines 🧑‍💻"
    links = [
      { email = "mailto:harisheoran01@gmail.com" },
      { twitter = "https://twitter.com/harisheoran" },
