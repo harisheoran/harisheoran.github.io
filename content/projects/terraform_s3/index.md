@@ -9,14 +9,14 @@ tags: ["Terraform", "AWS" ,"S3"]
 
 Deploy a static website on AWS S3 using Terraform.
 
-### Github Repository
+## Github Repository
 {{< github repo="harisheoran/memesofthday-terraform" >}}
 
 
-### Demo
+## Demo
 {{< youtube id="TY5rXHXl-Fs" autoplay="true" >}}
 
-### Main Terraform file
+## Main Terraform file
 ```
 # create a S3 bucket
 resource "aws_s3_bucket" "mybucket" {
@@ -95,4 +95,15 @@ resource "aws_s3_bucket_website_configuration" "memesoftheday" {
   depends_on = [ aws_s3_bucket_acl.myacl ]
 }
 
+```
+
+## Save Terrafrom state on a remote backend S3 with state lock mechanism using Dynamo DB
+```
+  backend "s3" {
+    bucket         	   = "statebucket-website"
+    key              	 = "terraform.tfstate"
+    region         	   = "eu-north-1"
+    encrypt        	   = true
+    dynamodb_table     = "state-lock"
+  }
 ```
