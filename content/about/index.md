@@ -14,26 +14,43 @@ description: ""
 Hello 👋, I'm Harish
 {{< /typeit >}}
 
-I'm Harish, a versatile Software Developer with a primary focus on DevOps  and a wealth of experience in Android app development. My career journey has been marked by a commitment to continuous learning and adaptation to industry standards and tools. Here's a concise overview of my skills and experience:
+I'm Harish, a DevOps Engineer with a deep-rooted commitment to enhancing software development and deployment practices. My daily toolkit comprises AWS, Docker, Ansible, Terraform, and Jenkins, allowing me to orchestrate and automate the software delivery pipeline efficiently. Linux serves as the foundation of my daily operations in the DevOps realm, offering robust stability and flexibility. Additionally, I'm well-versed in vital tools like Git, GitHub, Vim, and shell scripting.
 
-### About Me:
-I am a Software Developer with a strong foundation in Android app development and an evolving passion for DevOps. My professional journey has been characterized by adaptability and a commitment to staying current with industry trends and tools.
+Before embracing the DevOps path, I excelled as a Native Android Developer. My skill set encompassed Kotlin, Jetpack libraries, Jetpack Compose, XML, Retrofit, and Dependency Injection with Hilt. My tech journey initiated with web development, providing me with a holistic perspective on software engineering.
 
-### Android Development Expertise:
-I excel in building Android applications using Kotlin, leveraging modern technologies such as Jetpack Compose and MVVM architecture. My proficiency extends to Kotlin Coroutines, dependency injection using Hilt, and the integration of standard libraries like Retrofit and Coil. Additionally, I bring extensive experience in utilizing Firebase for app development, enhancing user experiences and data management.
-
-### DevOps Learning and Aspirations:
-Currently, I am actively expanding my skill set to encompass DevOps practices, focusing on building APIs and deploying them in cloud environments. I am gaining proficiency in industry-standard DevOps tools, including Docker for containerization, and setting up robust CI/CD pipelines to streamline software delivery.
-
-### Linux and Industry-Standard Tools:
-Linux is my daily driver, and I am well-versed in leveraging its power for development tasks. My toolset includes industry staples like Vim for efficient code editing, Git for version control, and GitHub for collaborative development. These tools ensure my work is aligned with industry best practices.
-
-### Current Prospects:
-In my journey towards becoming a well-rounded DevOps practitioner, I am working on integrating industry-standard DevOps tools and practices into my skillset. This includes mastering containerization with Docker, automating deployment pipelines, and embracing infrastructure as code (IaC) principles. My goal is to seamlessly bridge the gap between development and operations, ensuring the delivery of robust and scalable software solutions.
-
-I am dedicated to delivering high-quality software solutions, adapting to evolving industry demands, and contributing positively to every project I engage in. With a strong foundation in Android development and a growing expertise in DevOps, I am poised to make a significant impact in the world of software development and deployment.
-
-*Let's collaborate and innovate together to achieve excellence in software development and DevOps practices.*
+I approach each project with a continuous learning mindset and a genuine passion for tackling intricate technical challenges. Let's collaborate to drive your technology initiatives forward, leveraging the right tools for the job.
 
 ### Developer Profile
 - [Github](https://github.com/harisheoran)
+
+---
+
+## Journey
+
+{{< timeline >}}
+
+{{< timelineItem icon="code" header="AWS Community Day Rajasthan" badge="4th November 2023" >}}
+{{< gallery >}}
+  <img src="img/aws.png" class="grid-w70" />
+{{< /gallery >}}
+{{< /timelineItem >}}
+
+{{< timelineItem icon="code" header="API Day Jaipur by Postman" badge="date - present" >}}
+{{< carousel images="{img/apiday01.JPG, img/apiday02.JPG}" >}}
+{{< /timelineItem >}}
+
+{{< timelineItem icon="star" header="Smart India Hackathon: Inter College" badge="October 2023" >}}
+
+{{< gallery >}}
+  <img src="img/sih.jpg" class="grid-w90" />
+{{< /gallery >}}
+{{< /timelineItem >}}
+
+{{< timelineItem icon="star" header="BuildSpace" badge="August - September 2023" >}}
+Build a A.I. powered Slack Bot
+{{< gallery >}}
+  <img src="img/buildspaces3.png" class="grid-w100" />
+{{< /gallery >}}
+{{< /timelineItem >}}
+
+{{< /timeline >}}
