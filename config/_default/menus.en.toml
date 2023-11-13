@@ -14,16 +14,6 @@
   weight = 30
 
 [[main]]
-  name = "Journey"
-  pageRef = "journey"
-  weight = 40
-
-[[main]]
-  name = "Sparrow Bit"
-  url = "https://sparrowbit.github.io/"
-  weight = 50
-
-[[main]]
   name = "Resume"
   url = "https://drive.google.com/drive/u/0/folders/1IPdGm9x5IiecaWJEzPrvbsXj5Dl3FbZG"
   weight = 60
