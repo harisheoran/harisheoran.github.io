@@ -45,6 +45,16 @@
   url = "https://drive.google.com/drive/u/0/folders/1IPdGm9x5IiecaWJEzPrvbsXj5Dl3FbZG"
   weight = 30
 
+[[footer]]
+   name = "Tags"
+   pageRef = "tags"
+   weight = 40
+
+[[footer]]
+   name = "Categories"
+   pageRef = "categories"
+   weight = 50
+
 #[[main]]
 #  name = "example sub-menu 1"
 #  parent = "Parent"

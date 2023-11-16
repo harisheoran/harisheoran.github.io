@@ -3,8 +3,6 @@ title: "CI/CD"
 date: 2023-08-22T06:54:47+01:00
 draft: false
 description: "Github Actions"
-categories: ["CI/CD"]
-tags: ["Github Action"]
 ---
 
 ## Basic Github Action Workflow

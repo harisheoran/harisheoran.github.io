@@ -4,7 +4,7 @@ date: 2023-08-13T10:54:47+01:00
 draft: false
 description: "Introducing our GPT-powered Slack bot."
 categories: ["Bot"]
-tags: ["Slack bot", "GPT", "Python"]
+tags: ["Slack bot", "GPT", "Python", "Buildspace", "AI"]
 ---
 ![Alt text](01.png)
 Our project utilizes AI to enhance Slack, streamlining tasks and sparking creativity for seamless teamwork.

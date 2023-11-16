@@ -6,12 +6,132 @@
     <description>Recent content in Tags on Harish Sheoran</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2023 Harish Sheoran</copyright>
-    <lastBuildDate>Thu, 07 Sep 2023 10:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&amp;copy; 2023 Harish Sheoran</copyright>
+    <lastBuildDate>Sun, 05 Nov 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS</title>
+      <link>https://harisheoran.github.io/tags/aws/</link>
+      <pubDate>Sun, 05 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/aws/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>S3</title>
+      <link>https://harisheoran.github.io/tags/s3/</link>
+      <pubDate>Sun, 05 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/s3/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Terraform</title>
+      <link>https://harisheoran.github.io/tags/terraform/</link>
+      <pubDate>Sun, 05 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/terraform/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>EC2</title>
+      <link>https://harisheoran.github.io/tags/ec2/</link>
+      <pubDate>Wed, 25 Oct 2023 08:50:37 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/ec2/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://harisheoran.github.io/tags/hugo/</link>
+      <pubDate>Wed, 25 Oct 2023 08:50:37 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/hugo/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Arduino</title>
+      <link>https://harisheoran.github.io/tags/arduino/</link>
+      <pubDate>Thu, 28 Sep 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/arduino/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ESP8266</title>
+      <link>https://harisheoran.github.io/tags/esp8266/</link>
+      <pubDate>Thu, 28 Sep 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/esp8266/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Jetpack Compose</title>
+      <link>https://harisheoran.github.io/tags/jetpack-compose/</link>
+      <pubDate>Thu, 28 Sep 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/jetpack-compose/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Kotlin</title>
+      <link>https://harisheoran.github.io/tags/kotlin/</link>
+      <pubDate>Thu, 28 Sep 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/kotlin/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>MVVM</title>
+      <link>https://harisheoran.github.io/tags/mvvm/</link>
+      <pubDate>Thu, 28 Sep 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/mvvm/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>2023</title>
+      <link>https://harisheoran.github.io/tags/2023/</link>
+      <pubDate>Tue, 05 Sep 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/2023/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SIH</title>
+      <link>https://harisheoran.github.io/tags/sih/</link>
+      <pubDate>Tue, 05 Sep 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/sih/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>Langchain</title>
       <link>https://harisheoran.github.io/tags/langchain/</link>
-      <pubDate>Thu, 07 Sep 2023 10:55:37 +0100</pubDate>
+      <pubDate>Sat, 02 Sep 2023 10:55:37 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/langchain/</guid>
       <description></description>
@@ -21,7 +141,7 @@
     <item>
       <title>Openai API</title>
       <link>https://harisheoran.github.io/tags/openai-api/</link>
-      <pubDate>Thu, 07 Sep 2023 10:55:37 +0100</pubDate>
+      <pubDate>Sat, 02 Sep 2023 10:55:37 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/openai-api/</guid>
       <description></description>
@@ -31,7 +151,7 @@
     <item>
       <title>Python</title>
       <link>https://harisheoran.github.io/tags/python/</link>
-      <pubDate>Thu, 07 Sep 2023 10:55:37 +0100</pubDate>
+      <pubDate>Sat, 02 Sep 2023 10:55:37 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/python/</guid>
       <description></description>
@@ -84,16 +204,6 @@
       <pubDate>Sun, 13 Aug 2023 10:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/slack-bot/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Kotlin</title>
-      <link>https://harisheoran.github.io/tags/kotlin/</link>
-      <pubDate>Sat, 05 Aug 2023 19:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/kotlin/</guid>
       <description></description>
       
     </item>
@@ -154,16 +264,6 @@
       <pubDate>Mon, 17 Jul 2023 10:45:37 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/hilt/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>MVVM</title>
-      <link>https://harisheoran.github.io/tags/mvvm/</link>
-      <pubDate>Thu, 29 Jun 2023 20:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/mvvm/</guid>
       <description></description>
       
     </item>
@@ -264,16 +364,6 @@
       <pubDate>Sat, 29 Oct 2022 20:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/nodejs/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Jetpack Compose</title>
-      <link>https://harisheoran.github.io/tags/jetpack-compose/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/jetpack-compose/</guid>
       <description></description>
       
     </item>

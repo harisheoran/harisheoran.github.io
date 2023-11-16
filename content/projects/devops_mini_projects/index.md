@@ -4,7 +4,7 @@ date: 2023-10-25T08:50:37+01:00
 draft: false
 description: "Small projects for practicing DevOps technologies and tools."
 categories: ["DevOps"]
-tags: ["AWS", "EC2", "Hugo"]
+tags: ["AWS", "EC2"]
 ---
 
 Small projects for practicing DevOps technologies and tools.

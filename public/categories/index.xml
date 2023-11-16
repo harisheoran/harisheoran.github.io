@@ -6,12 +6,52 @@
     <description>Recent content in Categories on Harish Sheoran</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2023 Harish Sheoran</copyright>
-    <lastBuildDate>Thu, 07 Sep 2023 10:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&amp;copy; 2023 Harish Sheoran</copyright>
+    <lastBuildDate>Sun, 05 Nov 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps</title>
+      <link>https://harisheoran.github.io/categories/devops/</link>
+      <pubDate>Sun, 05 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/categories/devops/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Android</title>
+      <link>https://harisheoran.github.io/categories/android/</link>
+      <pubDate>Thu, 28 Sep 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/categories/android/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>IOT</title>
+      <link>https://harisheoran.github.io/categories/iot/</link>
+      <pubDate>Thu, 28 Sep 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/categories/iot/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Hackathon</title>
+      <link>https://harisheoran.github.io/categories/hackathon/</link>
+      <pubDate>Tue, 05 Sep 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/categories/hackathon/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>AI</title>
       <link>https://harisheoran.github.io/categories/ai/</link>
-      <pubDate>Thu, 07 Sep 2023 10:55:37 +0100</pubDate>
+      <pubDate>Sat, 02 Sep 2023 10:55:37 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/categories/ai/</guid>
       <description></description>
@@ -21,7 +61,7 @@
     <item>
       <title>GPT</title>
       <link>https://harisheoran.github.io/categories/gpt/</link>
-      <pubDate>Thu, 07 Sep 2023 10:55:37 +0100</pubDate>
+      <pubDate>Sat, 02 Sep 2023 10:55:37 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/categories/gpt/</guid>
       <description></description>
@@ -64,16 +104,6 @@
       <pubDate>Sat, 05 Aug 2023 19:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/categories/backend/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Android</title>
-      <link>https://harisheoran.github.io/categories/android/</link>
-      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/categories/android/</guid>
       <description></description>
       
     </item>

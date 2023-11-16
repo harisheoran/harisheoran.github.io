@@ -132,22 +132,3 @@ class CharacterListRepository {
 val request = NetworkLayer.apiClient.getCharactersPages(pageIndex)
 ```
 then checking the request and return accordingly.
-
-### Paging 3 
-
-...
-
-### ViewModel 
-
-...
-
-### UI
-...
-
-
-### Epoxy UI
-...
-
-
-### Data binding
-...

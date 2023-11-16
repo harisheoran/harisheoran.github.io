@@ -6,12 +6,12 @@
     <description>Recent content in AI on Harish Sheoran</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2023 Harish Sheoran</copyright>
-    <lastBuildDate>Thu, 07 Sep 2023 10:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/categories/ai/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&amp;copy; 2023 Harish Sheoran</copyright>
+    <lastBuildDate>Sat, 02 Sep 2023 10:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/categories/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GPT for PDFs</title>
       <link>https://harisheoran.github.io/projects/gptfordoc/</link>
-      <pubDate>Thu, 07 Sep 2023 10:55:37 +0100</pubDate>
+      <pubDate>Sat, 02 Sep 2023 10:55:37 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/projects/gptfordoc/</guid>
       <description>Talk to your pdfs using GPT.</description>
