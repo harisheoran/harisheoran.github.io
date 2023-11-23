@@ -15,7 +15,7 @@ tags: ["Kotlin", "Firebase", "Cloud Firestore"]
 - Cloud Firestore
 - Lottie Android
 
-#### [View on Website](https://collegehub.pages.dev/)
+#### [View on Website](https://sparrowbit.co/)
 
 #### [Download pre-alpha version](https://github.com/harisheoran/collegehub/releases/download/pre-alpha/College.Hub.pre-alpha.apk)
 

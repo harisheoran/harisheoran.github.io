@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 Harish Sheoran</copyright>
-    <lastBuildDate>Sun, 05 Nov 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Nov 2023 20:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Containerization of NodeJS app</title>
+      <link>https://harisheoran.github.io/projects/nodejs_docker/</link>
+      <pubDate>Mon, 20 Nov 2023 20:55:37 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/nodejs_docker/</guid>
+      <description>Containerization of a simple Node JS application using Docker and Docker Compose.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/nodejs_docker/featured.png" />
+    </item>
+    
     <item>
       <title>Static Website hosted on AWS S3 using Terraform</title>
       <link>https://harisheoran.github.io/projects/terraform_s3/</link>
@@ -16,16 +26,6 @@
       <guid>https://harisheoran.github.io/projects/terraform_s3/</guid>
       <description>Deploy a static website on AWS S3 using Terraform.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/terraform_s3/featured.png" />
-    </item>
-    
-    <item>
-      <title>DevOps Mini Projects</title>
-      <link>https://harisheoran.github.io/projects/devops_mini_projects/</link>
-      <pubDate>Wed, 25 Oct 2023 08:50:37 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/projects/devops_mini_projects/</guid>
-      <description>Small projects for practicing DevOps technologies and tools.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/devops_mini_projects/featured.jpg" />
     </item>
     
     <item>

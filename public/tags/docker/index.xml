@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 Harish Sheoran</copyright>
-    <lastBuildDate>Tue, 15 Aug 2023 06:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Nov 2023 20:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Docker</title>
-      <link>https://harisheoran.github.io/logs/docker/</link>
-      <pubDate>Tue, 15 Aug 2023 06:54:47 +0100</pubDate>
+      <title>Containerization of NodeJS app</title>
+      <link>https://harisheoran.github.io/projects/nodejs_docker/</link>
+      <pubDate>Mon, 20 Nov 2023 20:55:37 +0100</pubDate>
       
-      <guid>https://harisheoran.github.io/logs/docker/</guid>
-      <description>Resources # Docker Official Docs Building Dockerfile # docker init to initialize the dockerfile.</description>
-      
+      <guid>https://harisheoran.github.io/projects/nodejs_docker/</guid>
+      <description>Containerization of a simple Node JS application using Docker and Docker Compose.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/nodejs_docker/featured.png" />
     </item>
     
   </channel>

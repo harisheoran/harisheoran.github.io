@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Buildspace on Harish Sheoran</title>
+    <link>https://harisheoran.github.io/tags/buildspace/</link>
+    <description>Recent content in Buildspace on Harish Sheoran</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2023 Harish Sheoran</copyright>
+    <lastBuildDate>Sun, 13 Aug 2023 10:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/buildspace/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sparrow Bot</title>
+      <link>https://harisheoran.github.io/projects/sparrowbot/</link>
+      <pubDate>Sun, 13 Aug 2023 10:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/sparrowbot/</guid>
+      <description>Our project utilizes AI to enhance Slack, streamlining tasks and sparking creativity for seamless teamwork.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/sparrowbot/featured.png" />
+    </item>
+    
+  </channel>
+</rss>

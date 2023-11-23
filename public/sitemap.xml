@@ -3,32 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://harisheoran.github.io/</loc>
+    <lastmod>2023-11-20T20:55:37+01:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://harisheoran.github.io/projects/</loc>
+    <lastmod>2023-11-20T20:55:37+01:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://harisheoran.github.io/projects/nodejs_docker/</loc>
+    <lastmod>2023-11-20T20:55:37+01:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://harisheoran.github.io/about/</loc>
     <lastmod>2023-11-11T20:54:47+01:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://harisheoran.github.io/</loc>
-    <lastmod>2023-11-05T20:54:47+01:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://harisheoran.github.io/projects/</loc>
-    <lastmod>2023-11-05T20:54:47+01:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://harisheoran.github.io/projects/terraform_s3/</loc>
     <lastmod>2023-11-05T20:54:47+01:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://harisheoran.github.io/projects/devops_mini_projects/</loc>
-    <lastmod>2023-10-25T08:50:37+01:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
@@ -143,11 +143,6 @@
   <url>
     <loc>https://harisheoran.github.io/projects/webprojects/</loc>
     <lastmod>2022-10-29T20:54:47+01:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://harisheoran.github.io/journey/devopsdays/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

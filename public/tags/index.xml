@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 Harish Sheoran</copyright>
-    <lastBuildDate>Sun, 05 Nov 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Nov 2023 20:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker</title>
+      <link>https://harisheoran.github.io/tags/docker/</link>
+      <pubDate>Mon, 20 Nov 2023 20:55:37 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/docker/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Docker-Compose</title>
+      <link>https://harisheoran.github.io/tags/docker-compose/</link>
+      <pubDate>Mon, 20 Nov 2023 20:55:37 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/docker-compose/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>AWS</title>
       <link>https://harisheoran.github.io/tags/aws/</link>
@@ -34,26 +54,6 @@
       <pubDate>Sun, 05 Nov 2023 20:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/terraform/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>EC2</title>
-      <link>https://harisheoran.github.io/tags/ec2/</link>
-      <pubDate>Wed, 25 Oct 2023 08:50:37 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/ec2/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://harisheoran.github.io/tags/hugo/</link>
-      <pubDate>Wed, 25 Oct 2023 08:50:37 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/hugo/</guid>
       <description></description>
       
     </item>
@@ -159,31 +159,21 @@
     </item>
     
     <item>
-      <title>Github Action</title>
-      <link>https://harisheoran.github.io/tags/github-action/</link>
-      <pubDate>Tue, 22 Aug 2023 06:54:47 +0100</pubDate>
+      <title>AI</title>
+      <link>https://harisheoran.github.io/tags/ai/</link>
+      <pubDate>Sun, 13 Aug 2023 10:54:47 +0100</pubDate>
       
-      <guid>https://harisheoran.github.io/tags/github-action/</guid>
+      <guid>https://harisheoran.github.io/tags/ai/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Docker</title>
-      <link>https://harisheoran.github.io/tags/docker/</link>
-      <pubDate>Tue, 15 Aug 2023 06:54:47 +0100</pubDate>
+      <title>Buildspace</title>
+      <link>https://harisheoran.github.io/tags/buildspace/</link>
+      <pubDate>Sun, 13 Aug 2023 10:54:47 +0100</pubDate>
       
-      <guid>https://harisheoran.github.io/tags/docker/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://harisheoran.github.io/tags/linux/</link>
-      <pubDate>Tue, 15 Aug 2023 06:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/linux/</guid>
+      <guid>https://harisheoran.github.io/tags/buildspace/</guid>
       <description></description>
       
     </item>
@@ -204,46 +194,6 @@
       <pubDate>Sun, 13 Aug 2023 10:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/slack-bot/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Spring Boot</title>
-      <link>https://harisheoran.github.io/tags/spring-boot/</link>
-      <pubDate>Sat, 05 Aug 2023 19:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/spring-boot/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Database</title>
-      <link>https://harisheoran.github.io/tags/database/</link>
-      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/database/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Navigation</title>
-      <link>https://harisheoran.github.io/tags/navigation/</link>
-      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/navigation/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>SQLite</title>
-      <link>https://harisheoran.github.io/tags/sqlite/</link>
-      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/sqlite/</guid>
       <description></description>
       
     </item>
@@ -289,31 +239,11 @@
     </item>
     
     <item>
-      <title>ImgFlip API</title>
-      <link>https://harisheoran.github.io/tags/imgflip-api/</link>
-      <pubDate>Fri, 30 Dec 2022 20:55:37 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/imgflip-api/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Java</title>
       <link>https://harisheoran.github.io/tags/java/</link>
       <pubDate>Fri, 30 Dec 2022 20:55:37 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/java/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Reddit API</title>
-      <link>https://harisheoran.github.io/tags/reddit-api/</link>
-      <pubDate>Fri, 30 Dec 2022 20:55:37 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/reddit-api/</guid>
       <description></description>
       
     </item>

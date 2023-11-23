@@ -18,15 +18,5 @@
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/journey/sih/featured.jpg" />
     </item>
     
-    <item>
-      <title></title>
-      <link>https://harisheoran.github.io/journey/devopsdays/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://harisheoran.github.io/journey/devopsdays/</guid>
-      <description></description>
-      
-    </item>
-    
   </channel>
 </rss>
