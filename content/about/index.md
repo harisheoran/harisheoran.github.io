@@ -69,11 +69,12 @@ I approach each project with a continuous learning mindset and a genuine passion
 {{< /gallery >}}
 {{< /timelineItem >}}
 
-{{< timelineItem icon="code" header="API Day Jaipur by Postman" badge="date - present" >}}
+{{< timelineItem icon="code" header="API Day Jaipur by Postman" badge="September 2023" >}}
 {{< carousel images="{img/apiday01.JPG, img/apiday02.JPG}" >}}
 {{< /timelineItem >}}
 
 {{< timelineItem icon="star" header="Smart India Hackathon: Inter College" badge="October 2023" >}}
+During my academic journey, I actively engaged in the Smart India Hackathon, where I led Team Sparrow Bit to secure an impressive 4th position in our university’s internal hackathon competition. Our endeavor revolved around addressing a pressing issue through innovation and technology. The challenge we tackled was the complexity of legal documentation, which often poses a formidable obstacle for individuals and small businesses in India. With determination and technical prowess, we crafted a groundbreaking AI-powered solution that streamlined the legal documentation process. By harnessing Large Language Models (LLMs) and advanced Natural Language Processing (NLP) techniques, our solution simplified convoluted legal language, enabled customizable document generation, and provided multilingual accessibility.
 
 {{< gallery >}}
   <img src="img/sih.jpg" class="grid-w90" />

@@ -39,24 +39,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://harisheoran.github.io/journey/</loc>
-    <lastmod>2023-09-05T20:54:47+01:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://harisheoran.github.io/projects/adi_app/</loc>
-    <lastmod>2023-09-05T20:54:47+01:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://harisheoran.github.io/journey/sih/</loc>
-    <lastmod>2023-09-05T20:54:47+01:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://harisheoran.github.io/projects/gptfordoc/</loc>
     <lastmod>2023-09-02T10:55:37+01:00</lastmod>
     <changefreq>daily</changefreq>
@@ -107,12 +89,6 @@
   <url>
     <loc>https://harisheoran.github.io/logs/roomdb/</loc>
     <lastmod>2023-08-03T20:54:47+01:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://harisheoran.github.io/projects/dependencyhilt/</loc>
-    <lastmod>2023-07-17T10:45:37+01:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
