@@ -18,5 +18,15 @@
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/nodejs_docker/featured.png" />
     </item>
     
+    <item>
+      <title>End to End DevOps Project</title>
+      <link>https://harisheoran.github.io/projects/fulldevops/</link>
+      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/fulldevops/</guid>
+      <description>55</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/fulldevops/featured.png" />
+    </item>
+    
   </channel>
 </rss>

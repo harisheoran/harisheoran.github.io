@@ -19,6 +19,16 @@
     </item>
     
     <item>
+      <title>End to End DevOps Project</title>
+      <link>https://harisheoran.github.io/projects/fulldevops/</link>
+      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/fulldevops/</guid>
+      <description>55</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/fulldevops/featured.png" />
+    </item>
+    
+    <item>
       <title>About</title>
       <link>https://harisheoran.github.io/about/</link>
       <pubDate>Sat, 11 Nov 2023 20:54:47 +0100</pubDate>
@@ -45,7 +55,7 @@
       
       <guid>https://harisheoran.github.io/projects/electratouch/</guid>
       <description>🗳️ Electra Touch: Polypurpose Polling System</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/electratouch/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/electratouch/featured.jpg" />
     </item>
     
     <item>
@@ -59,36 +69,6 @@
     </item>
     
     <item>
-      <title>CI/CD</title>
-      <link>https://harisheoran.github.io/logs/cicd/</link>
-      <pubDate>Tue, 22 Aug 2023 06:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/logs/cicd/</guid>
-      <description>Basic Github Action Workflow # # name of the workflow name: ci # defining when should the wokflow should be triggered, in our case it should be when code is pushed on the main branch on: push: branches: - &amp;#34;main&amp;#34; # jobs - contain a list of jobs which will be executed # build - it is the name of our first job # runs-on - it is the name of OS which it will run on.</description>
-      
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>https://harisheoran.github.io/logs/docker/</link>
-      <pubDate>Tue, 15 Aug 2023 06:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/logs/docker/</guid>
-      <description>Resources # Docker Official Docs Building Dockerfile # docker init to initialize the dockerfile.</description>
-      
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://harisheoran.github.io/logs/linux/</link>
-      <pubDate>Tue, 15 Aug 2023 06:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/logs/linux/</guid>
-      <description>Linux Blogs # Linux Journey Linux File system # / /home # home directories and files from users /bin # user command binaries (cat, echo, etc.</description>
-      
-    </item>
-    
-    <item>
       <title>Sparrow Bot</title>
       <link>https://harisheoran.github.io/projects/sparrowbot/</link>
       <pubDate>Sun, 13 Aug 2023 10:54:47 +0100</pubDate>
@@ -96,36 +76,6 @@
       <guid>https://harisheoran.github.io/projects/sparrowbot/</guid>
       <description>Our project utilizes AI to enhance Slack, streamlining tasks and sparking creativity for seamless teamwork.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/sparrowbot/featured.png" />
-    </item>
-    
-    <item>
-      <title>Spring Boot with Kotlin</title>
-      <link>https://harisheoran.github.io/logs/springboot/</link>
-      <pubDate>Sat, 05 Aug 2023 19:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/logs/springboot/</guid>
-      <description>Day 1 # Application Class # Main entry point of Spring Boot</description>
-      
-    </item>
-    
-    <item>
-      <title>Navigation in Android</title>
-      <link>https://harisheoran.github.io/logs/navigation/</link>
-      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/logs/navigation/</guid>
-      <description>3 main componenets of Navigation # NavHost NavGraph NavController NavHost is the container which is responsible to display destinations(each destinations have a unique specific route) screens</description>
-      
-    </item>
-    
-    <item>
-      <title>Room DB</title>
-      <link>https://harisheoran.github.io/logs/roomdb/</link>
-      <pubDate>Thu, 03 Aug 2023 20:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/logs/roomdb/</guid>
-      <description> 3 main components to Room DB # </description>
-      
     </item>
     
     <item>
