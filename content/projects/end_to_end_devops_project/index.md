@@ -11,13 +11,26 @@ tags: ["Jenkins", "Docker" ,"Docker-Compose",]
 
 Micro Blog website for developers.
 
-## Tech Stack
+## Workflow
+![](featured.png)
 
+## Tech Stack and tools
+
+### Application
 - Node JS
 - Express JS
 - Mongo DB
 - Bootstrap 5
+
+### DevOps
 - Docker
+- Docker Compose
+- VCS (Git & Github)
+- Terraform
+- Ansible
+- Nginx
+- AWS EC2
+- Jenkins
 
 # Development Setup
 
@@ -96,7 +109,7 @@ git clone https://github.com/harisheoran/programmer-server.git
 
 ### Spin up the contaniner
 ```
-docker-compose -f docker-compose.yml -f docker-compose.prod.y up -d
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 ```
 ![](./run01.png)
 
