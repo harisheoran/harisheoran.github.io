@@ -4,12 +4,13 @@ date: 2023-11-20T20:54:47+01:00
 draft: false
 description: "Node JS application"
 categories: ["DevOps"]
-tags: ["Jenkins", "Docker" ,"Docker-Compose",]
+tags: ["AWS","Jenkins","Ansible", "Terraform", "Docker" ,"Docker-Compose", "EC2", "S3", "Dynamo DB" ]
 ---
 
 ## Programmer Server
 
 Micro Blog website for developers.
+
 
 ## Workflow
 ![](featured.png)
@@ -31,6 +32,11 @@ Micro Blog website for developers.
 - Nginx
 - AWS EC2
 - Jenkins
+
+# Next Goals
+- Contianer Orchestration using k8s
+
+---
 
 # Development Setup
 
@@ -60,67 +66,50 @@ sudo docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
 You can access the application on _localhost:3000_
 and hit the _/blogserver_ .
 
-# Production Setup on EC2 instance
-### Launch the EC2 instance,
-- Free version is enough(Ubuntu t2 micro). 
-- SSH into EC2 instance.
+# Production Setup
 
-### Install required packages
-Setup Docker
-- Install Docker & add user to docker group
+## Infrastructure as Code
+### Run the Terrafrom File to launch 2 ec2 instances
 
 ```
-sudo apt update
-sudo apt install docker.io
+cd terraform
+```
+```
+terraform init
 ```
 
-- Start Docker service
 ```
-sudo systemctl restart docker
-```
-- Check status of docker service
-```
-sudo systemctl status docker
+terraform apply
 ```
 
-- Install Docker compose
- Read this blog [here](https://linuxize.com/post/how-to-install-and-use-docker-compose-on-ubuntu-20-04/).
+It'll output 2 IP addresses, copy them(You'll need to configure our ec2 instances).
 
-### Set up environment variables
-- Create a *.env* file
-same as development setop (check above)(I am using vim)
+## Configuration  Management
 
-- Edit the *.profile* file
+### For Pipeline
+Using Ansible
+- First, we configure the Pipeline server
+
 ```
-set -o allexport; source /home/ubuntu/.env; set +o allexport
-``` 
-save the file and exit from ssh connection, so that changes can load.
-
-- Check the environment variables,
+cd ansible
 ```
-printenv
+Paste the IP address in ***inventory.ini***
+
 ```
-![](./printenv.png)
+ansible-playbook -i ./inventory.ini ./pipeline.yml 
 
-### Clone the repository
 ```
-git clone https://github.com/harisheoran/programmer-server.git
+It'll install Jenkins on EC2 and start serving on port 8080.
+
+Now install basic plugins and some additional plugins like 
+- Github Integration
+
+
+### For main server
+Now, configure the main ec2 instance, execute the following command
+```
+ansible-playbook -i ./inventory.ini ./run_app.yml 
+
 ```
 
-### Spin up the contaniner
-```
-docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
-```
-![](./run01.png)
-
-### Edit the Inbound rules of EC2 instance.
-So that we can access it from any ip address.
-- Go to EC2 instance, **Security** > **Secuirty groups** > **Edit Inbound Rules**
-Somthing like in below image( in our case, we'll have allow there)
-![](./inbound.webp)
-
-
-- Copy the public ip address of your ec2 instance
-
-Visit <public_ip>:80 to view the application.
-
+Web application will start serving at public ip address of ec2 instance.
