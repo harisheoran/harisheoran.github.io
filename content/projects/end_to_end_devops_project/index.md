@@ -13,7 +13,7 @@ Micro Blog website for developers.
 
 
 ## Workflow
-![](featured.png)
+![](workflow.png)
 
 ## Tech Stack and tools
 
