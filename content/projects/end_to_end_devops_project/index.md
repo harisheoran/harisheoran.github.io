@@ -15,6 +15,8 @@ Micro Blog website for developers.
 ## Workflow
 ![](workflow.png)
 
+![](workflow2.png)
+
 ## Tech Stack and tools
 
 ### Application
@@ -37,24 +39,37 @@ Micro Blog website for developers.
 - Contianer Orchestration using k8s
 
 ---
+# Website Setup
 
-# Development Setup
+## Prerequisite
+- Install & Configure AWS CLI
+- Install Docker and start its service
+- Install Terraform & Ansible
+- Create two env files
+
+    - ***.env***
+    ```
+    NODE_ENV=prod
+    MONGO_USER=
+    MONGO_PASSWORD=
+    SESSION_SECRET=
+    ```
+    - ***.env2***
+
+    ```
+    MONGO_INITDB_ROOT_USERNAME=
+    MONGO_INITDB_ROOT_PASSWORD=
+    ```
+
+    - Inventory file
+
+
+## Development Setup
 
 ## How to run the project locally
 - Install npm packages
 ```
 npm install
-```
-
-- Create a .env file for environment variables
-
-```
-NODE_ENV=
-MONGO_USER=
-MONGO_PASSWORD=
-SESSION_SECRET=
-MONGO_INITDB_ROOT_USERNAME=
-MONGO_INITDB_ROOT_PASSWORD=
 ```
 
 ## Build the Docker image and run the container
@@ -113,3 +128,15 @@ ansible-playbook -i ./inventory.ini ./run_app.yml
 ```
 
 Web application will start serving at public ip address of ec2 instance.
+
+# CI Setup
+
+After creating EC2 instance, copy the IP address of ec2 instance to ***inventory.ini*** file (in ansible directory)
+```
+[pipeline]
+<paste ip address here> ansible_ssh_private_key_file=/home/harisheoran/my-key.pem ansible_user=ubuntu
+```
+
+> Set your path of ***ansible_ssh_private_key*** (your aws key pair value file) 
+
+
