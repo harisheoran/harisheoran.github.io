@@ -19,6 +19,11 @@ Micro Blog website for developers.
 
 ![](workflow2.png)
 
+## Demo 
+{{< youtube id="PA4a0WmBG_k" autoplay="true" >}}
+
+---
+
 ## Tech Stack and tools
 
 ### Application
