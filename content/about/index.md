@@ -21,7 +21,14 @@ Before embracing the DevOps path, I excelled as a Native Android Developer. My s
 I approach each project with a continuous learning mindset and a genuine passion for tackling intricate technical challenges. Let's collaborate to drive your technology initiatives forward, leveraging the right tools for the job.
 
 ## Developer Profile
-- [Github](https://github.com/harisheoran)
+
+[Github Profile](https://github.com/harisheoran)
+
+
+{{< alert "twitter" >}}
+Don't forget to [connect with me](https://twitter.com/nunocoracao) on Twitter.
+{{< /alert >}}
+
 
 ---
 ## 🛠 Technology and tools
@@ -36,8 +43,12 @@ I approach each project with a continuous learning mindset and a genuine passion
   </head>
   <body>
   <div align="left">
+        <img src="https://img.shields.io/badge/Kubernetes-326CE5.svg?style=for-the-badge&logo=Kubernetes&logoColor=white" height="25" alt="k8s" style="display: inline-block;" />
         <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" height="25" alt="aws" style="display: inline-block;" />
+        <img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white" height="25" alt="go" style="display: inline-block;" />
         <img src="https://img.shields.io/badge/Ansible-EE0000.svg?style=for-the-badge&logo=Ansible&logoColor=white" height="25" alt="ansible" style="display: inline-block;" />
+        <img src="https://img.shields.io/badge/Terraform-844FBA.svg?style=for-the-badge&logo=Terraform&logoColor=white" height="25" alt="terraform" style="display: inline-block;" />  
+        <img src="https://img.shields.io/badge/NGINX-009639.svg?style=for-the-badge&logo=NGINX&logoColor=white" height="25" alt="nginx" style="display: inline-block;" />
         <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" height="25" alt="docker" style="display: inline-block;" />
         <img src="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white" height="25" alt="github action" style="display: inline-block;"/>
         <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" height="25" alt="android" style="display: inline-block;"/>
@@ -63,17 +74,15 @@ I approach each project with a continuous learning mindset and a genuine passion
 
 {{< timeline >}}
 
-{{< timelineItem icon="code" header="AWS Community Day Rajasthan" badge="4th November 2023" >}}
+{{< timelineItem icon="fork" header="Gallery" badge="Tech Events & Meetup" >}}
 {{< gallery >}}
-  <img src="img/aws.png" class="grid-w70" />
+  <img src="img/apiday01.JPG" class="grid-w33" />
+  <img src="img/apiday02.JPG" class="grid-w33" />
+  <img src="img/aws.png" class="grid-w33" />
 {{< /gallery >}}
 {{< /timelineItem >}}
 
-{{< timelineItem icon="code" header="API Day Jaipur by Postman" badge="September 2023" >}}
-{{< carousel images="{img/apiday01.JPG, img/apiday02.JPG}" >}}
-{{< /timelineItem >}}
-
-{{< timelineItem icon="star" header="Smart India Hackathon: Inter College" badge="October 2023" >}}
+{{< timelineItem icon="code" header="Smart India Hackathon: Inter College" badge="October 2023" >}}
 During my academic journey, I actively engaged in the Smart India Hackathon, where I led Team Sparrow Bit to secure an impressive 4th position in our university’s internal hackathon competition. Our endeavor revolved around addressing a pressing issue through innovation and technology. The challenge we tackled was the complexity of legal documentation, which often poses a formidable obstacle for individuals and small businesses in India. With determination and technical prowess, we crafted a groundbreaking AI-powered solution that streamlined the legal documentation process. By harnessing Large Language Models (LLMs) and advanced Natural Language Processing (NLP) techniques, our solution simplified convoluted legal language, enabled customizable document generation, and provided multilingual accessibility.
 
 {{< gallery >}}
@@ -81,7 +90,7 @@ During my academic journey, I actively engaged in the Smart India Hackathon, whe
 {{< /gallery >}}
 {{< /timelineItem >}}
 
-{{< timelineItem icon="star" header="BuildSpace" badge="August - September 2023" >}}
+{{< timelineItem icon="code" header="BuildSpace" badge="August - September 2023" >}}
 Build a A.I. powered Slack Bot
 {{< gallery >}}
   <img src="img/buildspaces3.png" class="grid-w100" />

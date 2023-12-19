@@ -14,5 +14,8 @@ Talk to your pdfs using GPT.
 - Open AI
 - Langchain
 
+## Source Code
+{{< github repo="harisheoran/PDF-Pulse" >}}
+
 ### Demo
 {{< youtube id="UjBRoEvh2DQ" autoplay="true" >}}
