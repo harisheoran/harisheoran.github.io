@@ -15,7 +15,7 @@ Micro Blog website for developers.
 {{< github repo="harisheoran/programmer-server" >}}
 
 ## Workflow
-![](workflow.png)
+![](featured.png)
 
 ![](workflow2.png)
 
