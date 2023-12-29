@@ -7,25 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 Harish Sheoran</copyright>
-    <lastBuildDate>Mon, 20 Nov 2023 20:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Nov 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>End to End DevOps Project</title>
+      <link>https://harisheoran.github.io/projects/end_to_end_devops_project/</link>
+      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/end_to_end_devops_project/</guid>
+      <description>Programmer Server # Micro Blog website for developers.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/end_to_end_devops_project/featured.png" />
+    </item>
+    
     <item>
       <title>Containerization of NodeJS app</title>
       <link>https://harisheoran.github.io/projects/nodejs_docker/</link>
-      <pubDate>Mon, 20 Nov 2023 20:55:37 +0100</pubDate>
+      <pubDate>Wed, 15 Nov 2023 20:55:37 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/projects/nodejs_docker/</guid>
       <description>Containerization of a simple Node JS application using Docker and Docker Compose.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/nodejs_docker/featured.png" />
-    </item>
-    
-    <item>
-      <title>End to End DevOps Project</title>
-      <link>https://harisheoran.github.io/projects/fulldevops/</link>
-      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/projects/fulldevops/</guid>
-      <description>55</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/fulldevops/featured.png" />
     </item>
     
   </channel>

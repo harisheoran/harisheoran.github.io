@@ -7,11 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 Harish Sheoran</copyright>
-    <lastBuildDate>Mon, 20 Nov 2023 20:55:37 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Dec 2023 10:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Distroless Image</title>
+      <link>https://harisheoran.github.io/tags/distroless-image/</link>
+      <pubDate>Thu, 21 Dec 2023 10:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/distroless-image/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>Docker</title>
       <link>https://harisheoran.github.io/tags/docker/</link>
-      <pubDate>Mon, 20 Nov 2023 20:55:37 +0100</pubDate>
+      <pubDate>Thu, 21 Dec 2023 10:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/docker/</guid>
       <description></description>
@@ -19,11 +29,61 @@
     </item>
     
     <item>
+      <title>GO</title>
+      <link>https://harisheoran.github.io/tags/go/</link>
+      <pubDate>Thu, 21 Dec 2023 10:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/go/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Ansible</title>
+      <link>https://harisheoran.github.io/tags/ansible/</link>
+      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/ansible/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>https://harisheoran.github.io/tags/aws/</link>
+      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/aws/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>Docker-Compose</title>
       <link>https://harisheoran.github.io/tags/docker-compose/</link>
-      <pubDate>Mon, 20 Nov 2023 20:55:37 +0100</pubDate>
+      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/docker-compose/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Dynamo DB</title>
+      <link>https://harisheoran.github.io/tags/dynamo-db/</link>
+      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/dynamo-db/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>EC2</title>
+      <link>https://harisheoran.github.io/tags/ec2/</link>
+      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/tags/ec2/</guid>
       <description></description>
       
     </item>
@@ -39,19 +99,9 @@
     </item>
     
     <item>
-      <title>AWS</title>
-      <link>https://harisheoran.github.io/tags/aws/</link>
-      <pubDate>Sun, 05 Nov 2023 20:54:47 +0100</pubDate>
-      
-      <guid>https://harisheoran.github.io/tags/aws/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>S3</title>
       <link>https://harisheoran.github.io/tags/s3/</link>
-      <pubDate>Sun, 05 Nov 2023 20:54:47 +0100</pubDate>
+      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/s3/</guid>
       <description></description>
@@ -61,7 +111,7 @@
     <item>
       <title>Terraform</title>
       <link>https://harisheoran.github.io/tags/terraform/</link>
-      <pubDate>Sun, 05 Nov 2023 20:54:47 +0100</pubDate>
+      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
       
       <guid>https://harisheoran.github.io/tags/terraform/</guid>
       <description></description>

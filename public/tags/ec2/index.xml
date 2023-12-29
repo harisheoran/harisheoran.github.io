@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EC2 on Harish Sheoran</title>
+    <link>https://harisheoran.github.io/tags/ec2/</link>
+    <description>Recent content in EC2 on Harish Sheoran</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2023 Harish Sheoran</copyright>
+    <lastBuildDate>Mon, 20 Nov 2023 20:54:47 +0100</lastBuildDate><atom:link href="https://harisheoran.github.io/tags/ec2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>End to End DevOps Project</title>
+      <link>https://harisheoran.github.io/projects/end_to_end_devops_project/</link>
+      <pubDate>Mon, 20 Nov 2023 20:54:47 +0100</pubDate>
+      
+      <guid>https://harisheoran.github.io/projects/end_to_end_devops_project/</guid>
+      <description>Programmer Server # Micro Blog website for developers.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://harisheoran.github.io/projects/end_to_end_devops_project/featured.png" />
+    </item>
+    
+  </channel>
+</rss>
