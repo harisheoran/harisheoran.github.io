@@ -1,6 +1,6 @@
 ---
 title: "OpsDock: Kubernetes DevOps Integration"
-date: 2023-11-20T20:54:47+01:00
+date: 2024-01-19T20:54:47+01:00
 draft: false
 description: "Deploying web application on k8s cluster using ArgoCD."
 categories: ["Kubernetes", "DevOps"]
