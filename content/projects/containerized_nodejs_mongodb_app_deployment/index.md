@@ -1,13 +1,13 @@
 ---
-title: "End to End DevOps Project"
+title: "Containerized Node.js MongoDB App Deployment on AWS"
 date: 2023-11-20T20:54:47+01:00
 draft: false
-description: "Node JS application"
+description: "Containerized Node.js MongoDB App Deployment on AWS"
 categories: ["DevOps"]
 tags: ["AWS","Jenkins","Ansible", "Terraform", "Docker" ,"Docker-Compose", "EC2", "S3", "Dynamo DB" ]
 ---
 
-## Programmer Server
+## About application
 
 Micro Blog website for developers.
 
@@ -144,6 +144,4 @@ After creating EC2 instance, copy the IP address of ec2 instance to ***inventory
 <paste ip address here> ansible_ssh_private_key_file=/home/harisheoran/my-key.pem ansible_user=ubuntu
 ```
 
-> Set your path of ***ansible_ssh_private_key*** (your aws key pair value file) 
-
-
+> Set your path of ***ansible_ssh_private_key*** (your aws key pair value file)
