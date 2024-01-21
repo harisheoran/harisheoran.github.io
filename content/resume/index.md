@@ -4,12 +4,13 @@ date: 2023-12-28T20:54:47+01:00
 draft: false
 description: "Resume"
 ---
-
+View my resume here 
 {{< button href="https://drive.google.com/drive/u/0/folders/1IPdGm9x5IiecaWJEzPrvbsXj5Dl3FbZG" target="blank" >}}
 View Resume
 {{< /button >}}
 
 
+---
 
 | Domain                       | Skills/Tools            | Projects                                                                                                                                                                                                                         |
 |------------------------------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

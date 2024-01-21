@@ -4,7 +4,7 @@ date: 2024-01-19T20:54:47+01:00
 draft: false
 description: "Deploying web application on k8s cluster using ArgoCD."
 categories: ["Kubernetes", "DevOps"]
-tags: ["k8s","minikube","github actions", "argocd", "docker", "go" ]
+tags: ["k8s","minikube","github actions", "argocd", "docker", "go", "prometheus", "grafana"]
 ---
 Welcome to a hands-on journey through the realms of DevOps! In this project, we'll dive into the practical world of code deployment, exploring the seamless integration of development and operations that powers modern software delivery. Join me as we unravel the intricacies of a real-world DevOps assignment, focusing on Kubernetes deployment. From transforming code into containerized brilliance to orchestrating it in the cloud, this blog is your guide to mastering the practical aspects of DevOps. Ready to embark on a journey that bridges code, clouds, and containers? Let's dive in!
 
@@ -13,6 +13,13 @@ Here are project requirements.
 <summary> Workshop Requirements
 </summary>
 <br>
+
+## Project Workflow
+![](./featured.png)
+
+## Project Demo
+{{< youtube id="CBKYzxdKH2A " autoplay="true" >}}
+
 
 1. **Source Code:**
    - Simple web application (static HTML or basic web server using a language of your choice).
