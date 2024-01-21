@@ -14,12 +14,6 @@ Here are project requirements.
 </summary>
 <br>
 
-## Project Workflow
-![](./featured.png)
-
-## Project Demo
-{{< youtube id="CBKYzxdKH2A " autoplay="true" >}}
-
 
 1. **Source Code:**
    - Simple web application (static HTML or basic web server using a language of your choice).
@@ -51,6 +45,11 @@ Here are project requirements.
 Follow these steps, explaining your choices and demonstrating the flow. This assignment will showcase your skills in setting up a CI/CD pipeline and deploying applications to Kubernetes. If you have any questions along the way, feel free to ask!
 </details>
 
+## Project Workflow
+![](./featured.png)
+
+## Project Demo
+{{< youtube id="CBKYzxdKH2A " autoplay="true" >}}
 
 ## First build a simple Web server 
 You can choose the language of your choice for this task,   I am using the Go language.
