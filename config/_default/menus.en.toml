@@ -24,6 +24,11 @@
   weight = 70
 
 [[main]]
+  name = "Mini Blogs"
+  url = "miniblogs"
+  weight = 70
+
+[[main]]
   identifier = "github"
   pre = "github"
   name = "Github"

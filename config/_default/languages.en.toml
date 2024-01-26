@@ -28,6 +28,5 @@ title = "Harish Sheoran"
     { dev = "https://dev.to/harisheoran" },
     { mastodon = "https://mastodon.social/@harisheoran" },
     { youtube = "https://www.youtube.com/channel/UCkL3XhMfEA46NH57gVSb_Fw" },
-    { leetcode = "https://leetcode.com/harisheoran"}
     { rss = "https://harisheoran.github.io/index.xml"},
    ]
