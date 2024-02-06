@@ -7,7 +7,7 @@ description: ""
 
 {{< typeit 
   tag=h2
-  speed=80
+  speed=
   breakLines=false
   loop=true
 >}}

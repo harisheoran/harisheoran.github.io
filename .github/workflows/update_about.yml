@@ -1,0 +1,29 @@
+name: Update about file of my website
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  execute_shell_script:
+    name: Execute a shell script in website repo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v4
+
+      - name: Change the directory to the script directory
+        run: |
+          cd .github/workflows
+
+      - name: execute the script
+        run: bash ./update.sh
+
+      - name: Change to the root directory
+        run: |
+          cd ./../../
+
+      - name: Commit and Push changes
+        uses: actions-js/push@main
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+    
