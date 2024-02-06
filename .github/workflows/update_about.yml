@@ -13,10 +13,8 @@ jobs:
 
       - name: Change the directory to the script directory
         run: |
-          cd .github/workflows
-
-      - name: execute the script
-        run: bash ./update.sh
+          chmod +x .github/workflows/update.sh
+          ./update.sh
 
       - name: Change to the root directory
         run: |
