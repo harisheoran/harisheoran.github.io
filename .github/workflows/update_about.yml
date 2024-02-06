@@ -21,9 +21,9 @@ jobs:
       - name: Change to the root directory
         run: |
           cd ./../../
-
-      - name: Commit and Push changes
-        uses: actions-js/push@1.4
+    
+      - name: GitHub Commit & Push
+        uses: actions-js/push@v1.4
         with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
     
