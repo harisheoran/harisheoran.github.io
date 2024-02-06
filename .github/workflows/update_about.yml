@@ -23,7 +23,7 @@ jobs:
           cd ./../../
 
       - name: Commit and Push changes
-        uses: actions-js/push@main
+        uses: actions-js/push@1.4
         with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
     
