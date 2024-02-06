@@ -1,4 +1,4 @@
-name: Update about file of my website
+name: Update about on my website
 on:
   push:
     branches: ["main"]
