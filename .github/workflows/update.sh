@@ -1,6 +1,6 @@
 current_dir="."
 
-cd ./../../content/about || exit
+cd ./content/about || exit
 
 about_file="./../../content/about/index.md"
 
