@@ -11,13 +11,16 @@ jobs:
       - name: Checkout the repo
         uses: actions/checkout@v4
 
-      - name: Change the directory to the script directory
+      - name: Execute the script
         run: |
           chmod +x .github/workflows/update.sh
           ./.github/workflows/update.sh
     
-      - name: GitHub Commit & Push
-        uses: actions-js/push@v1.4
-        with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-    
+      - name: Commit and Push Changes
+        run: |
+            git config --local user.email "actions@github.com"
+            git config --local user.name "GitHub Actions"
+  
+            git add .
+            git commit -m "Add newfile.txt"
+            git push
