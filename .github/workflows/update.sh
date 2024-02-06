@@ -1,9 +1,8 @@
-# Set the about.md file path
-about_file="./../../content/about/index.md"
-
 current_dir="."
 
-cd ./../../content/about/ || exit
+cd ./../../content/about || exit
+
+about_file="./../../content/about/index.md"
 
 readme_data=$(curl -sL "https://raw.githubusercontent.com/harisheoran/harisheoran/main/README.md")
 
