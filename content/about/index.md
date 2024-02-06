@@ -3,8 +3,6 @@ title: "About"
 date: 2023-11-11T20:54:47+01:00
 draft: false
 description: ""
----
-<h1 align="left">Hello 👋, I'm Harish</h1>
 
 <h3 align="left">DevOps Engineer. Open source Contributer</h3>
 
