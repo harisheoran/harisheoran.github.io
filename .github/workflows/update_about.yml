@@ -1,7 +1,6 @@
 name: Update about section on my website
 on:
-  push:
-    branches: ["main"]
+  workflow_call:
 
 jobs:
   execute_shell_script:
