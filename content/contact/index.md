@@ -22,7 +22,3 @@ Lets get in touch
 - {{< icon "github" >}} [ Github](https://github.com/harisheoran)
 
 ---
-
-- {{< icon "Youtube" >}} [ Youtube](https://www.youtube.com/channel/UCkL3XhMfEA46NH57gVSb_Fw)
-
----
