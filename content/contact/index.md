@@ -13,12 +13,18 @@ description: ""
 Lets get in touch
 {{< /typeit >}}
 
-- harisheoran01@gmail.com  {{< button href="mailto: harisheoran01@gmail.com" target="_self" >}}{{< icon "envelope" >}}  Mail me {{< /button >}}
+- harisheoran01@gmail.com  {{< button href="mailto: harisheoran01@gmail.com" target="_self" >}}{{< icon "envelope" >}}   Mail me {{< /button >}}
 
-- {{< icon "twitter" >}} [Twitter](https://twitter.com/harisheoran)
+- {{< icon "twitter" >}} [ Twitter](https://twitter.com/harisheoran)
 
-- {{< icon "linkedin" >}} [LinkedIn](https://www.linkedin.com/in/harishsheoran01/)
+- {{< icon "linkedin" >}} [ LinkedIn](https://www.linkedin.com/in/harishsheoran01/)
 
-- {{< icon "github" >}} [Github](https://github.com/harisheoran)
+- {{< icon "github" >}} [ Github](https://github.com/harisheoran)
+
+---
+
+- {{< icon "hashnode" >}} [ Blog on Hashnode](https://harisheoran.hashnode.dev/)
+
+- {{< icon "Youtube" >}} [ Youtube](https://www.youtube.com/channel/UCkL3XhMfEA46NH57gVSb_Fw)
 
 ---
