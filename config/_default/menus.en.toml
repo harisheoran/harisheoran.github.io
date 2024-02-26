@@ -1,6 +1,6 @@
 [[main]]
-  name = "About"
-  pageRef = "about"
+  name = "Resume"
+  url = "resume"
   weight = 10
 
 [[main]]
@@ -14,26 +14,16 @@
   weight = 30
 
 [[main]]
-  name = "Resume"
-  url = "https://drive.google.com/drive/u/0/folders/1IPdGm9x5IiecaWJEzPrvbsXj5Dl3FbZG"
-  weight = 60
-
-[[main]]
   name = "Blogs"
   url = "https://harisheoran.hashnode.dev"
-  weight = 70
-
-[[main]]
-  name = "Mini Blogs"
-  url = "miniblogs"
-  weight = 70
+  weight = 40
 
 [[main]]
   identifier = "github"
   pre = "github"
   name = "Github"
   url = "https://github.com/harisheoran"
-  weight = 400
+  weight = 50
 
 [[footer]]
   name = "Contact me"
