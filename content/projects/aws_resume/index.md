@@ -15,3 +15,6 @@ tags: ["Cloudfront", "S3", "Route 53", "Dynamo DB", "GO"]
 
 #### Source Code
 {{< github repo="harisheoran/AWS-Cloud-Resume" >}}
+
+{{< mdimporter url="https://raw.githubusercontent.com/harisheoran/AWS-Cloud-Resume/main/README.md" >}}
+
