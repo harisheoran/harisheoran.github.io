@@ -1,6 +1,6 @@
 [[main]]
   name = "Resume"
-  url = "resume"
+  pageRef = "resume"
   weight = 10
 
 [[main]]
