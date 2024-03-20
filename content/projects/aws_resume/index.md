@@ -1,10 +1,10 @@
 ---
-title: "AWS Resume"
+title: "AWS Full Stack Resume Project"
 date: 2024-02-15T18:45:37+01:00
 draft: false
 description: "AWS Resume"
 categories: ["AWS"]
-tags: ["Cloudfront", "S3", "Route 53", "Dynamo DB", "GO"]
+tags: ["Cloudfront", "S3", "Route 53", "Dynamo DB", "GO", "AWS CodePipeline", "AWS CodeBuild", "AWS CodeDeploy", "AWS Systems Manager", "AWS Certificate Manager"]
 ---
 ## Version v1.0.0
 
@@ -27,8 +27,12 @@ tags: ["Cloudfront", "S3", "Route 53", "Dynamo DB", "GO"]
 
 
 ## Full Demo
-{{< youtube id="PLr8r2M2i9qsUfPB05J6yZhTh9QhiUVzQT" autoplay="true" >}}
+{{< youtube id="MBPYxxVa4PE" autoplay="true" >}}
+---
+{{< youtube id="lY32OYgLOy8" autoplay="true" >}}
 
+
+> View full [Playlist](https://www.youtube.com/playlist?list=PLr8r2M2i9qsUfPB05J6yZhTh9QhiUVzQT).
 
 
 ## Build Website
