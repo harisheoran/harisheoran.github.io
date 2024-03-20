@@ -28,11 +28,12 @@ View Resume PDF
     <tbody>
         <tr>
             <td rowspan=4><img class="customEntitityLogo" src="img/aws.jpg"/></td>
-            <td rowspan=4>AWS EC2, S3, Cloudfront</td>
+            <td rowspan=4>EC2, S3, Cloudfront, ACM, Systems Manager, CodePipeline, CodeBuild, CodeDeploy, </td>
         </tr>
         <tr>
-            <td>Resume Website on AWS S3 with Cloudfront</td>
+            <td>AWS Full Stack Project</td>
             <td><a href="https://github.com/harisheoran/AWS-Cloud-Resume" target="_blank">GitHub</a></td>
+            <td><a href="https://harisheoran.github.io/projects/aws_resume/" target="_blank">Full Docs</a></td>
         </tr>
         <tr>
             <td>Containerized Node.js MongoDB App Deployment on AWS</td>
