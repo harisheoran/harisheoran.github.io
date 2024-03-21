@@ -28,7 +28,6 @@ tags: ["Cloudfront", "S3", "Route 53", "Dynamo DB", "GO", "AWS CodePipeline", "A
 
 ## Full Demo
 {{< youtube id="MBPYxxVa4PE" autoplay="true" >}}
----
 {{< youtube id="lY32OYgLOy8" autoplay="true" >}}
 
 
