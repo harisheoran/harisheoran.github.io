@@ -105,10 +105,52 @@ terraform apply
 ![](./img/apply.png)
 
 ## Terraform State
+Terraform State is the brain of terraform, using the state it knows about all the resources it created. 
+Terraform create a state file after creating the resources, it records the logs of resources it has created.
 
+### Terraform State working
+Terraform create state file when you execute ``` terraform apply ``` for the first time, it saves the info of all the resources you created. When you want to create more resources or update the existing one, you write the configuration and apply the changes, then it checks the state file and checks for existing resources, and compare it with the what it have to create or update and find the difference and update or create accordingly.
+
+### Terraform State benfits
+Let say we create an EC2 instance using Terraform and after that we want to add a tag to it.
+- if state don't exist, Terraform has no idea that it already created an EC2 instance, so it'll create a new one.
+- if state exist, it'll check first that EC2 instance is already created and it'll add tag to it.
+
+### Terraform State Drawbacks
+
+
+### Terrform State Solutions
 
 
 ## Terraform Modules?
+Modules are like resuable functions of terraform to create infra.
+If we have to create big infrastructure, then it would be mess to create all resources in one file, it'll be hard to understand and maintain the code by team.
+So, we can create different modules for infra, and these modules don't have to exist in our repo, they can be hosted anywhere.
 
+### How to create Modules?
+- Create a new directory for each module
+```
+mkdir modules
+mkdir modules/s3_bucket
+```
+
+- Create the terraform files inside the module normally as we did before.
+
+![](./img/modules.png)
+
+- Define which module to use in root *main.tf*
+```
+module "s3_bucket" {
+  source = "./modules/s3_module"
+}
+
+```
+
+## Variables
+
+### Input Variables
+
+
+### Output Variables
 
 ## Terraform Workspaces?
