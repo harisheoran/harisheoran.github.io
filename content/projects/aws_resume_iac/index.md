@@ -42,6 +42,10 @@ terraform apply
     - Enable static website hosting
     - Attach Bucket Policy
 
+2. Create a SSL/TLS certificate for website
+    - Use AWS Certificate Manager (ACM)
+    - Create this in North Verginia region 
+
 - First, we need to initialize the terraform and provide it the cloud service on which we want to create infra.
 ```
 terraform {
@@ -70,7 +74,7 @@ terraform init
 
 ![](./img/init.png)
 
-- Create a simple S3 bucket.
+## 1. Create a S3 bucket.
 
 ```
 resource "aws_s3_bucket" "my-main-s3" {
@@ -147,10 +151,84 @@ module "s3_bucket" {
 ```
 
 ## Variables
+Variables are like as the name suggest.
 
 ### Input Variables
+To Provide variables to terraform files
+```
+variable "bucket_name" {
+  type = string
+  description = "Bucket name same as Domain name."
+  default = "harisheoran"
+}
+
+```
 
 
 ### Output Variables
+To get values after resource is successfully created or modified
+
+```
+output "website_address" {
+  value = aws_s3_bucket.main_s3_bucket.website_endpoint
+}
+
+```
+
+### How to pass values to input variables?
+Many ways to do this, but standard way is using ***.tfvars*** file
+Define input variable and provide values of those variable in tfvars and use it.
+
+```
+terraform apply -var-file=”prod.tfvars”
+```
+
+## 2. Create SSL/TLS certificate using ACM
+We need to create this cert in another region than other aws resources
+```
+
+# Configure the AWS Provider Region 1
+provider "aws" {
+  region = "ap-south-1"
+  alias = "indian_region"
+}
+
+provider "aws" {
+  region = "us-east-1"
+  alias = "north_v_region"
+}
+
+module "s3" {
+  source = "./modules/s3"
+  bucket_name = var.bucket_name
+  providers = {
+    aws = aws.indian_region
+  }
+}
+
+module "acm" {
+  source = "./modules/acm"
+  bucket_name = var.bucket_name
+  providers = {
+    aws = aws.north_v_region
+  }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Terraform Workspaces?
