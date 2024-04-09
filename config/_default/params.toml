@@ -4,7 +4,7 @@ autoSwitchAppearance = true
 
 enableSearch = true
 enableCodeCopy = true
-mainSections = ["projects", "journey"]
+mainSections = ["projects"]
 # robots = ""
 
 disableImageOptimization = true
@@ -12,7 +12,7 @@ disableImageOptimization = true
 #defaultBackgroundImage = "img/profile.jpg" # used as default for background images 
 # defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
 
-# highlightCurrentMenuArea = true
+highlightCurrentMenuArea = true
 smartTOC = true
 smartTOCHideUnfocusedChildren = true
 showComments = true
@@ -28,7 +28,7 @@ showComments = true
   showScrollToTop = true
 
 [homepage]
-  layout = "background" # valid options: page, profile, hero, card, background, custom
+  layout = "hero" # valid options: page, profile, hero, card, background, custom
   homepageImage = "img/6.png" # used in: hero, and card
   showRecent = true
   showRecentItems = 20
