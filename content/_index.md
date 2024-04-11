@@ -1,7 +1,3 @@
-<head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4819163909466089"
-     crossorigin="anonymous"></script>
-</head>
 Undoing chaos, one YAML file at a time.
 <p class="py-1"></p>
     <p>
