@@ -232,3 +232,7 @@ module "acm" {
 
 
 ## Terraform Workspaces?
+
+
+## Blogs refrence
+- [Creating and validating ACM certificates with Terraform  ](https://headforthe.cloud/article/managing-acm-with-terraform/)
