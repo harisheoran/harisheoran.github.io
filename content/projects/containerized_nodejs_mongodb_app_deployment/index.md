@@ -1,21 +1,19 @@
 ---
-title: "Containerized Node.js MongoDB App Deployment on AWS"
+title: "Containerized Web App Deployment on AWS"
 date: 2023-11-20T20:54:47+01:00
 draft: false
 description: "Containerized Node.js MongoDB App Deployment on AWS"
 categories: ["DevOps"]
-tags: ["AWS","Jenkins","Ansible", "Terraform", "Docker" ,"Docker-Compose", "EC2", "S3", "Dynamo DB" ]
+tags: ["AWS","Jenkins","Ansible", "Terraform", "Nginx" ,"Docker" ,"Docker-Compose", "EC2", "S3", "Dynamo DB" ]
 ---
 
-## About application
-
-Micro Blog website for developers.
+Micro Blog website deployed on AWS
 
 ## Source Code
 {{< github repo="harisheoran/programmer-server" >}}
 
 ## Workflow
-![](featured.png)
+![](workflow1.png)
 
 ![](workflow2.png)
 
