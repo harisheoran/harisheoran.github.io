@@ -7,7 +7,13 @@ categories: ["IaC"]
 tags: ["AWS", "Terraform"]
 ---
 
-This version includes Creating AWS infrastructure using Terraform
+This project is part of AWS Resume Project. In this part we are going to create Infrastructure on AWS using ***Terraform***.
+
+Overview of project -
+![](./featured.png)
+
+## Source Code
+{{< github repo="harisheoran/AWS-Cloud-Resume" >}}
 
 ## Terraform
 Terraform is a tool by Hashicorp for managing you infrastructure using code.
@@ -236,3 +242,5 @@ module "acm" {
 
 ## Blogs refrence
 - [Creating and validating ACM certificates with Terraform  ](https://headforthe.cloud/article/managing-acm-with-terraform/)
+
+- [Remote Backend for state](https://medium.com/@aaloktrivedi/configuring-a-terraform-remote-backend-with-s3-and-dynamodb-ebcefa8432ea)
