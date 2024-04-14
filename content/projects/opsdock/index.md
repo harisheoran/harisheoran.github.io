@@ -6,11 +6,12 @@ description: "Deploying web application on k8s cluster using ArgoCD."
 categories: ["Kubernetes", "DevOps"]
 tags: ["k8s","minikube","github actions", "argocd", "docker", "go", "prometheus", "grafana"]
 ---
-Welcome to a hands-on journey through the realms of DevOps! In this project, we'll dive into the practical world of code deployment, exploring the seamless integration of development and operations that powers modern software delivery. Join me as we unravel the intricacies of a real-world DevOps assignment, focusing on Kubernetes deployment. From transforming code into containerized brilliance to orchestrating it in the cloud, this blog is your guide to mastering the practical aspects of DevOps. Ready to embark on a journey that bridges code, clouds, and containers? Let's dive in!
+
+In this project, we'll dive into the practical world of code deployment, exploring the seamless integration of development and operations that powers modern software delivery. It focus on Kubernetes deployment. From transforming code into containerized brilliance to orchestrating the containers.
 
 Here are project requirements.
 <details>
-<summary> Workshop Requirements
+<summary> Project Requirements
 </summary>
 <br>
 
@@ -48,11 +49,73 @@ Follow these steps, explaining your choices and demonstrating the flow. This ass
 ## Project Workflow
 ![](./featured.png)
 
+## Source Code
+{{< github repo="harisheoran/WebServer-Docker-CI-CD-k8s" >}}
+
 ## Project Demo
 {{< youtube id="CBKYzxdKH2A " autoplay="true" >}}
 
+## Kubernetes Basics
+
+### K8s Architecture
+![](./k8s/k8s_arch.webp)
+
+### Difference between Container, Pods, Deployment
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">What is the difference between Container v/s Pod v/s Deployment?<br><br>Read here 👇 <a href="https://t.co/nHSuyAO0Hm">pic.twitter.com/nHSuyAO0Hm</a></p>&mdash; Harish Sheoran (@harisheoran) <a href="https://twitter.com/harisheoran/status/1749699318565478441?ref_src=twsrc%5Etfw">January 23, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+1. Let's create a Pod
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### K8s Service
+Assume there is no service in k8s, we created 3 pods using deployment, kubeproxy assign Dynamic IP address to each pod,
+![](./k8s/service1.jpg)
+
+Let's say if one pod goes down, Replica set controller is actively looking for desired state and actual state and it automatically creates the pod, but this time it have a new IP address, so now user is now unable to connect to that pod as this pod have new IP address. 
+
+***Service*** comes into picture here and instead of assigning IP address to each pod, it assign IP to service and it access Pods via Service.
+
+
+Now we are using Service and all request are coming to its IP address, *wait*, what if one of the pod goes down, and Replica Set Controller creates the pod again, now how service identifies the newly created pod.
+
+***Service Discovery Mechanism*** 
+This Mechanism assign labels to each pod and identifies them using selectors and even if they goes down, Replica Set Controller auto heal with same label again.
+
+***Exposing to external world using Service***
+1. Cluster IP
+2. NodePort
+3. Load Balancer
+
+
+
+
+
+
+---
 ## First build a simple Web server 
-You can choose the language of your choice for this task,   I am using the Go language.
+You can choose the language of your choice for this task, I am using the Go language.
 - Create a ***main.go*** file.
 
 ```

@@ -13,7 +13,7 @@ Micro Blog website deployed on AWS
 {{< github repo="harisheoran/programmer-server" >}}
 
 ## Workflow
-![](workflow1.png)
+![](featured.png)
 
 ![](workflow2.png)
 
