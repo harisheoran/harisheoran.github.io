@@ -15,11 +15,58 @@ Overview of project -
 ## Source Code
 {{< github repo="harisheoran/AWS-Cloud-Resume" >}}
 
+### Working
+- Create an S3 bucket and Dynamo DB for remote backend with lock mechanism.
+- Setup Hashicorp Vault.
+    - Create EC2 instance, go to the [vault directory](https://github.com/harisheoran/AWS-Cloud-Resume/tree/main/vault) and create the infrastructure using Terraform.
+   
+   ```terraform init && terraform apply ```
+    
+    - Upload both scripts on the ec2 server
+    
+    ``` scp -i <aws key pair> install_vault.sh vault.sh ubuntu@<ip address>:/home/ubuntu/ ```
+    
+    - Change the permissions of both scripts
+    
+    ``` chmod 700 install_vault.sh vault.sh ```
+    
+    - Execute the scripts in order  
+        1. *install_vault.sh*
+        2. *vault.sh*
+
+- Create main resources, go to *iac* directory
+- Create ***terraform.tfvars*** 
+```
+bucket_domain=""
+domain=""
+role_id = ""
+secret_id = ""
+main_region = ""
+cert_region = ""
+s3_remote_backend_name = ""
+dynamo_db_remote_backend = ""
+remote_backend_region = ""
+env = ""
+```
+
+- Initialize the terraform  ```terraform init```
+- Apply the terraform  ```terraform apply```
+    - set *is_zone* to true for first time
+    - Now copy output Nameservers and paste them in your Administrative DNS server. 
+    - set *is_zone* to false to create rest of the resources.
+
+- Visit your Domain name.
+    
+
+
+
+
+
 ## Terraform
 Terraform is a tool by Hashicorp for managing you infrastructure using code.
 Define your infrasturctue in HCL.
 
-### Benefits
+## Benefits
 - Easy to manage the infra with code.
 - Works with major Cloud Providers.
 - Support Hybrid Cloud.
@@ -222,17 +269,35 @@ module "acm" {
 ```
 
 
+## Vault
+- [Setup on Vault](https://dev.to/shrihariharidass/terraform-hashicorp-vault-integration-seamless-secrets-management-4jkk)
+
+- Vault has role similiar to IAM Role.
+
+So, create a App Role so that terraform can access the vault, first create the policy and attach the policy to role.
+Now, get the secret key and id (similiar to AWD secret key value)
 
 
+## Conditionals in Terraform
+```
+  count  = var.first_run ? 0 : 1
 
+```
 
+- first_run is a boolean variable
+- If var.first_run is true, set count to 0 (don't create any instances).
+- If var.first_run is false, set count to 1 (create one instance).
 
+## Depends
+One module depends on another
 
+```
+depends_on = [ module.route53_hosted_zone, module.route53_hosted_zone, module.s3, module.cert]
 
+```
 
-
-
-
+## Errors
+- Since you have a module call which is using the count meta-argument, that means you will have to either reference a specific index of the module (because it becomes a list).
 
 
 
