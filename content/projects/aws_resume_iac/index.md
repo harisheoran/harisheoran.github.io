@@ -9,14 +9,15 @@ tags: ["AWS", "Terraform"]
 
 This project is part of AWS Resume Project. In this part we are going to create Infrastructure on AWS using ***Terraform***.
 
-Overview of project -
+Workflow of the project -
 ![](./featured.png)
 
 ## Source Code
 {{< github repo="harisheoran/AWS-Cloud-Resume" >}}
 
-### Working
-- Create an S3 bucket and Dynamo DB for remote backend with lock mechanism.
+### How to run the Project?
+- Clone the repository.
+- Create an S3 bucket and Dynamo DB for remote backend with lock mechanism. Read this [blog](https://medium.com/@aaloktrivedi/configuring-a-terraform-remote-backend-with-s3-and-dynamodb-ebcefa8432ea)
 - Setup Hashicorp Vault.
     - Create EC2 instance, go to the [vault directory](https://github.com/harisheoran/AWS-Cloud-Resume/tree/main/vault) and create the infrastructure using Terraform.
    
@@ -31,42 +32,63 @@ Overview of project -
     ``` chmod 700 install_vault.sh vault.sh ```
     
     - Execute the scripts in order  
-        1. *install_vault.sh*
-        2. *vault.sh*
+        1. ``` ./install_vault.sh```
+        2. ``` ./vault.sh```
 
-- Create main resources, go to *iac* directory
-- Create ***terraform.tfvars*** 
+- Create main resources, go to *iac* directory and apply the terraform
+   
+  - Create ***terraform.tfvars*** and provide the values
 ```
-bucket_domain=""
-domain=""
-role_id = ""
-secret_id = ""
-main_region = ""
-cert_region = ""
-s3_remote_backend_name = ""
-dynamo_db_remote_backend = ""
-remote_backend_region = ""
-env = ""
+bucket_domain=""                # Domain name
+domain=""                       # Domain name
+role_id = ""                    # Role ID of hashicorp Vault
+secret_id = ""                  # Secret ID of Hashicorp Vault
+main_region = ""                # AWS region, you can choose whichever you like
+cert_region = ""                # AWS region for creating SSL/TLS certificate, must be in North Vergina
+s3_remote_backend_name = ""     # S3 bucket name in which you want to upload terraform state file
+dynamo_db_remote_backend = ""   # Dynamo DB table name for remote backend
+remote_backend_region = ""      # Remote backend region
+env = ""                        # prod, dev, test
 ```
 
 - Initialize the terraform  ```terraform init```
 - Apply the terraform  ```terraform apply```
-    - set *is_zone* to true for first time
-    - Now copy output Nameservers and paste them in your Administrative DNS server. 
-    - set *is_zone* to false to create rest of the resources.
+    - set *is_zone* to true for first time.
+    - Now copy output Nameservers and paste them in your Administrative DNS server(From which you bought the domain name). 
+    - now run again ```terraform apply``` and set *is_zone* to false to create rest of the resources.
 
 - Visit your Domain name.
-    
+
+---
+
+
+## Infrastructure Requirements
+1. S3 bucket (for hosting website files)
+    - Upload files
+    - Enable static website hosting
+    - Attach Bucket Policy
+
+2. Create a SSL/TLS certificate for website
+    - Use AWS Certificate Manager (ACM)
+    - Create this in North Verginia region 
+
+3. Create Route 53 hosted zone and create CNAME record of certificate.
+
+4. Create Cloudfront CDN and use S3 bucket as OAI
+  - Attach Cert to it
+  - Create *A* record for cdn url, alias to main Domain.
 
 
 
 
+
+---
 
 ## Terraform
 Terraform is a tool by Hashicorp for managing you infrastructure using code.
 Define your infrasturctue in HCL.
 
-## Benefits
+### Benefits
 - Easy to manage the infra with code.
 - Works with major Cloud Providers.
 - Support Hybrid Cloud.
@@ -88,16 +110,6 @@ terraform apply
 ```
 
 > Lets understand the Terraform practically by creating infra on AWS. 
-
-## Infrastructure Requirements
-1. S3 bucket (for hosting website files)
-    - Upload files
-    - Enable static website hosting
-    - Attach Bucket Policy
-
-2. Create a SSL/TLS certificate for website
-    - Use AWS Certificate Manager (ACM)
-    - Create this in North Verginia region 
 
 - First, we need to initialize the terraform and provide it the cloud service on which we want to create infra.
 ```
@@ -174,12 +186,16 @@ Let say we create an EC2 instance using Terraform and after that we want to add 
 - if state exist, it'll check first that EC2 instance is already created and it'll add tag to it.
 
 ### Terraform State Drawbacks
+-
+-
 
 
 ### Terrform State Solutions
+-
+-
 
 
-## Terraform Modules?
+### Terraform Modules?
 Modules are like resuable functions of terraform to create infra.
 If we have to create big infrastructure, then it would be mess to create all resources in one file, it'll be hard to understand and maintain the code by team.
 So, we can create different modules for infra, and these modules don't have to exist in our repo, they can be hosted anywhere.
@@ -203,10 +219,10 @@ module "s3_bucket" {
 
 ```
 
-## Variables
+### Variables
 Variables are like as the name suggest.
 
-### Input Variables
+#### Input Variables
 To Provide variables to terraform files
 ```
 variable "bucket_name" {
@@ -218,7 +234,7 @@ variable "bucket_name" {
 ```
 
 
-### Output Variables
+#### Output Variables
 To get values after resource is successfully created or modified
 
 ```
@@ -236,10 +252,11 @@ Define input variable and provide values of those variable in tfvars and use it.
 terraform apply -var-file=”prod.tfvars”
 ```
 
-## 2. Create SSL/TLS certificate using ACM
-We need to create this cert in another region than other aws resources
-```
+### Multi Region
+Create SSL/TLS certificate using ACM in North Vergina Region.
+- Attach an alias to each Provide block and attach refrence to resources while creating them.
 
+```
 # Configure the AWS Provider Region 1
 provider "aws" {
   region = "ap-south-1"
@@ -269,7 +286,7 @@ module "acm" {
 ```
 
 
-## Vault
+### Secret Manager: Hashicorp Vault
 - [Setup on Vault](https://dev.to/shrihariharidass/terraform-hashicorp-vault-integration-seamless-secrets-management-4jkk)
 
 - Vault has role similiar to IAM Role.
@@ -279,17 +296,19 @@ Now, get the secret key and id (similiar to AWD secret key value)
 
 
 ## Conditionals in Terraform
-```
-  count  = var.first_run ? 0 : 1
+Why do we need to use conditionals?
+As I bought domain from another provider than AWS, so I have to create first Hosted zone and add Nameservers in my Hostinger Domain management, so that route 53 has permission to manage the DNS records for me. 
 
+```
+  count  = var.is_zone ? 0 : 1
 ```
 
 - first_run is a boolean variable
-- If var.first_run is true, set count to 0 (don't create any instances).
-- If var.first_run is false, set count to 1 (create one instance).
+- If var.is_zone is true, set count to 0 (don't create any instances).
+- If var.is_zone is false, set count to 1 (create one resource).
 
 ## Depends
-One module depends on another
+One module dependencies on another, like CDN requires S3 bucket.
 
 ```
 depends_on = [ module.route53_hosted_zone, module.route53_hosted_zone, module.s3, module.cert]
@@ -299,13 +318,17 @@ depends_on = [ module.route53_hosted_zone, module.route53_hosted_zone, module.s3
 ## Errors
 - Since you have a module call which is using the count meta-argument, that means you will have to either reference a specific index of the module (because it becomes a list).
 
-
-
+```
+  acm_cert_arn = module.cert[0].acm_cert_arn
+```
 
 ## Terraform Workspaces?
+-
+-
 
+---
 
-## Blogs refrence
+**Blogs refrence**
 - [Creating and validating ACM certificates with Terraform  ](https://headforthe.cloud/article/managing-acm-with-terraform/)
 
 - [Remote Backend for state](https://medium.com/@aaloktrivedi/configuring-a-terraform-remote-backend-with-s3-and-dynamodb-ebcefa8432ea)
