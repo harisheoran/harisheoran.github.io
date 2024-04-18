@@ -79,9 +79,6 @@ env = ""                        # prod, dev, test
   - Create *A* record for cdn url, alias to main Domain.
 
 
-
-
-
 ---
 
 ## Terraform
@@ -139,7 +136,7 @@ terraform init
 
 ![](./img/init.png)
 
-## 1. Create a S3 bucket.
+### Understand by creating a S3 bucket.
 
 ```
 resource "aws_s3_bucket" "my-main-s3" {
