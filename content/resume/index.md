@@ -11,7 +11,7 @@ View Resume PDF
 
 
 ## About
- I'm Harish, a dedicated practitioner in the field of DevOps, passionate about streamlining development workflows and optimizing infrastructure management. With hands-on experience across a spectrum of technologies including Kubernetes, AWS, Docker, Terraform, Ansible, CICD tools like Jenkins, ArgoCD, GitHub Actions, as well as expertise in Monitoring using Prometheus & Grafana, Linux administration, and version control with Git & GitHub, I bring a comprehensive skill set to every project I undertake. Beyond my professional endeavors, I actively contribute to open source initiatives, driven by a commitment to collaborative innovation.
+ I'm Harish, a dedicated practitioner in the field of DevOps, passionate about streamlining development workflows and optimizing infrastructure management. With hands-on experience across a spectrum of technologies including Kubernetes, AWS, GCP, Docker, Terraform, Ansible, CICD tools like Jenkins, ArgoCD, GitHub Actions, as well as expertise in Monitoring using Prometheus & Grafana, Linux administration, and version control with Git & GitHub, I bring a comprehensive skill set to every project I undertake. Beyond my professional endeavors, I actively contribute to open source initiatives, driven by a commitment to collaborative innovation.
 
 
 ## Projects
