@@ -33,7 +33,7 @@ View Resume PDF
         <tr>
             <td>AWS Full Stack Project</td>
             <td><a href="https://github.com/harisheoran/AWS-Cloud-Resume" target="_blank">GitHub</a></td>
-            <td><a href="https://harisheoran.github.io/projects/aws_resume/" target="_blank">Full Docs</a></td>
+            <td><a href="https://harisheoran.github.io/projects/aws_resume/" target="_blank">Docs</a></td>
         </tr>
         <tr>
             <td>Containerized Node.js MongoDB App Deployment on AWS</td>
@@ -96,7 +96,7 @@ View Resume PDF
             <td rowspan=2></td>
         </tr>
         <tr>
-            <td>Kubernetes DevOps Integration</td>
+            <td>For Continuous Delivery in k8s </td>
             <td><a href="https://github.com/harisheoran/WebServer-Docker-CI-CD-k8s/tree/main" target="_blank">GitHub</a></td>
         </tr>
         <tr>
@@ -108,12 +108,25 @@ View Resume PDF
             <td><a href="https://github.com/harisheoran/WebServer-Docker-CI-CD-k8s/blob/main/.github/workflows/dockerhub.yaml" target="_blank">GitHub</a></td>
         </tr>
         <tr>
-            <td rowspan=2><img class="customEntitityLogo" src="img/iac.svg"/></td>
-            <td rowspan=2></td>
+            <td rowspan=3><img class="customEntitityLogo" src="img/iac.svg"/></td>
+            <td rowspan=3></td>
+        </tr>
+        <tr>
+            <td>Create infrastructure on AWS. Created and configure resources - CDN, Route 53, ACM Certificate, EC2, S3. Setup terraform remote backend.</td>
+            <td><a href="https://github.com/harisheoran/AWS-Cloud-Resume" target="_blank">GitHub</a></td>
+            <td><a href="https://harisheoran.github.io/projects/aws_resume_iac/" target="_blank">Docs</a></td>
         </tr>
         <tr>
             <td>Created AWS EC2 instance with security groups for a web app deployment</td>
             <td><a href="https://github.com/harisheoran/programmer-server/tree/main/terraform" target="_blank">GitHub</a></td>
+        </tr>
+         <tr>
+            <td rowspan=2><img class="customEntitityLogo" src="img/vault.svg"/></td>
+            <td rowspan=2></td>
+        </tr>
+        <tr>
+            <td>Secret Management in Terraform</td>
+            <td><a href="https://harisheoran.github.io/projects/aws_resume_iac/#secret-manager-hashicorp-vault" target="_blank">Docs</a></td>
         </tr>
     </tbody>
 </table>
