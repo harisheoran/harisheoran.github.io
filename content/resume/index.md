@@ -14,6 +14,29 @@ View Resume PDF
  I'm Harish, a dedicated practitioner in the field of DevOps, passionate about streamlining development workflows and optimizing infrastructure management. With hands-on experience across a spectrum of technologies including Kubernetes, AWS, GCP, Docker, Terraform, Ansible, CICD tools like Jenkins, ArgoCD, GitHub Actions, as well as expertise in Monitoring using Prometheus & Grafana, Linux administration, and version control with Git & GitHub, I bring a comprehensive skill set to every project I undertake. Beyond my professional endeavors, I actively contribute to open source initiatives, driven by a commitment to collaborative innovation.
 
 
+## Experience
+
+<table>
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Link</th>
+            <th>Role</th>
+            <th>Timeline</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=4><img class="customEntitityLogo" src="img/experience/rava.jpg"/></td>
+            <td rowspan=4><a href="https://rava.ai/" target="_blank">Rava AI</a></td>
+            <td>DevOps Engineer</td>
+            <td>May 2024 - Present</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
 ## Projects
 
 <table>
