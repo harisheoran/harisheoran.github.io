@@ -19,16 +19,21 @@
   weight = 50
 
 [[main]]
+  name = "List"
+  pageRef = "list"
+  weight = 60
+
+[[main]]
   name = "Blogs"
   url = "https://harisheoran.hashnode.dev"
-  weight = 60
+  weight = 70
 
 [[main]]
   identifier = "github"
   pre = "github"
   name = "Github"
   url = "https://github.com/harisheoran"
-  weight = 70
+  weight = 80
 
 [[footer]]
   name = "Contact me"
