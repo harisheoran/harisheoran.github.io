@@ -1,6 +1,6 @@
 ---
 title: "List"
-date: 2024-17-12T08:54:47+01:00
+date: 2024-17-12T06:54:47+01:00
 draft: false
 description: "My current list"
 ---
@@ -22,6 +22,8 @@ My current building list
 
 ### DevOps Tools in Go
 - [ ] CLI tool to monitor GitHub Repository access: [repoguard](https://github.com/harisheoran/repoguard/)
+
+### From scratch
 - [ ] Create own container from scratch without using docker
 
 
