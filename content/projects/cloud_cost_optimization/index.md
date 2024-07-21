@@ -16,7 +16,6 @@ Managing cloud costs is crucial for any organization leveraging AWS services. Im
 
 ### Demo
 
-
 ## AWS Lambda
 AWS Lambda service provides serverless computing on which we can run our code as a Lambda function which triggers based on an event.
 
@@ -27,6 +26,7 @@ You can write lambda function in any language you choose, I am using Go language
 
 ## Build it
 Let's take the above scenario in which at the end we have stale snapshots which are not associated with volumes, basically costing us money.
+![](./arch.png)
 
 ### Solution
 - First, get the Snapshot's volume ID and snapshot ID.
