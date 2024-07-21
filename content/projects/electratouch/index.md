@@ -52,10 +52,6 @@ Our primary objective is to create a comprehensive prototype for election scenar
 ####  Android App
 {{< github repo="harisheoran/Electra-Touch" >}}
 
-#### IOT
-{{< github repo="richa-m/Electra-Touch" >}}
-
-
 ### Team Members
 - [Maaz Khan](https://www.linkedin.com/in/maaz-khan-2316a31ba/)
 - [Ridhi Bansal](https://www.linkedin.com/in/ridhi-bansal-84b0a120b/)
