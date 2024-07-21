@@ -15,6 +15,8 @@ Managing cloud costs is crucial for any organization leveraging AWS services. Im
 {{< github repo="harisheoran/aws_cost_optimization" >}}
 
 ### Demo
+{{< youtube id="K_JSu2qWrns" autoplay="true" >}}
+
 
 ## AWS Lambda
 AWS Lambda service provides serverless computing on which we can run our code as a Lambda function which triggers based on an event.
