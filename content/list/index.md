@@ -12,19 +12,18 @@ description: "My current list"
 My current building list 
 {{< /typeit >}}
 
-### CLI Tools in Go
-- [x] [Todo CLI](https://github.com/harisheoran/todo-cli)
-- [ ] [Markdown Preview CLI tool](https://github.com/harisheoran/mdp)
-- [ ] File System Crawler 
-- [ ] Col stats - A simple Data Analysis Tool
-- [ ] REST Api server
-- [ ] CLI Pomodoro
-
-### DevOps Tools in Go
-- [ ] CLI tool to monitor GitHub Repository access: [repoguard](https://github.com/harisheoran/repoguard/)
-
 ### From scratch
 - [ ] Create own container from scratch without using docker
 
+### DevOps 
+- [ ] CLI tool to monitor GitHub Repository access: [repoguard](https://github.com/harisheoran/repoguard/)
+- [ ] 1 tier application deployement on K8s EKS with private VPC using Terraform
+- [ ] 2 tier application deployment on K8s EKS with private VPC using Terraform
+- [ ] Setup Kubernetes manually (no scripts, no cloud service)
+- [ ] Build K8s Dashboard
+
+### CLI Tools in Go
+- [x] [Todo CLI](https://github.com/harisheoran/todo-cli)
+- [x] [Markdown Preview CLI tool](https://github.com/harisheoran/mdp)
 
 
