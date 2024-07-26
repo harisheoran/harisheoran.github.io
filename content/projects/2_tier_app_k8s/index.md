@@ -1,12 +1,11 @@
 ---
-title: "2 Tier application deployment on k8s"
+title: "1 Tier application deployment on EKS"
 date: 2024-07-14T09:00:37+01:00
-draft: true
+draft: false 
 description: ""
-categories: [""]
-tags: ["in progess"]
+categories: ["EKS"]
+tags: ["AWS"]
 ---
 
-2 Tier Web application deployment on Kubernetes.
+1 Tier Web application deployment on AWS EKS service.
 
-This Project is in progess... and this page contains the detailed documentation of the Project.
