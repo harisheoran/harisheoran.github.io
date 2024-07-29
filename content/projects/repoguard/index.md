@@ -42,3 +42,6 @@ and provide it the GitHub Token
 - Get a list of users who have access to the GitHub Repository.
 - Revoke access of user.
 - Configure repoguard for your GitHub account.
+
+## Demo
+{{< youtube id="TZ5fXzbPdCs" autoplay="true" >}}
