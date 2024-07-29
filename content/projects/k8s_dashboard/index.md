@@ -2,7 +2,7 @@
 title: "Kubernetes Dashboard"
 date: 2024-07-27T10:55:37+01:00
 draft: false
-description: "Monitor and visualize k8s cluster resources efficiently."
+description: "Monitor and visualize k8s resources efficiently."
 categories: ["k8s"]
 tags: ["go"]
 ---
@@ -21,5 +21,5 @@ https://github.com/harisheoran/k8s_dashboard/issues
 {{< github repo="harisheoran/k8s_dashboard" >}}
 
 ## Demo
-soon ...
+![](./demo.png)
 
