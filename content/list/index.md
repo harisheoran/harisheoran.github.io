@@ -17,10 +17,14 @@ My current building list
 
 ### DevOps 
 - [ ] CLI tool to monitor GitHub Repository access: [repoguard](https://github.com/harisheoran/repoguard/)
-- [ ] 1 tier application deployement on K8s EKS with private VPC using Terraform
-- [ ] 2 tier application deployment on K8s EKS with private VPC using Terraform
-- [ ] Setup Kubernetes manually (no scripts, no cloud service)
-- [ ] Build K8s Dashboard
+- [ ] Setup EKS with VPC using Terraform
+- [ ] 1 tier application deployement on K8s EKS.
+- [ ] 2 tier application deployment on K8s EKS.
+- [ ] [K8s Dashboard](https://github.com/harisheoran/k8s_dashboard)
+- [ ] K8s Dashboard as a Helm package.
+
+### Backend
+- [ ] [Habit Tracker application](https://github.com/harisheoran/habit_tracker)
 
 ### CLI Tools in Go
 - [x] [Todo CLI](https://github.com/harisheoran/todo-cli)
