@@ -2,7 +2,7 @@
 title: "3 tier MERN web app Deployment"
 date: 2024-08-09T10:55:37+01:00
 draft: false
-description: "3 tier MERN web app container deployment for Production."
+description: "3 Tier MERN web app container deployment for Production."
 categories: ["prod", "docker", "CICD"]
 tags: ["3 tier"]
 ---
@@ -12,8 +12,6 @@ tags: ["3 tier"]
 # Deployment Architecture
 ![](./featured.svg)
 
-
----
 # Let's start Deploying in Production
 We are going to deploy 3 Tier Web application on AWS in production.
 
