@@ -11,14 +11,65 @@ View Resume PDF
 
 
 ## About
- I'm Harish, a dedicated practitioner in the field of DevOps, passionate about streamlining development workflows and optimizing infrastructure management. With hands-on experience across a spectrum of technologies including Kubernetes, AWS, GCP, Docker, Terraform, Ansible, CICD tools like Jenkins, ArgoCD, GitHub Actions, as well as expertise in Monitoring using Prometheus & Grafana, Linux administration, and version control with Git & GitHub, I bring a comprehensive skill set to every project I undertake. Beyond my professional endeavors, I actively contribute to open source Projects.
+
+🚀 **Hello, I’m Harish**—a DevOps Engineer by day, Go Developer by...well, also by day (and sometimes night 😄). I’m passionate about building seamless pipelines and automating the boring stuff so teams can focus on what they do best. From orchestrating clouds on AWS and GCP to taming Kubernetes clusters and Docker swarms, I live for the challenge of turning chaos into efficiency.
+
+⚙️ I work with all the cool tools—Terraform and Ansible for Infrastructure as Code, Jenkins, ArgoCD, and GitHub Actions for CI/CD, and Helm Charts for those days when K8s feels like a puzzle. Whether it’s crafting scripts in Go or building robust CLI applications, I love working at the intersection of code and ops.
+
+💻 Linux is my daily driver, and automation is my game. I'm also into open-source, LLMs, and hardware servers—anything that lets me geek out over new tech and make life a little smoother.
+
+🏏 When I’m not wrangling servers, you can find me on the cricket field, playing as a right-handed batsman and spinner. Whether it’s engineering a perfect CI/CD pipeline or spinning a cricket ball, precision is key! 
 
 
 ## Experience
 
 {{< timeline >}}
 
-{{< timelineItem icon="code" header="Rava AI" badge="May 2024 - Present" subheader="DevOps Engineer" >}}
+
+{{< timelineItem icon="code" header="DevOps Engineer" badge="August - September 2024" subheader="" >}}
+
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Role</th>
+    <th>Location</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.linkedin.com/company/catalogfi/" target="_blank">Catalog</a></td>
+    <td>DevOps</td>
+    <td>Gachibowli, Hyderabad, India</td>
+  </tr>
+</table> 
+
+<table>
+    <thead>
+        <tr>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=4><img class="customEntitityLogo" src="img/experience/catalog.jpeg"/></td>
+        </tr>
+    </tbody>
+</table>
+
+{{< /timelineItem >}}
+
+
+{{< timelineItem icon="code" header="DevOps Engineer" badge="May - August 2024" subheader="" >}}
+
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Role</th>
+    <th>Location</th>
+  </tr>
+  <tr>
+    <td><a href="https://rava.ai" target="_blank">Rava AI</a></td>
+    <td>DevOps</td>
+    <td>Full Remote, San Francisco, CA</td>
+  </tr>
+</table> 
 
 <table>
     <thead>
@@ -28,7 +79,6 @@ View Resume PDF
     <tbody>
         <tr>
             <td rowspan=4><img class="customEntitityLogo" src="img/experience/rava.jpg"/></td>
-            <td>Spearheaded automation and containerization processes, optimizing deployment and reduced costs.</td>
         </tr>
     </tbody>
 </table>
@@ -52,6 +102,7 @@ View Resume PDF
     <td>
     <img src="https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white" height="25" alt="k8s" style="display: inline-block;" />
     <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" height="25" alt="docker" style="display: inline-block;" />
+    Helm
     </td>
   </tr>
   <tr>
