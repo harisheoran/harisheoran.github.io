@@ -4,6 +4,8 @@
   weight = 10
 
 [[main]]
+  identifier = "envelope"
+  pre = "envelope"
   name = "Contact"
   pageRef = "contact"
   weight = 20
@@ -19,14 +21,11 @@
   weight = 50
 
 [[main]]
-  name = "List"
-  pageRef = "list"
+  identifier = "code"
+  pre = "code"
+  name = "Coding"
+  pageRef = "coding"
   weight = 60
-
-[[main]]
-  name = "Blogs"
-  url = "https://harisheoran.hashnode.dev"
-  weight = 70
 
 [[main]]
   identifier = "github"
@@ -34,6 +33,13 @@
   name = "Github"
   url = "https://github.com/harisheoran"
   weight = 80
+
+[[main]]
+  identifier = "gitlab"
+  pre = "gitlab"
+  name = "GitLab"
+  url = "https://gitlab.com/harisheoran"
+  weight = 90
 
 [[footer]]
   name = "Contact me"
