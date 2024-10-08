@@ -5,7 +5,7 @@ draft: false
 description: ""
 ---
 ## Resume PDF
-{{< button href="https://drive.proton.me/urls/RKQMT4JF9G#yg7ArP9WRKyn" target="_blank" >}}
+{{< button href="https://drive.google.com/drive/folders/1VrtdpBS2Oet9A2dsCLxNIELQab9zOo1v?usp=sharing" target="_blank" >}}
 View Resume PDF
 {{< /button >}}
 
