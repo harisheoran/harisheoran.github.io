@@ -1,12 +1,11 @@
 ---
-title: "Scale Mesh"
+title: "Scale Mesh: A better Vercel alternative"
 date: 2024-09-29T06:00:37+01:00
 draft: false
 description: ""
 categories: ["AWS"]
 tags: []
 ---
-
 
 Scale Mesh, a platform to deploy your web apps with ease.
 
