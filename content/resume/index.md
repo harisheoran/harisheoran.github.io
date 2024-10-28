@@ -67,7 +67,7 @@ View Resume PDF
   <tr>
     <td><a href="https://rava.ai" target="_blank">Rava AI</a></td>
     <td>DevOps</td>
-    <td>Full Remote, San Francisco, CA</td>
+    <td>Fully Remote, San Francisco, CA</td>
   </tr>
 </table> 
 
