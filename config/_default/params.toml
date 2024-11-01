@@ -29,7 +29,7 @@ showComments = true
 
 [homepage]
   layout = "hero" # valid options: page, profile, hero, card, background, custom
-  homepageImage = "img/bg.png" # used in: hero, and card
+  homepageImage = "img/space.jpg" # used in: hero, and card
   showRecent = true
   showRecentItems = 12
   showMoreLink = true
