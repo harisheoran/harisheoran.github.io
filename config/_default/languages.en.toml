@@ -10,24 +10,22 @@ title = "Harish Sheoran"
   dateFormat = "2 January 2006"
   logo = "img/logo.png"
   #secondaryLogo = "img/me.jpg"
-  description = "Harish Sheoran, DevOps Engineer. Crafting seamless pipelines."
+  description = "Harish Sheoran, DevOps and Backend Engineer."
   copyright = "&copy; 2024 Harish Sheoran"
 
 [author]
   name = "Harish Sheoran"
-  image = "img/me.jpg"
-  headline = "DevOps Engineer"
-  bio = "DevOps Wizard | Crafting seamless pipelines 🧑‍💻"
+  image = "img/main.jpg"
+  headline = "DevOps & Backend Engineer"
+  bio = "DevOps Wizard"
   links = [
     { email = "mailto:harisheoran@protonmail.com" },
     { x-twitter = "https://twitter.com/harisheoran" },
     { linkedin = "https://linkedin.com/in/harisheoran" },
     { github = "https://github.com/harisheoran" },
     { gitlab = "https://gitlab.com/harisheoran" },  
-    { reddit = "https://www.reddit.com/user/pirate_sh/" },
     { hashnode = "https://harisheoran.hashnode.dev" },
     { dev = "https://dev.to/harisheoran" },
-    { mastodon = "https://mastodon.social/@harisheoran" },
     { youtube = "https://www.youtube.com/channel/UCkL3XhMfEA46NH57gVSb_Fw" },
     { rss = "https://harisheoran.github.io/index.xml"},
    ]

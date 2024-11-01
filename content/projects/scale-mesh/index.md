@@ -51,7 +51,7 @@ Main backend API, via which user interacts with the Web app.
 ### Working Flow
 - User Signup/login 
 - Save the user's web app project info(GitHub repo url, name) to deploy.
-- Deploy the web app.
+- Create the project and Deploy the web app.
 
 
 ### Structure 
