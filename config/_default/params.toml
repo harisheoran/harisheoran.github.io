@@ -28,7 +28,7 @@ showComments = true
   showScrollToTop = true
 
 [homepage]
-  layout = "hero" # valid options: page, profile, hero, card, background, custom
+  layout = "background" # valid options: page, profile, hero, card, background, custom
   homepageImage = "img/space.jpg" # used in: hero, and card
   showRecent = true
   showRecentItems = 12
