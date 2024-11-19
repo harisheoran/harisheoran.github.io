@@ -48,7 +48,7 @@ Hi, I’m Harish, a DevOps and Backend Engineer. I craft efficient CI/CD pipelin
     </tbody>
 </table>
 
-
+<!--
 <h3 align="left">Technolgies worked with</h3>
 <table>
     <thead>
@@ -75,7 +75,7 @@ Hi, I’m Harish, a DevOps and Backend Engineer. I craft efficient CI/CD pipelin
     </tbody>
 </table>
 <h5 align="right"><a href="https://harisheoran.github.io/resume/" target="_blank">View more</a></h5>
-
+-->
 
 {{< typeit 
   tag=h1
