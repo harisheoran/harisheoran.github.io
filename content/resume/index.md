@@ -56,3 +56,54 @@ View Resume PDF
     </tbody>
 </table>
 
+
+<h3 align="left">Technolgies worked with</h3>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=3><img class="skillicon" src="./go.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./k8s.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./aws.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./gcp.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./tf.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./postgres.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./linux.svg"/></td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr> 
+            <td rowspan=3><img class="skillicon" src="./docker.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./argo.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./grafana.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./github.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./gitlab.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./prom.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./redis.svg"/></td>
+        </tr>
+         <tr>
+        </tr>
+        <tr>
+        </tr>
+         <tr> 
+            <td rowspan=3><img class="skillicon" src="./git.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./vi.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./bash.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./postman.svg"/></td>
+            <td rowspan=3><img class="skillicon" src="./jenkins.svg"/></td>
+        </tr>
+    </tbody>
+</table>
