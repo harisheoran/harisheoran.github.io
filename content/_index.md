@@ -1,19 +1,59 @@
-Hi, I’m Harish, a DevOps and Backend Engineer. I craft efficient CI/CD pipelines, develop backend systems & CLI tools in Go, and automate infrastructure with tools like Kubernetes and Terraform to create seamless workflows.
-
+Hi, I’m Harish, a DevOps and Backend Engineer.
 <p class="py-1"></p>
     <p>
         <a class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
-        href="https://harisheoran.github.io/resume/" role="button">
-        Resume
+        href="https://drive.google.com/drive/folders/1VrtdpBS2Oet9A2dsCLxNIELQab9zOo1v?usp=sharing" target="_blank" role="button">
+        Resume 🔗
         </a>
         &nbsp;&nbsp;&nbsp;
         <a class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
         href="https://harisheoran.github.io/projects/" role="button">
-        Projects
+        Projects 👇
         </a>
 </p>
 
-<h3 align="left">Work Experience</h3>
+{{< typeit 
+  tag=h1
+  lifeLike=true
+>}}
+What I bring to the table?
+{{< /typeit >}}
+<h3 align="left">🚀 End-to-End DevOps Excellence</h3>
+<p align="left">I manage the entire DevOps lifecycle—from architecting scalable cloud infrastructures on AWS and GCP to automating deployments with tools like Terraform, Ansible, and Helm Charts. Whether it's setting up CI/CD pipelines with Jenkins, ArgoCD, or GitLab CI/CD, I streamline workflows to let teams focus on innovation.</p>
+{{< gallery >}}
+  <img src="./k8s.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./aws.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./gcp.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./docker.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./tf.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./argo.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./prom.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./grafana.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+<img src="./gitlab.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+<img src="./actions.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+{{< /gallery >}}
+
+<h3 align="left">💡 Backend Development</h3>
+<p align="left">I design and build robust APIs, CLI tools and backend systems using Go, tailored for performance and scalability.</p>
+{{< gallery >}}
+  <img src="./go.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./postgres.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./kafka.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./redis.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./git.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+{{< /gallery >}}
+
+
+<h3 align="left">⚙️ Kubernetes</h3>
+<p align="left">Skilled in deploying, managing, and optimizing Kubernetes clusters, I leverage the Kubernetes ecosystem to build and scale cloud-native applications efficiently.</p>
+{{< gallery >}}
+  <img src="./k8s.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+{{< /gallery >}}
+
+<h3 align="left">📈 For Startups, By Design</h3>
+<p align="left">I understand the unique needs of startups—efficiency, scalability, and innovation. I specialize in creating infrastructure and solutions that evolve as your company grows, helping you focus on building your vision.</p>
+
+<h1 align="left">Work Experience</h1>
 <table>
     <thead>
         <tr>
@@ -47,35 +87,6 @@ Hi, I’m Harish, a DevOps and Backend Engineer. I craft efficient CI/CD pipelin
         </tr>
     </tbody>
 </table>
-
-<!--
-<h3 align="left">Technolgies worked with</h3>
-<table>
-    <thead>
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan=3><img class="skillicons" src="./go.svg"/></td>
-            <td rowspan=3><img class="skillicons" src="./k8s.svg"/></td>
-            <td rowspan=3><img class="skillicons" src="./aws.svg"/></td>
-            <td rowspan=3><img class="skillicons" src="./gcp.svg"/></td>
-            <td rowspan=3><img class="skillicons" src="./tf.svg"/></td>
-            <td rowspan=3><img class="skillicons" src="./docker.svg"/></td>
-        </tr>
-    </tbody>
-</table>
-<h5 align="right"><a href="https://harisheoran.github.io/resume/" target="_blank">View more</a></h5>
--->
 
 {{< typeit 
   tag=h1
