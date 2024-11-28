@@ -9,7 +9,7 @@ mainSections = ["projects", "devops"]
 
 disableImageOptimization = true
 
-#defaultBackgroundImage = "img/profile.jpg" # used as default for background images 
+#defaultBackgroundImage = "img/profile.jpg" # used as default for background images
 # defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
 
 highlightCurrentMenuArea = true
@@ -28,8 +28,8 @@ showComments = true
   showScrollToTop = true
 
 [homepage]
-  layout = "background" # valid options: page, profile, hero, card, background, custom
-  homepageImage = "img/space.jpg" # used in: hero, and card
+  layout = "hero" # valid options: page, profile, hero, card, background, custom
+  homepageImage = "bg.png" # used in: hero, and card
   showRecent = true
   showRecentItems = 12
   showMoreLink = true

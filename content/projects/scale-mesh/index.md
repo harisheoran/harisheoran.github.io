@@ -14,14 +14,19 @@ Scale Mesh: A Vercel alternative.
 Features:
 1. It dynamically builds and hosts user web apps straight from GitHub repos.
 2. View the logs of your deployments.
-3. Build & deploy multiple web apps simultaneously from GitHub repos
+3. Build & deploy multiple web apps simultaneously from GitHub repos.
 
 ## Architecture
 ![](./featured.png)
 
-## Source Code 
+![](./scale-mesh-k8s.png)
+## Source Code
 {{< gitlab projectID="62119438" >}}
 
+
+There are two Architectures of Scale Mesh
+1. Build User's app using AWS ECS.
+2. Build User's app using Kubernetes Job.
 
 # ⚙️ Components:
 1. Build Server
@@ -41,6 +46,8 @@ It is a custom Docker container which uses the GitHub repo URL, clones it and th
 
 👉 So, the user can build  & deploy multiple apps simultaneously, and the load will not affect the primary server.
 
+You can also use Kubernetes Job task to build the web app and push to S3, if we are deploying our app in K8s, making it less dependent on AWS.
+
 
 ## 🙋API Server
 The main backend API is the one via which the user interacts with the platform.
@@ -51,25 +58,13 @@ The main backend API is the one via which the user interacts with the platform.
 ➡️Create single/multiple deployments from the project.
 ➡️Create the project and Deploy the web app.
 
-### Structure 
-- ***cmd/web/***
-Contains all the API and business logic.
-
-- ***pkg***
-Contains the ancillary non-application-specfic code, which could potentially be reused.
-
-- Contains the Database models and methods.
-
-### Endpoints of API server
-- ***GET*** ```/health``` to check health of the API.
-- ***POST*** ```/deploy``` to deploy the project.
-- ***POST*** ```/project``` to save the info of the project.
-- ***POST*** ```/user/signup``` to signup.
-- ***POST*** ```/user/login``` to login.
-- ***POST*** ```/user/logout``` to logout.
-
 ## 🧑‍💻Logging Pipeline
 The build-Server container pushes the logs to Redis using the pub/sub feature and a web socket server is subscribing to the Redis channel to view the logs.
 
 ## Deployment
 [Scale Mesh is deployed on Kubernetes Cluster.]()
+
+## Current Issues:
+1. User can start multiple build job task, so it should be handled in Message Queue.
+2. No logs database, can use Clickhouse DB.
+3. For sending logs in redis pub/sub, we can use Kafka.

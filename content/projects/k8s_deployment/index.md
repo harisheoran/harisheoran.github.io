@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes Production Deployment"
+title: "Kubernetes Production Deployment of Scale Mesh"
 date: 2024-10-29T06:00:37+01:00
 draft: false
 description: ""
@@ -7,12 +7,12 @@ categories: ["k8s", "eks"]
 tags: []
 ---
 
-Today, we are going to deploy an API on Kubernetes with production standards.
+Today, we are going to deploy Scale Mesh API on Kubernetes with production standards.
 
 We are going to deploy [Scale Mesh](https://harisheoran.github.io/projects/scale-mesh/), a vercel alternative to deploy your web apps with ease.
 
 <details>
-<summary> What we are going to learn during this deployment? 
+<summary> What we are going to learn during this deployment?
 </summary>
 <br>
 
@@ -41,7 +41,7 @@ This is a 2 tier application,
 - *postgres db* is the primary database.
 
 ## Prerequiste
-- Install 
+- Install
     - AWS CLI
     - eksctl
 
@@ -49,7 +49,7 @@ This is a 2 tier application,
 ![](./arch.png)
 
 ## Create a Kubernetes Cluster
-Create the Kubernetes cluster on your favourite cloud or even bare metal, I am choosing the 
+Create the Kubernetes cluster on your favourite cloud or even bare metal, I am choosing the
 AWS as I got some free credits :)
 
 We are using *eksctl* cli tool to create the cluste, but you can use another tools like *Terraform*.
@@ -70,7 +70,7 @@ Wait for a while... a liitle more while...
 
 
 ## Start Deploying
-{{< typeit 
+{{< typeit
   tag=h1
   lifeLike=true
 >}}
@@ -125,7 +125,7 @@ A PersistentVolume (PV) is a storage resource in Kubernetes that provides an abs
 
 
 #### Install the CSI driver on Cluster
-The CSI specification provides a standard that enables connectivity between storage systems and container orchestration (CO) platforms. 
+The CSI specification provides a standard that enables connectivity between storage systems and container orchestration (CO) platforms.
 
 - The Container Storage Interface (CSI) driver in Kubernetes is necessary for enabling dynamic provisioning and management of storage resources from various storage providers in a standardized and portable way.
 
@@ -155,7 +155,7 @@ helm install maindb bitnami/postgresql --version 15.5.37 --create-namespace --va
 
 IMAGE HERE
 
-### Create the IAM policy 
+### Create the IAM policy
 - Create and attach an IAM policy to eks Node Role with permissions to:
 	- EC3 Volumes permission to create and delete volumes
 	- Create and describe EC2 tags
@@ -164,7 +164,7 @@ So that out worker node have permission to access the volumes and create some ta
 
 ### Check the Postgres DB status
 
-### Deploy the API 
+### Deploy the API
 - Create the env secrets for the API.
 1. SESSION_SECRET
 2. DATABASE URI
@@ -180,7 +180,7 @@ kubectl apply -f api-server.yaml
 - ***Pods***
 Pods are the running specification of a container or multiple containers.
 - ***Deployment***
-Deployment is a workload resources which deploy the pods using replica set controller which ensure that the desired state of the pod is the actual state of pod in the cluster. 
+Deployment is a workload resources which deploy the pods using replica set controller which ensure that the desired state of the pod is the actual state of pod in the cluster.
 
 - ***Service***
 Service is a method for exposing a network application that is running as one or more Pods in your cluster.
@@ -194,7 +194,7 @@ Service is a method for exposing a network application that is running as one or
 In an Amazon EKS (Elastic Kubernetes Service) environment, the IAM OIDC (OpenID Connect) provider is crucial for enabling Kubernetes workloads to authenticate and securely interact with AWS services. why it's needed and what it does:
 
 - Fine-Grained Permissions for Pods:
-In a Kubernetes cluster, workloads running in Pods may need to access AWS services like S3, DynamoDB, Secrets Manager, or others. Using the OIDC provider, you can associate IAM roles with specific Kubernetes service accounts. 
+In a Kubernetes cluster, workloads running in Pods may need to access AWS services like S3, DynamoDB, Secrets Manager, or others. Using the OIDC provider, you can associate IAM roles with specific Kubernetes service accounts.
 
 ***How IAM role and K8s service account work together in EKS?***
 
@@ -236,7 +236,7 @@ Read more on how to set up Ingress Controller [here](https://docs.aws.amazon.com
 
 - Install the IAM policy
 ```
-curl -o iam-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.8.2/docs/install/iam_policy.json 
+curl -o iam-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.8.2/docs/install/iam_policy.json
 ```
 
 - Create the IAM policy
@@ -254,7 +254,7 @@ eksctl create iamserviceaccount \
 --name=aws-load-balancer-controller \
 --attach-policy-arn=arn:aws:iam::<AWS_ACCOUNT_ID>:policy/AWSLoadBalancerControllerIAMPolicy \
 --override-existing-serviceaccounts \
---region $REGION \      
+--region $REGION \
 --approve
 ```
 
@@ -289,10 +289,10 @@ kubectl logs -n kube-system -l app.kubernetes.io/name=aws-load-balancer-controll
 ```
 
 ### ERROR
-We got an error, as we need to run the ECS task from the EKS cluster, we didn't attach any role & permission to it. 
+We got an error, as we need to run the ECS task from the EKS cluster, we didn't attach any role & permission to it.
 
 ```
-handlers.go:89: Unable to Run the ECS TASK operation error ECS: RunTask, https response error StatusCode: 400, RequestID: 0d384199-4c27-4c57-b7f5-0bd0704fcae5, AccessDeniedException: 
+handlers.go:89: Unable to Run the ECS TASK operation error ECS: RunTask, https response error StatusCode: 400, RequestID: 0d384199-4c27-4c57-b7f5-0bd0704fcae5, AccessDeniedException:
 ```
 
 ***SOLUTION***:
