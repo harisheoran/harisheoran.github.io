@@ -12,7 +12,7 @@ Hi, I’m Harish, a DevOps and Backend Engineer.
         </a>
 </p>
 
-{{< typeit 
+{{< typeit
   tag=h1
   lifeLike=true
 >}}
@@ -50,8 +50,7 @@ What I bring to the table?
   <img src="./k8s.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
 {{< /gallery >}}
 
-<h3 align="left">📈 For Startups, By Design</h3>
-<p align="left">I understand the unique needs of startups—efficiency, scalability, and innovation. I specialize in creating infrastructure and solutions that evolve as your company grows, helping you focus on building your vision.</p>
+---
 
 <h1 align="left">Work Experience</h1>
 <table>
@@ -88,14 +87,9 @@ What I bring to the table?
     </tbody>
 </table>
 
-{{< typeit 
+{{< typeit
   tag=h1
   lifeLike=true
 >}}
 Check out my latest work 👇
 {{< /typeit >}}
-
-
-
-
-
