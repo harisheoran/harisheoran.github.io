@@ -10,13 +10,18 @@ Hi, I’m Harish, a DevOps and Backend Engineer.
         href="https://harisheoran.github.io/projects/" role="button">
         Projects 👇
         </a>
+        &nbsp;&nbsp;&nbsp;
+        <a class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+             href="https://harisheoran.github.io/projects/" role="button">
+            Watch streams 📺
+        </a>
 </p>
 
 {{< typeit
   tag=h1
   lifeLike=true
 >}}
-What I bring to the table?
+What Do I bring to the table?
 {{< /typeit >}}
 <h3 align="left">🚀 End-to-End DevOps</h3>
 <p align="left">I manage the entire DevOps lifecycle—from architecting scalable cloud infrastructures on AWS and GCP to automating deployments with tools like Terraform, Ansible, and Helm Charts. Whether it's setting up CI/CD pipelines with Jenkins, ArgoCD, or GitLab CI/CD, I streamline workflows to let teams focus on innovation.</p>
