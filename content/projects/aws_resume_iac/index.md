@@ -1,11 +1,12 @@
 ---
-title: "Creating Infrastructue on AWS using Terraform"
-date: 2024-03-29T09:00:37+01:00
+title: "Infrastructure as Code: Terraform-Powered Production-Grade deployment on AWS"
+date: 2024-03-15T09:00:37+01:00
 draft: false
 description: "Creating infratstructure on AWS using Terraform"
-categories: ["IaC"]
-tags: ["AWS", "Terraform"]
+categories: ["AWS", "Terraform"]
+tags: []
 ---
+Creating Infrastructue on AWS using Terraform.
 
 This project is part of AWS Resume Project. In this part we are going to create Infrastructure on AWS using ***Terraform***.
 
@@ -20,23 +21,23 @@ Workflow of the project -
 - Create an S3 bucket and Dynamo DB for remote backend with lock mechanism. Read this [blog](https://medium.com/@aaloktrivedi/configuring-a-terraform-remote-backend-with-s3-and-dynamodb-ebcefa8432ea)
 - Setup Hashicorp Vault.
     - Create EC2 instance, go to the [vault directory](https://github.com/harisheoran/AWS-Cloud-Resume/tree/main/vault) and create the infrastructure using Terraform.
-   
+
    ```terraform init && terraform apply ```
-    
+
     - Upload both scripts on the ec2 server
-    
+
     ``` scp -i <aws key pair> install_vault.sh vault.sh ubuntu@<ip address>:/home/ubuntu/ ```
-    
+
     - Change the permissions of both scripts
-    
+
     ``` chmod 700 install_vault.sh vault.sh ```
-    
-    - Execute the scripts in order  
+
+    - Execute the scripts in order
         1. ``` ./install_vault.sh```
         2. ``` ./vault.sh```
 
 - Create main resources, go to *iac* directory and apply the terraform
-   
+
   - Create ***terraform.tfvars*** and provide the values
 ```
 bucket_domain=""                # Domain name
@@ -54,7 +55,7 @@ env = ""                        # prod, dev, test
 - Initialize the terraform  ```terraform init```
 - Apply the terraform  ```terraform apply```
     - set *is_zone* to true for first time.
-    - Now copy output Nameservers and paste them in your Administrative DNS server(From which you bought the domain name). 
+    - Now copy output Nameservers and paste them in your Administrative DNS server(From which you bought the domain name).
     - now run again ```terraform apply``` and set *is_zone* to false to create rest of the resources.
 
 - Visit your Domain name.
@@ -70,7 +71,7 @@ env = ""                        # prod, dev, test
 
 2. Create a SSL/TLS certificate for website
     - Use AWS Certificate Manager (ACM)
-    - Create this in North Verginia region 
+    - Create this in North Verginia region
 
 3. Create Route 53 hosted zone and create CNAME record of certificate.
 
@@ -106,7 +107,7 @@ terraform plan
 terraform apply
 ```
 
-> Lets understand the Terraform practically by creating infra on AWS. 
+> Lets understand the Terraform practically by creating infra on AWS.
 
 - First, we need to initialize the terraform and provide it the cloud service on which we want to create infra.
 ```
@@ -171,7 +172,7 @@ terraform apply
 ![](./img/apply.png)
 
 ## Terraform State
-Terraform State is the brain of terraform, using the state it knows about all the resources it created. 
+Terraform State is the brain of terraform, using the state it knows about all the resources it created.
 Terraform create a state file after creating the resources, it records the logs of resources it has created.
 
 ### Terraform State working
@@ -294,7 +295,7 @@ Now, get the secret key and id (similiar to AWD secret key value)
 
 ## Conditionals in Terraform
 Why do we need to use conditionals?
-As I bought domain from another provider than AWS, so I have to create first Hosted zone and add Nameservers in my Hostinger Domain management, so that route 53 has permission to manage the DNS records for me. 
+As I bought domain from another provider than AWS, so I have to create first Hosted zone and add Nameservers in my Hostinger Domain management, so that route 53 has permission to manage the DNS records for me.
 
 ```
   count  = var.is_zone ? 0 : 1

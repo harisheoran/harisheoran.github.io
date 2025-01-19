@@ -1,11 +1,12 @@
 ---
-title: "3 tier MERN production web app Deployment"
-date: 2024-08-09T10:55:37+01:00
+title: "3 Tier MERN web app Deployment for Production"
+date: 2024-01-16T10:55:37+01:00
 draft: false
 description: "3 Tier MERN web app container deployment for Production."
-categories: ["prod", "docker", "CICD"]
-tags: ["3 tier"]
+categories: ["prod",]
+tags: ["3 tier", "docker", "CICD"]
 ---
+Deploying a three tier web application for production.
 
 > Web application code belongs to this [source](https://github.com/mohammad-taheri1/Book-Store-MERN-Stack)
 
@@ -75,7 +76,7 @@ CMD [ "node", "index.js" ]
 
 - Start the server, don't use npm run in prod.
 
-### Write Frontend Dockerfile 
+### Write Frontend Dockerfile
 
 In frontend we are using react, so we can build files which we can then serve in web server.
 
@@ -281,7 +282,7 @@ We want to build the code once merged to the *main* branch push the image to the
 > Docker doesn't have a dedicated tool like *Argo* to implement GitFlow
 
 ***Steps***
-- SSH into the AWS EC2 using an SSH action 
+- SSH into the AWS EC2 using an SSH action
     - Generate SSH Keys on your local machine.
     - Copy content of public key to AWS EC2 authorized_keys file.
     - Save content of private key in GitHub actions secret.
@@ -298,7 +299,7 @@ We want to build the code once merged to the *main* branch push the image to the
 Crete infra on AWS, see the [code here](https://github.com/harisheoran/3-tier-web-app-deployment/tree/cicd/iac-terraform)
 
 ## Set Up Nginx as Reverse Proxy with SSL certificate
-- Setup Nginx as a revere proxy 
+- Setup Nginx as a revere proxy
 ```
 server {
  server_name sparrowbit.co;
@@ -308,7 +309,7 @@ server {
  proxy_set_header X-Real-IP $remote_addr;
  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
  proxy_set_header X-Forwarded-Proto $scheme;
- } 
+ }
 }
 ```
 
@@ -322,7 +323,7 @@ server {
   - Solution: Don't store any sensitive info in the frontend site, store env in the backend.
 
 - GitHub Actions Caching to reduce build time.
-  - Solution: 
+  - Solution:
       - Use buildx to speed up the build process.
       - Use GitHub API cache to use a cache of the previous build process.
 

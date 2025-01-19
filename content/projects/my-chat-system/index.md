@@ -4,9 +4,8 @@ date: 2025-01-01T06:00:37+01:00
 draft: false
 description: "On-Premises Chat Application for Enterprises"
 categories: ["Go"]
-tags: []
+tags: ["kafka", "redis"]
 ---
-Product Introduction
 
 Introducing Chat System Enterprise, a cutting-edge, on-premises chat application designed specifically for companies that prioritize security, privacy, and control. It provides organizations with the ability to host their own private communication platform, ensuring sensitive data remains within their infrastructure. Tailored for corporate environments, it empowers teams to collaborate effectively while meeting strict compliance and security requirements.
 

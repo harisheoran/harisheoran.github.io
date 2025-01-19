@@ -1,13 +1,15 @@
 ---
-title: "OpsDock: Kubernetes DevOps Integration"
+title: "End to End DevOps Deployment: From CICD to orchestration with logging & monitoring"
 date: 2024-01-19T20:54:47+01:00
 draft: false
 description: "Deploying web application on k8s cluster using ArgoCD."
-categories: ["Kubernetes", "DevOps"]
-tags: ["k8s","minikube","github actions", "argocd", "docker", "go", "prometheus", "grafana"]
+categories: ["k8s", "DevOps"]
+tags: ["github actions", "argocd", "docker", "go", "prometheus", "grafana"]
 ---
 
-In this project, we'll dive into the practical world of code deployment, exploring the seamless integration of development and operations that powers modern software delivery. It focus on Kubernetes deployment. From transforming code into containerized brilliance to orchestrating the containers.
+In this project, we'll dive into the practical world of code deployment,
+exploring the seamless integration of development and operations that powers modern software delivery.
+It focus on Kubernetes deployment, from transforming code into containerized brilliance to orchestrating the containers.
 
 Here are project requirements.
 <details>
@@ -93,14 +95,14 @@ Follow these steps, explaining your choices and demonstrating the flow. This ass
 Assume there is no service in k8s, we created 3 pods using deployment, kubeproxy assign Dynamic IP address to each pod,
 ![](./k8s/service1.jpg)
 
-Let's say if one pod goes down, Replica set controller is actively looking for desired state and actual state and it automatically creates the pod, but this time it have a new IP address, so now user is now unable to connect to that pod as this pod have new IP address. 
+Let's say if one pod goes down, Replica set controller is actively looking for desired state and actual state and it automatically creates the pod, but this time it have a new IP address, so now user is now unable to connect to that pod as this pod have new IP address.
 
 ***Service*** comes into picture here and instead of assigning IP address to each pod, it assign IP to service and it access Pods via Service.
 
 
 Now we are using Service and all request are coming to its IP address, *wait*, what if one of the pod goes down, and Replica Set Controller creates the pod again, now how service identifies the newly created pod.
 
-***Service Discovery Mechanism*** 
+***Service Discovery Mechanism***
 This Mechanism assign labels to each pod and identifies them using selectors and even if they goes down, Replica Set Controller auto heal with same label again.
 
 ***Exposing to external world using Service***
@@ -114,7 +116,7 @@ This Mechanism assign labels to each pod and identifies them using selectors and
 
 
 ---
-## First build a simple Web server 
+## First build a simple Web server
 You can choose the language of your choice for this task, I am using the Go language.
 - Create a ***main.go*** file.
 
@@ -158,7 +160,7 @@ mkdir static
 touch index.html main.js
 ```
 
-- Run the website 
+- Run the website
 ```
 go run main.go
 ```
@@ -214,11 +216,11 @@ docker container run -d -p 4000:3000 --name memes-container memesoftheday-image
 Use ***Git*** to control the version of source code and push it to GitHub.
 
 ### Continuous Integration (CI)
-If you are a beginner to CI, so understand the problem first 
+If you are a beginner to CI, so understand the problem first
 - The Image of the application is present on your machine and let's say we are deploying our application on AWS or Azure -
   - we have to manually build and run the image every time we make changes to verify it.
   - and have to manually push the image to AWS or Azure.
-  
+
 > We don't like manual things, we are Engineers, Let's Automate it using the CI pipeline.
 
 #### What's the solution?
@@ -253,7 +255,7 @@ on:
   push:
     branches: ["main"]
 
-env: 
+env:
   REGISTRY: docker.io
   IMAGE_NAME: "memesoftheday-image"
 
@@ -270,7 +272,7 @@ jobs:
         with:
             username: ${{secrets.DOCKERHUB_USERNAME}}
             password: ${{secrets.DOCKERHUB_PASSWORD}}
-      
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
@@ -304,7 +306,7 @@ minikube start --driver=docker
 ```
 
 - [Install Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
-  
+
 - [Install ArgoCD operator](https://operatorhub.io/operator/argocd-operator)
 
 -  Create a new Argo CD cluster with the default configuration using this manifest file.
@@ -324,7 +326,7 @@ metadata:
 spec: {}
 ```
 
-ArgoCD is created as a service, you can verify using 
+ArgoCD is created as a service, you can verify using
 ```
 kubectl get svc
 ```
@@ -486,7 +488,7 @@ kubectl get svc
 
 visit your minikube ip with nodeport, in my case, it is - http://192.168.49.2:30007/
 
-## Monitoring 
+## Monitoring
 To monitor our k8s cluster, we use Prometheus and  Grafana.
 
 - Install Prometheus using Helm charts

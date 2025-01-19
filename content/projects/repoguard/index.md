@@ -1,16 +1,15 @@
 ---
-title: "Repoguard"
-date: 2024-06-08T09:00:37+01:00
+title: "Repoguard: Secure Your Repos, Manage Access Seamlessly."
+date: 2024-07-29T09:00:37+01:00
 draft: false
-description: "Monitor access of GitHub Repository access."
-categories: ["GO"]
+description: "Monitor access of GitHub Repository."
+categories: ["Go"]
 tags: ["CLI"]
 ---
-Repoguard is CLI tool built in Go language to monitor access of GitHub Repository access. 
+Repoguard is CLI tool built in Go language to monitor access of GitHub Repositories.
 
 ## Source Code
 {{< github repo="harisheoran/repoguard" >}}
-
 
 ### How to Install
 - Go to the [Release](https://github.com/harisheoran/repoguard/releases) section

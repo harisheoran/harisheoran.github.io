@@ -3,8 +3,8 @@ title: "AWS Cost Optimization"
 date: 2024-07-12T09:00:37+01:00
 draft: false
 description: "Cloud Optimization for AWS "
-categories: ["AWS"]
-tags: ["lambda", "Go"]
+categories: ["AWS", "Go"]
+tags: ["lambda"]
 ---
 
 ## AWS Cloud Cost Optimization: Monitoring and Eliminating Stale Resources
@@ -39,7 +39,7 @@ Let's take the above scenario in which at the end we have stale snapshots which 
 AWS provide AWS SDK for Go to interact with AWS resources.
 
 - [Install AWS SDK v2](https://aws.github.io/aws-sdk-go-v2/docs/getting-started/#install-the-aws-sdk-for-go-v2)
-- [Configure the ADK to send request](https://aws.github.io/aws-sdk-go-v2/docs/configuring-sdk/) 
+- [Configure the ADK to send request](https://aws.github.io/aws-sdk-go-v2/docs/configuring-sdk/)
 - [Install AWS Go lambda package](https://github.com/aws/aws-lambda-go)
 
 We mainly use AWS EC2 service, so refer to [EC2 service package](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ec2) for documentation.
@@ -124,7 +124,7 @@ func main() {
 
 ```zip lambda-handler.zip bootstrap```
 
-- Upload the zip file 
+- Upload the zip file
 ![](./zip.png)
 
 - Try to run it from the *test* section
@@ -132,11 +132,11 @@ func main() {
 
 After running, it failed, why? Let's check the logs.
 
-This is an error - 
+This is an error -
 ```
-ERROR operation error EC2: DescribeSnapshots, https response error StatusCode: 403, 
-RequestID: 63f1db48-7100-4025-88e4-b914523d871a, 
-api error UnauthorizedOperation: You are not authorized to perform this operation. 
+ERROR operation error EC2: DescribeSnapshots, https response error StatusCode: 403,
+RequestID: 63f1db48-7100-4025-88e4-b914523d871a,
+api error UnauthorizedOperation: You are not authorized to perform this operation.
 User: arn:aws:sts::637423604544:assumed-role/cost_optimization-role-el6aymo6/cost_optimization is not authorized to perform: ec2:DescribeSnapshots because no identity-based policy allows the ec2:DescribeSnapshots action
 ```
 

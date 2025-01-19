@@ -2,22 +2,42 @@
 title: "Coding..."
 date: 2024-07-12T06:54:47+01:00
 draft: false
-description: "My current list"
+description: "Coding..."
 ---
 
-{{< typeit 
+{{< typeit
   tag=h2
   lifeLike=true
 >}}
-My current building list 
+Watch on
 {{< /typeit >}}
+- ### {{< icon "youtube" >}} [Youtube](https://www.youtube.com/@harisheoran)
+- ### {{< icon "twitter" >}} [X Twitter](https://x.com/harisheoran)
 
-###
-- [ ] [cloud deployment and hosting platform for modern web applications]()
 
-### CLI Tools in Go
-- [x] [Todo CLI](https://github.com/harisheoran/todo-cli)
-- [x] [Markdown Preview CLI tool](https://github.com/harisheoran/mdp)
+## Building some cool stuff 👇
+{{< timeline >}}
 
-### From scratch
-- [ ] Create own container from scratch without using docker.
+{{< timelineItem icon="github" header="AWS Cost Optimization using Lambda." badge="Go" subheader="" >}}
+{{< youtubeLite id="K_JSu2qWrns" label="AWS Cost Optimization using Lambda." >}}
+
+{{< github repo="harisheoran/aws_cost_optimization" >}}
+{{< /timelineItem >}}
+
+{{< timelineItem icon="code" header="AWS Multi-tier Architecture Project" badge="AWS" subheader="" >}}
+{{< youtubeLite id="MBPYxxVa4PE" label="AWS Full stack Project" >}}
+-
+{{< youtubeLite id="lY32OYgLOy8" label="AWS Full stack Project" >}}
+-
+{{< youtubeLite id="2A-GpCL8EDo" label="AWS Full stack Project" >}}
+
+{{< github repo="harisheoran/AWS-Cloud-Resume" >}}
+{{< /timelineItem >}}
+
+{{< timelineItem icon="code" header="Code" badge="Go" >}}
+{{< youtubeLite id="TZ5fXzbPdCs" label="Todo CLI app" >}}
+{{< /timelineItem >}}
+
+
+
+{{< /timeline >}}

@@ -9,47 +9,40 @@
   weight = 20
 
 [[main]]
-  name = "DevOps"
-  pageRef = "devops"
+  name = "Blogs"
+  pageRef = "blogs"
   weight = 30
 
 [[main]]
   identifier = "code"
-  pre = "code"
+  pre = "youtube"
   name = "Coding"
   pageRef = "coding"
   weight = 40
-
-[[main]]
-  identifier = "github"
-  pre = "github"
-  name = "Github"
-  url = "https://github.com/harisheoran"
-  weight = 50
-
-[[main]]
-  identifier = "gitlab"
-  pre = "gitlab"
-  name = "GitLab"
-  url = "https://gitlab.com/harisheoran"
-  weight = 60
 
 [[main]]
   identifier = "envelope"
   pre = "envelope"
   name = "Contact"
   pageRef = "contact"
+  weight = 50
+
+[[main]]
+  identifier = "github"
+  pre = "github"
+  url = "https://github.com/harisheoran"
+  weight = 60
+
+[[main]]
+  identifier = "twitter"
+  pre = "x-twitter"
+  url = "https://x.com/harisheoran"
   weight = 70
 
 [[footer]]
   name = "Contact me"
   pageRef = "contact"
   weight = 10
-
-[[footer]]
-  name = "Blog"
-  url = "https://harisheoran.hashnode.dev"
-  weight = 20
 
 [[footer]]
   name = "Resume"

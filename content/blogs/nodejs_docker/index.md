@@ -1,6 +1,6 @@
 ---
 title: "Containerization of NodeJS app"
-date: 2023-11-15T20:55:37+01:00
+date: 2023-11-10T20:55:37+01:00
 draft: false
 description: "Docker and Node.js: A Love Story with Containers and Code (No Drama, Just Dockerama!)"
 categories: ["DevOps"]

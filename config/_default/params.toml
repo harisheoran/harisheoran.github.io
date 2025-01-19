@@ -1,10 +1,11 @@
 colorScheme = "blowfish"
-defaultAppearance = "dark" # valid options: light or dark
+defaultAppearance = "light" # valid options: light or dark
 autoSwitchAppearance = true
 
 enableSearch = true
 enableCodeCopy = true
-mainSections = ["projects", "devops"]
+mainSections = ["projects"]
+
 # robots = ""
 
 disableImageOptimization = true
@@ -93,13 +94,13 @@ showComments = true
   showBreadcrumbs = true
   showViews = false
   showLikes = false
-  showTableOfContents = false
+  showTableOfContents = true
   cardView = false
 
 [term]
   showHero = true
   # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
-  showBreadcrumbs = false
+  showBreadcrumbs = true
   showViews = false
   showLikes = false
   showTableOfContents = true

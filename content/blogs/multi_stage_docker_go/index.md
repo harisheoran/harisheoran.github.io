@@ -1,6 +1,6 @@
 ---
 title: "Multi-Stage Docker Build of GO web server"
-date: 2023-12-21T10:54:47+01:00
+date: 2023-11-15T10:54:47+01:00
 draft: false
 description: "Distroless Image of a simple GO web server."
 categories: ["DevOps"]
@@ -23,7 +23,7 @@ Enter the magic of multi-stage Docker builds. By breaking down the build process
 ![](o2.png)
 
 How do we build the image?
-We divide this image into 2 stages, 
+We divide this image into 2 stages,
 - Build Stage
 - Production Stage
 
@@ -66,7 +66,7 @@ CMD [ "./main" ]
 #### The Command That Did the Magic ✨
 Build the executable binary.
 
-``` 
+```
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 ```
 Breaking down the command:

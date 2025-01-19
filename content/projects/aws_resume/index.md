@@ -1,12 +1,13 @@
 ---
-title: "AWS Full Stack Resume Project"
-date: 2024-02-15T18:45:37+01:00
+title: "Enterprise-Grade Website Deployment: Advanced DevOps Practices on AWS"
+date: 2024-03-29T18:45:37+01:00
 draft: false
 description: "AWS Resume"
 categories: ["AWS"]
-tags: ["Cloudfront", "S3", "Route 53", "Dynamo DB", "GO", "AWS CodePipeline", "AWS CodeBuild", "AWS CodeDeploy", "AWS Systems Manager", "AWS Certificate Manager"]
+tags: ["Cloudfront", "S3", "Route 53", "Dynamo DB", "Go", "AWS CodePipeline", "AWS CodeBuild", "AWS CodeDeploy", "AWS Systems Manager", "AWS Certificate Manager"]
 ---
-## Version v1.0.0
+
+End-to-End Production-Grade Deployment: Advanced DevOps Practices on AWS
 
 ![](./featured.png)
 
@@ -90,7 +91,7 @@ It also offers features such as SSL/TLS encryption, access controls, and real-ti
 
 
 - Create Cloudfront Distribution
-Follow this [blog](https://blog.tericcabrel.com/host-static-website-aws-s3-cloudfront/) 
+Follow this [blog](https://blog.tericcabrel.com/host-static-website-aws-s3-cloudfront/)
 After creating the CDN, add the Bucket policy (CDN will provide you after creating it) to S3 bucket, so that you can not view content of S3 bucket without bypassing the CDN.
 - Create CNAME record with SSL certificate while creating the CDN, so it can use HTTPS protocol.
 
@@ -163,10 +164,10 @@ EXPOSE 4000
 ENTRYPOINT [ "./build/main" ]
 ```
 
-***My learning & mistakes during building docker image*** 
+***My learning & mistakes during building docker image***
 - Localhost is the localhost of docker itself not the host machine.
 - Multistage Docker build issue - Can't access the shell of container.
-- Docker Volume helps a lot 
+- Docker Volume helps a lot
     - In development to sync local directory with container
     - Named Volume (Anonymous Volumes) help in not syncing the container's specific directory
 
@@ -175,7 +176,7 @@ ENTRYPOINT [ "./build/main" ]
 ```
  docker container run -v $(pwd):/app -v name:/app/main -d -p 4000:4000 --env-file ./.env view_api_img
 ```
-- Checking the logs of the container. 
+- Checking the logs of the container.
 - Setting the environment for container.
 
 ### CI pipline using AWS CodeBuild
@@ -185,20 +186,20 @@ ENTRYPOINT [ "./build/main" ]
 - Create a Group for the project and attach the policy for *AWS CODEBUILD* full access.
 - Creae a user and add to the group and attach Policies.
     - List IAM Role (To attach it in Code build service role)
-    - To pass a role to a service (here we are giving role to our CodeBuild service). 
-        
+    - To pass a role to a service (here we are giving role to our CodeBuild service).
+
 - ***Pipeline***: Checkout the code from Github Repository and use Dockerfile to build the image and push to Docker Hub using Docker Credentials.
 - Connect to the Github account.
 -  Need a Service Role -
     - WHY? : So that CodeBuild can perform action on your behalf.
-    - How it works: First for which service you need this role and give it permission(Attach policies) for what it is going to do like in our case it need to access *AWS Systems Manager Parameter store*. 
+    - How it works: First for which service you need this role and give it permission(Attach policies) for what it is going to do like in our case it need to access *AWS Systems Manager Parameter store*.
 
 
 - ***Buildspec file***: Define how your CI is going to do.
 
     Steps:
     - Login to Docker Hub, build the image and push the image
-    - Credentials: Store them in *AWS Systems Manager Parameter store*. 
+    - Credentials: Store them in *AWS Systems Manager Parameter store*.
     - Logs are very important, so use the *Cloudwatch* logs.
     - Store this file in root directory.
 
@@ -231,14 +232,14 @@ ENTRYPOINT [ "./build/main" ]
 
 > Is it looking for change in the codebase?
 > Is it invoked by AWS Pipeline?
-    
+
 - Create Target Compute > EC2 instance.
 - First, go to CodeDeploy > Applications > Create application and create an application, choose the EC2 as compute platform.
 - Create Deployment Group.
 - Install the [CodeDeploy agent](https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-ubuntu.html) on EC2.
 - Why do we need CodeDeploy agent? ; It automates code deployments to any instance, including Amazon EC2 instances and instances running on EC2.
 - Attach **Tags** to the EC2 instance. WHY? : Create all the resources of one project under one tag, helps in filtering the AWS resources. Here, we need tag for the code deploy service to id the target EC2 instance, we can assign single or multiple ec2 instances using tags.
-- Now, we need a permissions - 
+- Now, we need a permissions -
     - As, our target EC2 instance going to talk to Code Depoly and vice versa.
     - So, create two service roles, for Code Deploy and EC2.
 
@@ -283,27 +284,27 @@ go run migrations/migrations.go
 
 1. **AWS CodeBuild**
     CodeDeploy agent was not able to receive the lifecycle event. Check the CodeDeploy agent logs on your host and make sure the agent is running and can connect to the CodeDeploy server.
-    
-    **SOLUTION**: 
+
+    **SOLUTION**:
     - Check Logs at /var/log/aws/codedeploy-agent
     - Restart codedeploy agent service
     - Check IAM role policies for Code Deploy and EC2
-       
+
 2. **AWS CodePipeline**
     Unable to create role
     - for primary source and source version arn:aws:s3:::codepipeline-ap-south-1-972545925755/view_tracking_pipeli/SourceArti/Od8R23
-                    
-    **SOLUTION**: 
+
+    **SOLUTION**:
     - https://docs.aws.amazon.com/codepipeline/latest/userguide/troubleshooting.html#codebuild-role-connections
-                            
+
     - https://stackoverflow.com/questions/64300151/aws-codebuild-failed-client-error-authorization-failed-for-primary-source-and-s
-                    
-    
+
+
 3. **AWS CodeDeploy** during running the CodePipeline
     Same Issue with Code Deploy - Unable to access the artifact with Amazon S3 object key 'view_tracking_pipeli/BuildArtif/mOIyXyD' located in the Amazon S3 artifact bucket 'codepipeline-ap-south-1-972545925755'. The provided role does not have sufficient permissions.
 
     **SOLUTION**:
-    - Uploading Build Artifact Error - https://medium.com/@shanikae/insufficient-permissions-unable-to-access-the-artifact-with-amazon-s3-247f27e6cdc3           
+    - Uploading Build Artifact Error - https://medium.com/@shanikae/insufficient-permissions-unable-to-access-the-artifact-with-amazon-s3-247f27e6cdc3
 
 4. **Cache Invalidation issue of CloudFront**
     Cache Invaildation Issue: Latest changes are unavailable to the users because the contents are cached at the CloudFront edge locations. The default caching policy keeps the contents cached for up to 24 hours (TTL).
@@ -326,11 +327,11 @@ go run migrations/migrations.go
 
 **QUESTIONS**
 - Why do we need the Deployment Groups?
-- Why do we need to upload Artifacts to S3 bucket during AWS CodePipeline 
+- Why do we need to upload Artifacts to S3 bucket during AWS CodePipeline
 
 ---
 
-#### Blogs refrences 
+#### Blogs refrences
 - [AWS Refrence for hosting simple static Website using S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
 
 - [DNS & Route 53](https://dev.to/aws-builders/understanding-dns-and-amazons-route-53-cloud-service-a-beginners-introduction-4jkc)

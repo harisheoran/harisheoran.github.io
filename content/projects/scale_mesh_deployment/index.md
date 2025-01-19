@@ -2,11 +2,10 @@
 title: "Kubernetes Production Deployment of Scale Mesh"
 date: 2024-10-29T06:00:37+01:00
 draft: false
-description: ""
-categories: ["k8s", "eks"]
-tags: []
+description: "Kubernetes Production Deployment of Scale Mesh"
+categories: ["k8s", "aws"]
+tags: ["eks", ]
 ---
-
 Today, we are going to deploy Scale Mesh API on Kubernetes with production standards.
 
 We are going to deploy [Scale Mesh](https://harisheoran.github.io/projects/scale-mesh/), a vercel alternative to deploy your web apps with ease.
