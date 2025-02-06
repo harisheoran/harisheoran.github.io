@@ -16,7 +16,19 @@ Watch on
 
 
 ## Building some cool stuff 👇
+
 {{< timeline >}}
+
+{{< timelineItem icon="youtube" header="Scale Mesh: A better Vercel alternative" badge="Go" subheader="" >}}
+{{< youtubeLite id="OGUgLcy_YS0" label="Scale Mesh" >}}
+{{< gitlab projectID="62119438" >}}
+{{< /timelineItem >}}
+
+{{< timelineItem icon="youtube" header="Scale Mesh: A better Vercel alternative" badge="Go" subheader="" >}}
+{{< youtubeLite id="OGUgLcy_YS0" label="Scale Mesh" >}}
+{{< gitlab projectID="62119438" >}}
+{{< /timelineItem >}}
+
 
 {{< timelineItem icon="github" header="AWS Cost Optimization using Lambda." badge="Go" subheader="" >}}
 {{< youtubeLite id="K_JSu2qWrns" label="AWS Cost Optimization using Lambda." >}}
@@ -34,7 +46,7 @@ Watch on
 {{< github repo="harisheoran/AWS-Cloud-Resume" >}}
 {{< /timelineItem >}}
 
-{{< timelineItem icon="code" header="Code" badge="Go" >}}
+{{< timelineItem icon="code" header="To Do CLI Application" badge="Go" >}}
 {{< youtubeLite id="TZ5fXzbPdCs" label="Todo CLI app" >}}
 {{< /timelineItem >}}
 

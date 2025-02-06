@@ -32,6 +32,11 @@ We are going to deploy [Scale Mesh](https://harisheoran.github.io/projects/scale
 15. OIDC
 </details>
 
+
+## 📺 Watch on Youtube
+- {{< youtube id="tM6dKOAnxqs" autoplay="true" >}}
+- {{< youtube id="kc3xqzvN7DA" autoplay="false" >}}
+
 ## About API
 
 ### Application Structure

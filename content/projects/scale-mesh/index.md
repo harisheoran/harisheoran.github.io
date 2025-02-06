@@ -23,6 +23,10 @@ Features:
 ## Source Code
 {{< gitlab projectID="62119438" >}}
 
+## 📺 Demo
+- {{< youtube id="tM6dKOAnxqs" autoplay="true" >}}
+- {{< youtube id="kc3xqzvN7DA" autoplay="false" >}}
+
 There are two Architectures of Scale Mesh
 1. Build User's app using AWS ECS.
 2. Build User's app using Kubernetes Job.
