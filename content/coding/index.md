@@ -19,8 +19,13 @@ Watch on
 
 {{< timeline >}}
 
-{{< timelineItem icon="youtube" header="Scale Mesh: A better Vercel alternative" badge="Go" subheader="" >}}
-{{< youtubeLite id="OGUgLcy_YS0" label="Scale Mesh" >}}
+{{< timelineItem icon="youtube" header="Multi-threaded Proxy server " badge="Go" subheader="" >}}
+{{< youtubeLite id="7NFOJhJmL60" label="Scale Mesh" >}}
+{{< github repo="harisheoran/multi-threaded-proxy-server" >}}
+{{< /timelineItem >}}
+
+{{< timelineItem icon="youtube" header="Kubernetes Deployment" badge="k8s" subheader="" >}}
+{{< youtubeLite id="kc3xqzvN7DA" label="Scale Mesh" >}}
 {{< gitlab projectID="62119438" >}}
 {{< /timelineItem >}}
 
@@ -28,11 +33,9 @@ Watch on
 {{< youtubeLite id="OGUgLcy_YS0" label="Scale Mesh" >}}
 {{< gitlab projectID="62119438" >}}
 {{< /timelineItem >}}
-
 
 {{< timelineItem icon="github" header="AWS Cost Optimization using Lambda." badge="Go" subheader="" >}}
 {{< youtubeLite id="K_JSu2qWrns" label="AWS Cost Optimization using Lambda." >}}
-
 {{< github repo="harisheoran/aws_cost_optimization" >}}
 {{< /timelineItem >}}
 

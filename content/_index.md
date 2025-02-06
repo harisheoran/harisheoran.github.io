@@ -23,6 +23,15 @@ Hi, I’m Harish, a DevOps and Backend Engineer.
 >}}
 What Do I bring to the table?
 {{< /typeit >}}
+<h3 align="left">🔧 Backend Systems</h3>
+<p align="left">I design and build robust APIs, CLI tools and backend systems using Go, tailored for performance and scalability.</p>
+{{< gallery >}}
+  <img src="./go.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./postgres.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./kafka.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./redis.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+  <img src="./git.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
+{{< /gallery >}}
 <h3 align="left">🚀 End-to-End DevOps</h3>
 <p align="left">I manage the entire DevOps lifecycle—from architecting scalable cloud infrastructures on AWS and GCP to automating deployments with tools like Terraform, Ansible, and Helm Charts. Whether it's setting up CI/CD pipelines with Jenkins, ArgoCD, or GitLab CI/CD, I streamline workflows to let teams focus on innovation.</p>
 {{< gallery >}}
@@ -37,17 +46,6 @@ What Do I bring to the table?
 <img src="./gitlab.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
 <img src="./actions.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
 {{< /gallery >}}
-
-<h3 align="left">💡 Backend Systems</h3>
-<p align="left">I design and build robust APIs, CLI tools and backend systems using Go, tailored for performance and scalability.</p>
-{{< gallery >}}
-  <img src="./go.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
-  <img src="./postgres.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
-  <img src="./kafka.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
-  <img src="./redis.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
-  <img src="./git.svg" class="grid-w10 md:grid-w10 xl:grid-w10" />
-{{< /gallery >}}
-
 
 <h3 align="left">📈 Scaling</h3>
 <p align="left">Skilled in deploying, managing, and optimizing Kubernetes clusters, I leverage the Kubernetes ecosystem to build and scale cloud-native applications efficiently.</p>
@@ -74,7 +72,7 @@ What Do I bring to the table?
             <td rowspan=3><a href="https://rava.ai" target="_blank">Rava AI</a></td>
         </tr>
         <tr>
-            <td>DevOps Consultant</td>
+            <td>DevOps Engineer</td>
             <td>September 2024 - Present</td>
             <td rowspan=2>Fully Remote, San Francisco, CA</br></td>
         </tr>

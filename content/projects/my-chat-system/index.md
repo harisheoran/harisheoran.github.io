@@ -13,7 +13,7 @@ Introducing Chat System Enterprise, a cutting-edge, on-premises chat application
 {{< github repo="harisheoran/my-chat-system" >}}
 
 ## Architectue
-![](./featured.png)
+![](./arch.png)
 
 ## **Product Description**
 
