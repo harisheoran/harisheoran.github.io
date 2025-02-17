@@ -8,7 +8,12 @@ tags: ["tcp"]
 ---
 
 ## Multi-threaded Proxy server
-It is a multi-threaded forward proxy server built in Go.
+A multi-threaded forward proxy server in Go using low-level socket connections to handle concurrent
+client requests efficiently.
+- Caching: Build in-memory LRU cache to store and serve frequently accessed response
+- Scalability: Integrated LRU cache with mutexes for thread safety and semaphore-based concurrency control
+(buffered channels) to manage request limits
+- Technical Stack: Go, HTTP, TCP/IP, Concurrency, Channels, Mutex.
 
 ## 🚀 Features
 - HTTP proxy Support
