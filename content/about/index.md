@@ -12,14 +12,14 @@ View Resume PDF
 
 ## About
 
-🚀 Hello, I’m Harish, a DevOps Engineer by day, Go Developer by...well, also by day (and sometimes night 😄).  I’m passionate about backend development, building robust CLI tools, Cloud Native applications crafting seamless pipelines, and taming Kubernetes clusters, all while automating the boring stuff so teams can focus on what they do best.  From orchestrating clouds on AWS and GCP to taming Kubernetes clusters and Docker swarms, I live for the challenge of turning chaos into efficiency.
 
-⚙️ I work with all the cool tools—Terraform and Ansible for Infrastructure as Code, Jenkins, ArgoCD, GitLab CI/CD, GitHub Actions for CI/CD, and Helm Charts for those days when K8s feels like a puzzle. Whether it’s crafting scripts in Go or building robust backend systems and APIs, I love working at the intersection of code and ops.
+I’m Harish, a software engineer with a passion for building scalable and efficient systems. With experience in software development and DevOps, I thrive on turning complex challenges into streamlined solutions.
 
-💻 Linux is my daily driver, and automation is my game. I'm also into open-source, LLMs, and hardware servers—anything that lets me geek out over new tech and make life a little smoother.
+I love diving into backend development, creating robust CLI tools, crafting seamless pipelines, and taming Kubernetes clusters. Automation is my game—I believe in automating the boring stuff so teams can focus on what they do best.
 
-🏏 When I’m not wrangling servers, you can find me on the cricket field, playing as a right-handed batsman and spinner. Whether it’s engineering a perfect CI/CD pipeline or spinning a cricket ball, precision is key!
+My toolkit includes cloud platforms like AWS and GCP, containerization with Docker, and orchestration with Kubernetes. I’m well-versed in Infrastructure as Code using Terraform and Ansible, and I enjoy setting up CI/CD pipelines with tools like Jenkins, ArgoCD, GitLab CI/CD, and GitHub Actions. When Kubernetes feels like a puzzle, I turn to Helm Charts to simplify deployments.
 
+Beyond engineering, I’m a Linux enthusiast and love exploring open-source projects, large language models, and hardware servers. When I’m not wrangling servers, you can find me on the 🏏cricket field, bringing my strategic mindset and team spirit to the game as a right-handed batsman and medium pacer.
 
 <h3 align="left">Work Experience</h3>
 <table>
