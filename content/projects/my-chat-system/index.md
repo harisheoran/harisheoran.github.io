@@ -15,6 +15,9 @@ Introducing Chat System Enterprise, a cutting-edge, on-premises chat application
 ## Architectue
 ![](./arch.png)
 
+## 📺 Watch full demo
+- {{< youtube id="3VH_a8ZZW0A" autoplay="true" >}}
+
 ## **Product Description**
 
 Chat System Enterprise is a high-performance communication platform built to handle the demands of modern businesses. Engineered with scalability and reliability in mind, it features:

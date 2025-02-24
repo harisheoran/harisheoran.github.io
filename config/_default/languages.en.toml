@@ -10,13 +10,13 @@ title = "Harish Sheoran"
   dateFormat = "2 January 2006"
   logo = "img/logo.png"
   #secondaryLogo = "img/me.jpg"
-  description = "Harish Sheoran, Backend & DevOps Engineer."
+  description = "Harish Sheoran, Engineer."
   copyright = "&copy; 2025 Harish Sheoran"
 
 [author]
   name = "Harish Sheoran"
-  image = "img/main.jpg"
-  headline = "Backend & DevOps Engineer"
+  image = "img/profile.jpg"
+  headline = "Engineer"
   bio = "Engineer"
   links = [
     { email = "mailto:harisheoran@protonmail.com" },

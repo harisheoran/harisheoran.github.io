@@ -4,7 +4,7 @@ date: 2025-02-15T06:00:37+01:00
 draft: false
 description: "Redis built from scratch"
 categories: ["Go", "Redis"]
-tags: ["Go"]
+tags: [""]
 ---
 
 Redis built from scratch in Go.
