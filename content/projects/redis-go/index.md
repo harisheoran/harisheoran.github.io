@@ -6,30 +6,37 @@ description: "Redis built from scratch"
 categories: ["Go", "Redis"]
 tags: [""]
 ---
-
 Redis built from scratch in Go.
+## Core Features
+- **In-memory KEY VALUE store**
+- **RESP Protocol**: [Redis Serialization Protocol](https://redis.io/docs/latest/develop/reference/protocol-spec/)
+- **Core Commands**: ```GET```, ```SET```, ```ECHO```, and ```PING```.
+- **Passive Expiry**: Redis' passive expiry mechanism, ensuring automatic removal of expired keys upon access.
+- **RDB Persistence**: [Redis Database Files](https://rdb.fnordig.de/file_format.html) persistence for data persistence.
+- **Handle Concurrent Clients**
 
+## Commands
+- ```GET``` get the VALUE using the KEY
+- ```SET``` save the KEY VALUE pair data
+- ```PING``` to check the health of Redis server
+- ```SAVE``` save the in-memory data to .rdb file
+
+## In Progress
+- Redis Replication
+- Redis Stream
+- Redis Transaction
+- Redis Pub/Sub
 
 ## Source Code
 {{< github repo="harisheoran/redis-go" >}}
 
-## Workflow
+## Workflows
+### High Level Workflow
 ![](./arch01.png)
 
-## Features
-- ### RESP Protocol Support:
-Fully implemented the Redis Serialization Protocol ```(RESP)```,
-supporting both reading and writing.
+### RDB Persistence Workflow
+![](./arch02.png)
 
-- ### Core Commands:
-Currently supports essential Redis commands, including ```GET```, ```SET```, ```ECHO```, and ```PING```.
-
-- ### Passive Expiry:
-Implements Redis' passive expiry mechanism, ensuring automatic removal of expired keys upon access.
-
-- ### Persistence with RDB:
-Supports Redis Database ```(RDB)``` persistence for data persistence.
-
-
-
-> Currently this project is in progeress...
+## Working Demos
+### RDB Persistence
+{{< youtube id="e74vUgVwgTU" autoplay="true" >}}
