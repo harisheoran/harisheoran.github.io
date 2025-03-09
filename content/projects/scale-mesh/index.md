@@ -18,8 +18,7 @@ Features:
 
 ## Architecture
 ![](./featured.png)
-
-![](./scale-mesh-k8s.png)
+![](./arch.png)
 ## Source Code
 {{< gitlab projectID="62119438" >}}
 

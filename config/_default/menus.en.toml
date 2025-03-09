@@ -1,6 +1,6 @@
 [[main]]
-  name = "About"
-  pageRef = "about"
+  name = "Resume"
+  pageRef = "resume"
   weight = 10
 
 [[main]]
@@ -14,50 +14,65 @@
   weight = 30
 
 [[main]]
-  identifier = "code"
-  pre = "youtube"
-  name = "Coding"
-  pageRef = "coding"
-  weight = 40
-
-[[main]]
   identifier = "envelope"
   pre = "envelope"
   name = "Contact"
   pageRef = "contact"
-  weight = 50
+  weight = 40
 
 [[main]]
   identifier = "github"
   pre = "github"
   url = "https://github.com/harisheoran"
-  weight = 60
+  weight = 50
 
 [[main]]
   identifier = "twitter"
   pre = "x-twitter"
   url = "https://x.com/harisheoran"
+  weight = 60
+
+[[main]]
+  identifier = "yt"
+  pre = "youtube"
+  url = "https://www.youtube.com/channel/UCkL3XhMfEA46NH57gVSb_Fw"
   weight = 70
+
+[[main]]
+  identifier = "linkedin"
+  pre = "linkedin"
+  url = "https://linkedin.com/in/harisheoran"
+  weight = 80
 
 [[footer]]
   name = "Contact me"
+  pre = "envelope"
   pageRef = "contact"
   weight = 10
 
 [[footer]]
-  name = "Resume"
-  pageRef = "resume"
+  name = "Watch Live Streams"
+  pre = "youtube"
+  url = "https://www.youtube.com/@harisheoran"
+  weight = 20
+
+[[footer]]
+  identifier = "github"
+  pre = "github"
+  url = "https://github.com/harisheoran"
   weight = 30
 
 [[footer]]
-   name = "Tags"
-   pageRef = "tags"
-   weight = 40
+  identifier = "twitter"
+  pre = "x-twitter"
+  url = "https://x.com/harisheoran"
+  weight = 30
 
 [[footer]]
-   name = "Categories"
-   pageRef = "categories"
-   weight = 50
+  identifier = "linkedin"
+  pre = "linkedin"
+  url = "https://linkedin.com/in/harisheoran"
+  weight = 40
 
 #[[main]]
 #  name = "example sub-menu 1"

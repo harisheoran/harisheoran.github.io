@@ -1,5 +1,5 @@
 ---
-title: "Redis-Go"
+title: "Redis-Go: Redis built from scratch in Go"
 date: 2025-02-15T06:00:37+01:00
 draft: false
 description: "Redis built from scratch"
@@ -40,3 +40,6 @@ Redis built from scratch in Go.
 ## Working Demos
 ### RDB Persistence
 {{< youtube id="e74vUgVwgTU" autoplay="true" >}}
+
+### Master-Slave Replication
+{{< youtube id="KLDuPfg6lVs" autoplay="true" >}}
