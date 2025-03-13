@@ -35,27 +35,46 @@ description: ""
         .email-contact a:hover {
             background-color: #2c3e50; /* Light mode hover */
         }
-        .socials {
+        .connect-me-section {
+            text-align: left;
+        }
+        .connect-me-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .connect-me-links {
             display: flex;
+            justify-content: left;
+            gap: 15px;
             flex-wrap: wrap;
-            gap: 20px;
         }
-        .socials a {
-            display: flex;
-            align-items: center;
+        .connect-youtube-link,
+        .connect-twitter-link,
+        .connect-linkedin-link,
+        .connect-github-link {
             text-decoration: none;
-            color: #34495e; /* Light mode social text */
-            font-size: 1.1em;
-            transition: color 0.3s;
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            color: #a7a7a7 ;
+            font-size: 16px;
+            transition: background-color 0.3s, border-color 0.3s;
         }
-        .socials a img {
-            width: 24px;
-            height: 24px;
+        .connect-youtube-link:hover,
+        .connect-twitter-link:hover,
+        .connect-linkedin-link:hover,
+        .connect-github-link:hover {
+            background-color: #f0f0f0;
+            border-color: #999;
+        }
+
+        .connect-icon-youtube,
+        .connect-icon-twitter,
+        .connect-icon-linkedin,
+        .connect-icon-github {
             margin-right: 8px;
         }
-        .socials a:hover {
-            color: #2c3e50;
-        }
+
         /* Dark Mode Adjustments */
         @media (prefers-color-scheme: dark) {
             body {
@@ -65,7 +84,7 @@ description: ""
             h1 {
                 color: #e0e0e0;
             }
-            .section h2 {
+            h2 {
                 color: #b0b0b0; /* Slightly lighter gray for subheadings */
             }
             .email-contact a {
@@ -73,12 +92,6 @@ description: ""
             }
             .email-contact a:hover {
                 background-color: #357abd; /* Darker shade on hover */
-            }
-            .socials a {
-                color: #b0b0b0; /* Lighter gray for social text */
-            }
-            .socials a:hover {
-                color: #e0e0e0; /* Brighten on hover */
             }
         }
     </style>
@@ -90,23 +103,25 @@ description: ""
     </div>
     <div class="section connect">
         <h2>Connect with Me</h2>
-        <div class="socials">
-            <a href="https://github.com/harisheoran" target="_blank">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
-                    GitHub
-            </a>
-            <a href="https://x.com/harisheoran" target="_blank">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" alt="Twitter">
+        <section class="connect-me-section">
+            <div class="connect-me-links">
+                <a href="https://x.com/harisheoran" target="_blank" class="connect-twitter-link">
+                    {{< icon "x-twitter" >}}
                     Twitter
-            </a>
-            <a href="https://linkedin.com/in/harisheoran" target="_blank">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-                LinkedIn
-            </a>
-            <a href="https://www.youtube.com/channel/UCkL3XhMfEA46NH57gVSb_Fw" target="_blank">
-                {{< icon "youtube" >}}
+                </a>
+                <a href="https://linkedin.com/in/harisheoran" target="_blank" class="connect-linkedin-link">
+                    {{< icon "linkedin" >}}
+                    LinkedIn
+                </a>
+                <a href="https://github.com/harisheoran" target="_blank" class="connect-github-link">
+                    {{< icon "github" >}}
+                     GitHub
+                </a>
+                <a href="https://youtube.com/@harisheoran" target="_blank" class="connect-youtube-link">
+                    {{< icon "youtube" >}}
                     YouTube
-            </a>
-        </div>
+                </a>
+            </div>
+        </section>
     </div>
 </body>

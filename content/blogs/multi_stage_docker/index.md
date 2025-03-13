@@ -10,6 +10,22 @@ tags: ["Docker"]
 Multi-Stage Docker Build or Distroless Image is a concept of creating image in multiple stages.
 
 We build a docker image of a simple go web server using the concept of multi-stage docker build.
+```
+func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Go Web Server")
+	})
+
+	port := 3000
+	fmt.Printf("Server is listening on 3000")
+	err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+
+	if err != nil {
+		fmt.Printf("Error: ", err)
+	}
+}
+```
+
 ![](o1.png)
 
 ### The Evolution: From 815MB to 6.71MB 🚀

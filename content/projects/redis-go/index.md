@@ -42,4 +42,4 @@ Redis built from scratch in Go.
 {{< youtube id="e74vUgVwgTU" autoplay="true" >}}
 
 ### Master-Slave Replication
-{{< youtube id="KLDuPfg6lVs" autoplay="true" >}}
+{{< youtube id="KLDuPfg6lVs" autoplay="false" >}}
