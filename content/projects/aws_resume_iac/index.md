@@ -3,7 +3,7 @@ title: "Infrastructure as Code: Terraform-Powered Production-Grade deployment on
 date: 2024-03-15T09:00:37+01:00
 draft: false
 description: "Creating infratstructure on AWS using Terraform"
-categories: ["AWS", "Terraform"]
+categories: ["aws", "terraform"]
 tags: []
 ---
 Creating Infrastructue on AWS using Terraform.

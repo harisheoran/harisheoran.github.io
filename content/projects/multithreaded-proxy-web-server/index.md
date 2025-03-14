@@ -29,7 +29,7 @@ client requests efficiently.
 [Download the v1.0.1](https://github.com/harisheoran/multi-threaded-proxy-server/releases/tag/v1.0.1)
 
 ## 📺 Watch full demo
-- {{< youtube id="7NFOJhJmL60" autoplay="true" >}}
+- {{< youtube id="7NFOJhJmL60" autoplay="false" >}}
 
 ## 📂 Project Structure
 ```

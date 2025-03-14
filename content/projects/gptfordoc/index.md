@@ -3,8 +3,8 @@ title: "GPT for PDFs"
 date: 2023-09-02T10:55:37+01:00
 draft: false
 description: ""
-categories: ["GPT", "AI"]
-tags: ["Python", "Openai API", "Langchain"]
+categories: ["ai"]
+tags: []
 ---
 
 Talk to your pdfs using GPT.
@@ -18,4 +18,4 @@ Talk to your pdfs using GPT.
 {{< github repo="harisheoran/PDF-Pulse" >}}
 
 ### Demo
-{{< youtube id="UjBRoEvh2DQ" autoplay="true" >}}
+{{< youtube id="UjBRoEvh2DQ" autoplay="false" >}}

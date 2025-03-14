@@ -3,7 +3,7 @@ title: "Repoguard: Secure Your Repos, Manage Access Seamlessly."
 date: 2024-07-29T09:00:37+01:00
 draft: false
 description: "Monitor access of GitHub Repository."
-categories: ["Go"]
+categories: ["go"]
 tags: ["CLI"]
 ---
 Repoguard is CLI tool built in Go language to monitor access of GitHub Repositories.
@@ -43,4 +43,4 @@ and provide it the GitHub Token
 - Configure repoguard for your GitHub account.
 
 ## Demo
-{{< youtube id="TZ5fXzbPdCs" autoplay="true" >}}
+{{< youtube id="TZ5fXzbPdCs" autoplay="false" >}}

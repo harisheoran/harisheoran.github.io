@@ -3,7 +3,7 @@ title: "AWS Cost Optimization"
 date: 2024-07-12T09:00:37+01:00
 draft: false
 description: "Cloud Optimization for AWS "
-categories: ["AWS", "Go"]
+categories: ["aws", "go"]
 tags: ["lambda"]
 ---
 
@@ -15,7 +15,7 @@ Managing cloud costs is crucial for any organization leveraging AWS services. Im
 {{< github repo="harisheoran/aws_cost_optimization" >}}
 
 ### Demo
-{{< youtube id="K_JSu2qWrns" autoplay="true" >}}
+{{< youtube id="K_JSu2qWrns" autoplay="false" >}}
 
 
 ## AWS Lambda

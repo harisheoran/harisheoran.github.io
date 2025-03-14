@@ -3,8 +3,8 @@ title: "3 Tier MERN web app Deployment for Production"
 date: 2024-01-16T10:55:37+01:00
 draft: false
 description: "3 Tier MERN web app container deployment for Production."
-categories: ["prod",]
-tags: ["3 tier", "docker", "CICD"]
+categories: ["devops",]
+tags: ["docker", "CICD"]
 ---
 Deploying a three tier web application for production.
 

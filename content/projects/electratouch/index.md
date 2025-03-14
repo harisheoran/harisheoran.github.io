@@ -3,16 +3,16 @@ title: "Electra Touch"
 date: 2023-09-28T20:54:47+01:00
 draft: false
 description: "Poly purpose voting system"
-categories: ["Android", "IOT"]
+categories: ["android", "iot"]
 tags: ["Arduino", "ESP8266" ,"MVVM", "Jetpack Compose", "Kotlin",]
 ---
 
-🗳️ Electra Touch: Polypurpose Polling System 
+🗳️ Electra Touch: Polypurpose Polling System
 
 We are thrilled to share a glimpse of our current project – a versatile polling system designed for a variety of applications, featuring cutting-edge technology integration. Here's a concise overview:
 
 ### Progress so far:
-{{< youtube id="Cixv3oQkO_A" autoplay="true" >}}
+{{< youtube id="Cixv3oQkO_A" autoplay="false" >}}
 
 ### Components:
 - Arduino

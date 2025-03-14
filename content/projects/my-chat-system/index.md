@@ -3,7 +3,7 @@ title: "Chat System: On-Premises Chat Application for Enterprises"
 date: 2025-01-01T06:00:37+01:00
 draft: false
 description: "On-Premises Chat Application for Enterprises"
-categories: ["Go"]
+categories: ["go"]
 tags: ["kafka", "redis"]
 ---
 
@@ -16,7 +16,7 @@ Introducing Chat System Enterprise, a cutting-edge, on-premises chat application
 ![](./arch.png)
 
 ## 📺 Watch full demo
-- {{< youtube id="3VH_a8ZZW0A" autoplay="true" >}}
+- {{< youtube id="3VH_a8ZZW0A" autoplay="false" >}}
 
 ## **Product Description**
 

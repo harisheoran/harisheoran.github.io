@@ -3,8 +3,8 @@ title: "End to End DevOps Deployment: From CICD to orchestration with logging & 
 date: 2024-01-19T20:54:47+01:00
 draft: false
 description: "Deploying web application on k8s cluster using ArgoCD."
-categories: ["k8s", "DevOps"]
-tags: ["github actions", "argocd", "docker", "go", "prometheus", "grafana"]
+categories: ["k8s", "devops"]
+tags: ["github actions", "argocd", "docker", "prometheus", "grafana"]
 ---
 
 In this project, we'll dive into the practical world of code deployment,
@@ -55,7 +55,7 @@ Follow these steps, explaining your choices and demonstrating the flow. This ass
 {{< github repo="harisheoran/WebServer-Docker-CI-CD-k8s" >}}
 
 ## Project Demo
-{{< youtube id="CBKYzxdKH2A " autoplay="true" >}}
+{{< youtube id="CBKYzxdKH2A" autoplay="false" >}}
 
 ## Kubernetes Basics
 

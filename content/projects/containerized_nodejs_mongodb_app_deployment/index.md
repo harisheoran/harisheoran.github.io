@@ -3,8 +3,8 @@ title: "Containerized Web App Deployment on AWS"
 date: 2023-11-20T20:54:47+01:00
 draft: false
 description: "Containerized Node.js MongoDB App Deployment on AWS"
-categories: ["DevOps"]
-tags: ["AWS","Jenkins","Ansible", "Terraform", "Nginx" ,"Docker" ,"Docker-Compose", "EC2", "S3", "Dynamo DB" ]
+categories: ["devops"]
+tags: ["Jenkins","Ansible", "Terraform", "Nginx" ,"Docker" ,"Docker-Compose", "EC2", "S3", "Dynamo DB" ]
 ---
 
 Micro Blog website deployed on AWS
@@ -17,8 +17,8 @@ Micro Blog website deployed on AWS
 
 ![](workflow2.png)
 
-## Demo 
-{{< youtube id="PA4a0WmBG_k" autoplay="true" >}}
+## Demo
+{{< youtube id="PA4a0WmBG_k" autoplay="false" >}}
 
 ---
 
@@ -116,19 +116,19 @@ cd ansible
 Paste the IP address in ***inventory.ini***
 
 ```
-ansible-playbook -i ./inventory.ini ./pipeline.yml 
+ansible-playbook -i ./inventory.ini ./pipeline.yml
 
 ```
 It'll install Jenkins on EC2 and start serving on port 8080.
 
-Now install basic plugins and some additional plugins like 
+Now install basic plugins and some additional plugins like
 - Github Integration
 
 
 ### For main server
 Now, configure the main ec2 instance, execute the following command
 ```
-ansible-playbook -i ./inventory.ini ./run_app.yml 
+ansible-playbook -i ./inventory.ini ./run_app.yml
 
 ```
 

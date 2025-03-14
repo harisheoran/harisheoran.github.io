@@ -3,7 +3,7 @@ title: "Enterprise-Grade Website Deployment: Advanced DevOps Practices on AWS"
 date: 2024-03-29T18:45:37+01:00
 draft: false
 description: "AWS Resume"
-categories: ["AWS"]
+categories: ["aws"]
 tags: ["Cloudfront", "S3", "Route 53", "Dynamo DB", "Go", "AWS CodePipeline", "AWS CodeBuild", "AWS CodeDeploy", "AWS Systems Manager", "AWS Certificate Manager"]
 ---
 
@@ -28,8 +28,8 @@ End-to-End Production-Grade Deployment: Advanced DevOps Practices on AWS
 
 
 ## Full Demo
-{{< youtube id="MBPYxxVa4PE" autoplay="true" >}}
-{{< youtube id="lY32OYgLOy8" autoplay="true" >}}
+{{< youtube id="MBPYxxVa4PE" autoplay="false" >}}
+{{< youtube id="lY32OYgLOy8" autoplay="false" >}}
 
 
 > View full [Playlist](https://www.youtube.com/playlist?list=PLr8r2M2i9qsUfPB05J6yZhTh9QhiUVzQT).

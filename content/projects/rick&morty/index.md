@@ -3,7 +3,7 @@ title: "Rick & Morty Collection App"
 date: 2023-06-29T20:54:47+01:00
 draft: false
 description: "App to browse characters, episodes and search details from Rick & Morty Tv show."
-categories: ["Android"]
+categories: ["android"]
 tags: ["MVVM", "Kotlin"]
 ---
 
@@ -13,13 +13,13 @@ App to browse characters, episodes and search details from Rick & Morty Tv show.
 
 
 {{< button href="https://github.com/harisheoran/rick-morty-app/releases" target="blank" >}}
-Download app 
+Download app
 {{< /button >}}
 
 #### View source code on Github
 {{< github repo="harisheoran/rick-morty-app" >}}
 
---- 
+---
 ### Gallery
 {{< gallery >}}
   <img src="gallery/01.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
@@ -32,10 +32,10 @@ Download app
   <img src="gallery/08.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}
 
---- 
+---
 
 ### Demo
-{{< youtube id="BJ37aAP6ghU" autoplay="true" >}}
+{{< youtube id="BJ37aAP6ghU" autoplay="false" >}}
 
 ---
 
@@ -43,7 +43,7 @@ Download app
 
 #### Tech Stack & Libraries
 - Kotlin Language
-- MVVM Architecture 
+- MVVM Architecture
 - Retrofit
 - Picasso
 - Epoxy RecyclerView
@@ -69,7 +69,7 @@ interface RickAndMortyService {
 
     @GET(value = "character/")
     suspend fun getCharactersPage(@Query(value = "page") pageIndex: Int): Response<GetCharactersPageResponse>
-}        
+}
 ```
 
 - Retrofit service
@@ -102,7 +102,7 @@ interface RickAndMortyService {
 
 - Network Error handling Class *SimpleResponse*
 
-    A simple kind of wrapper class 
+    A simple kind of wrapper class
 
     - It have 3 constructor as a parameter - Status, reponse from API client and exception
 
@@ -126,9 +126,9 @@ class CharacterListRepository {
 }
 ```
 
-- Sending request to api using Api client 
+- Sending request to api using Api client
 
-``` 
+```
 val request = NetworkLayer.apiClient.getCharactersPages(pageIndex)
 ```
 then checking the request and return accordingly.
