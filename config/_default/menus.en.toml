@@ -21,22 +21,10 @@
   weight = 40
 
 [[main]]
-  identifier = "github"
-  pre = "github"
-  url = "https://github.com/harisheoran"
-  weight = 50
-
-[[main]]
   identifier = "twitter"
   pre = "x-twitter"
   url = "https://x.com/harisheoran"
   weight = 60
-
-[[main]]
-  identifier = "yt"
-  pre = "youtube"
-  url = "https://www.youtube.com/channel/UCkL3XhMfEA46NH57gVSb_Fw"
-  weight = 70
 
 [[main]]
   identifier = "linkedin"
@@ -49,12 +37,6 @@
   pre = "envelope"
   pageRef = "contact"
   weight = 10
-
-[[footer]]
-  name = "Watch Live Streams"
-  pre = "youtube"
-  url = "https://www.youtube.com/@harisheoran"
-  weight = 20
 
 [[footer]]
   identifier = "github"

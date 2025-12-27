@@ -57,9 +57,9 @@
         .connect-github-link {
             text-decoration: none;
             padding: 8px 16px;
-            border: 1px solid #ccc;
+            border: 1px solid #000000ff;
             border-radius: 8px;
-            color: #a7a7a7 ;
+            color: #000000ff ;
             font-size: 16px;
             transition: background-color 0.3s, border-color 0.3s;
         }
@@ -68,7 +68,7 @@
         .connect-linkedin-link:hover,
         .connect-github-link:hover {
             background-color: #f0f0f0;
-            border-color: #999;
+            border-color: #bcbabaff;
         }
 
         .connect-icon-youtube,
@@ -82,10 +82,8 @@
 <body>
     <div class="intro">
     <h1>Hi, I am Harish</h1>
-    <span class="subheading">Engineer</span> <!-- Changed to span with subheading class -->
-    <h2>What do I do?</h2>
-    <p align="left">I build scalable, high-performance systems —APIs, microservices, and distributed systems, while driving automation, reliability, and cloud-ready infrastructure through DevOps expertise. My work empowers teams and delivers results that scale.
-    </p>
+    <span class="subheading">Engineer</span>
+    <p align="left">I build scalable and high-performance systems. </p>
     </div>
     <section class="connect-me-section">
         <div class="connect-me-links">
@@ -105,30 +103,10 @@
                 {{< icon "envelope" >}}
                 Mail
             </a>
-            <a href="https://youtube.com/@harisheoran" target="_blank" class="connect-youtube-link">
+            <!--<a href="https://youtube.com/@harisheoran" target="_blank" class="connect-youtube-link">
                 {{< icon "youtube" >}}
                 YouTube
-            </a>
+            </a>-->
         </div>
     </section>
-    <div class="tech-stack">
-        <h2 align="left">Technologies I Work With</h2>
-        <div class="logos" align= "left">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/argocd/argocd-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" />
-</div>
+

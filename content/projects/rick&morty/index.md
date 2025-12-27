@@ -7,6 +7,8 @@ categories: ["android"]
 tags: ["MVVM", "Kotlin"]
 ---
 
+
+
 {{< lead >}}
 App to browse characters, episodes and search details from Rick & Morty Tv show.
 {{< /lead >}}
@@ -54,7 +56,7 @@ Download app
 - [The Rick and Morty API](https://rickandmortyapi.com/)
 
 ### MVVM Architecture
-![Alt text](arch.jpg "Image caption")
+![Alt text](arch.jpg "architecture png")
 
 Start from Network Layer
 

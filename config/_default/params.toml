@@ -4,7 +4,7 @@ autoSwitchAppearance = true
 
 enableSearch = true
 enableCodeCopy = true
-mainSections = ["projects"]
+mainSections = ["blogs"]
 
 # robots = ""
 
@@ -35,7 +35,7 @@ showComments = true
   showRecentItems = 6
   showMoreLink = true
   showMoreLinkDest = "/projects"
-  cardView = true
+  cardView = false
   cardViewScreenWidth = false
   layoutBackgroundBlur = false # only used when layout equals background
 

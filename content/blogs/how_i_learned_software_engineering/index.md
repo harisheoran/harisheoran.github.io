@@ -1,7 +1,7 @@
 ---
 title: "How I learned Software Engineering"
 date: 2025-03-24T06:00:37+01:00
-draft: false
+draft: true
 description: "Resources"
 categories: ["resources", "cool_stuff"]
 tags: [""]
