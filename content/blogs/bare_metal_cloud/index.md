@@ -2,7 +2,7 @@
 title: "Building a Bare Metal Cloud"
 date: 2025-12-26T06:00:37+01:00
 draft: false
-description: "Running production on Raspberry Pi"
+description: "Building a Bare Metal Cloud"
 categories: ["Blog"]
 tags: ["on-prem"]
 ---
