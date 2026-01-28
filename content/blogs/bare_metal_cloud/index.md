@@ -23,7 +23,6 @@ and more...
 
 > This is a in progress blog...
 
-![](./img/buy_hardware.jpeg)
 
 # Basic Setup 
 Lets start with setting up Raspberry Pi OS Lite(we don't need the desktop) and then install [Raspberry Pi software](https://www.raspberrypi.com/software/) on you machine and flash the SD card or your ssd and then insert it into your pi and plug in the charger and ethernet cable.
@@ -228,12 +227,48 @@ ssh piprod@192.168.1.2
 # Access the server
 Currently you can access the pi server only if you are connected to you home network too, you can't remotely access it.
 
-### Lets setup VPN
+Using Tailscale
+
+
+---
+## Setting up Kubernetes Cluster
+**. Enable cgroups (Mandatory for K3s)** K3s will not start without this. Open the boot config:
+
+```
+sudo nano /boot/firmware/cmdline.txt
+# (On older Pi OS versions, it might be /boot/cmdline.txt)
+```
+
+Add the following to the **end of the existing line** (do _not_ make a new line):
+
+```
+cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory
+```
+
+Reboot
+```
+sudo reboot
+```
+
+**2. Install Longhorn Dependencies (Mandatory)** Longhorn requires these to manage your disk blocks.
+
 ```
 sudo apt update
-sudo apt install wireguard -y
+sudo apt install -y open-iscsi nfs-common cryptsetup
 ```
 
+**Enable iSCSI services:**
+```
+sudo systemctl enable --now iscsid
+```
 
-### Setup the Duck DNS
-- install and enable cron
+3. Install Argocd
+   **Create Namespace:**
+```
+kubectl create namespace argocd
+```
+
+4. Install Helm CLI
+https://helm.sh/docs/intro/install/#from-apt-debianubuntu
+
+5. Lets setup Lazy vim to 
