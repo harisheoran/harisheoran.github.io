@@ -48,24 +48,27 @@ description: ""
             gap: 15px;
             flex-wrap: wrap;
         }
+
+        /* Default (Light Mode) Social Links - UPDATED FOR BETTER VISIBILITY */
         .connect-youtube-link,
         .connect-twitter-link,
         .connect-linkedin-link,
         .connect-github-link {
             text-decoration: none;
             padding: 8px 16px;
-            border: 1px solid #ccc;
+            border: 1px solid #888; 
             border-radius: 8px;
-            color: #a7a7a7 ;
+            color: #333; 
             font-size: 16px;
-            transition: background-color 0.3s, border-color 0.3s;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
         }
         .connect-youtube-link:hover,
         .connect-twitter-link:hover,
         .connect-linkedin-link:hover,
         .connect-github-link:hover {
-            background-color: #f0f0f0;
-            border-color: #999;
+            background-color: #f5f5f5;
+            border-color: #555; 
+            color: #000; 
         }
 
         .connect-icon-youtube,
@@ -75,24 +78,31 @@ description: ""
             margin-right: 8px;
         }
 
-        /* Dark Mode Adjustments */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #1a1a1a; /* Dark mode background */
-                color: #e0e0e0; /* Dark mode text */
-            }
-            h1 {
-                color: #e0e0e0;
-            }
-            h2 {
-                color: #b0b0b0; /* Slightly lighter gray for subheadings */
-            }
-            .email-contact a {
-                background-color: #4a90e2; /* Brighter blue for dark mode button */
-            }
-            .email-contact a:hover {
-                background-color: #357abd; /* Darker shade on hover */
-            }
+        /* Dark Mode Adjustments (Tied to the theme's toggle class) */
+        
+        /* Dark mode for the "Send an Email" button */
+        .dark .email-contact a {
+            background-color: #4a90e2; 
+        }
+        .dark .email-contact a:hover {
+            background-color: #357abd; 
+        }
+
+        /* Dark mode for the social links */
+        .dark .connect-youtube-link,
+        .dark .connect-twitter-link,
+        .dark .connect-linkedin-link,
+        .dark .connect-github-link {
+            border-color: #444; 
+            color: #e0e0e0; 
+        }
+
+        .dark .connect-youtube-link:hover,
+        .dark .connect-twitter-link:hover,
+        .dark .connect-linkedin-link:hover,
+        .dark .connect-github-link:hover {
+            background-color: #333; 
+            border-color: #666; 
         }
     </style>
 <body>

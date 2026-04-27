@@ -1,6 +1,6 @@
-#####
+####
 <style>
-        h1, h2 { /* Fixed selector from 'h1 h2' */
+        h1, h2 { 
             text-align: left;
         }
         .tech-stack {
@@ -9,35 +9,34 @@
         .tech-stack .logos {
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-start; /* Aligns logos to the left */
-            align-items: flex-start; /* Ensures vertical alignment starts at top */
-            gap: 10px; /* Spacing between logos */
-            margin: 0; /* Removes default margins */
-            padding: 0; /* Removes padding to align fully left */
+            justify-content: flex-start; 
+            align-items: flex-start; 
+            gap: 10px; 
+            margin: 0; 
+            padding: 0; 
         }
         .logos img {
-            width: 45px; /* Slightly smaller logos */
+            width: 45px; 
             height: 45px;
             object-fit: contain;
             transition: transform 0.3s;
         }
         .logos img:hover {
-            transform: scale(1.2); /* Hover effect */
+            transform: scale(1.2); 
         }
         .intro h1 {
             text-align: left;
-            margin-bottom: 0; /* No gap below main heading */
-            font-size: 3em; /* Larger size for main heading */
+            margin-bottom: 0; 
+            font-size: 3em; 
         }
-        .intro .subheading { /* New class for "Software Engineer" */
+        .intro .subheading { 
             text-align: left;
-            margin-top: 10px; /* Minimal gap from main heading */
-            margin-bottom: 15px; /* Space before next section */
-            font-size: 1.2em; /* Smaller than h1, standard text size */
-            line-height: 1.2; /* Tighten line height */
-            display: block; /* Ensure it’s on a new line */
+            margin-top: 10px; 
+            margin-bottom: 15px; 
+            font-size: 1.2em; 
+            line-height: 1.2; 
+            display: block; 
         }
-        /* CSS */
         .connect-me-section {
             text-align: left;
         }
@@ -51,24 +50,27 @@
             gap: 15px;
             flex-wrap: wrap;
         }
+        
+        /* Default (Light Mode) Social Links - UPDATED FOR BETTER VISIBILITY */
         .connect-youtube-link,
         .connect-twitter-link,
         .connect-linkedin-link,
         .connect-github-link {
             text-decoration: none;
             padding: 8px 16px;
-            border: 1px solid #ccc; /* Updated to match contact page */
+            border: 1px solid #888; /* Darkened from #ccc */
             border-radius: 8px;
-            color: #a7a7a7; /* Updated to match contact page */
+            color: #333; /* Darkened from #a7a7a7 */
             font-size: 16px;
-            transition: background-color 0.3s, border-color 0.3s;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
         }
         .connect-youtube-link:hover,
         .connect-twitter-link:hover,
         .connect-linkedin-link:hover,
         .connect-github-link:hover {
-            background-color: #f0f0f0;
-            border-color: #999; /* Updated to match contact page */
+            background-color: #f5f5f5;
+            border-color: #555; /* Darker border on hover */
+            color: #000; /* Pure black text on hover */
         }
 
         .connect-icon-youtube,
@@ -78,18 +80,21 @@
             margin-right: 8px;
         }
 
-        /* Dark Mode Adjustments ported from Contact Page */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #1a1a1a; 
-                color: #e0e0e0; 
-            }
-            h1, .intro h1 {
-                color: #e0e0e0;
-            }
-            h2, .intro .subheading {
-                color: #b0b0b0; 
-            }
+        /* Dark Mode Adjustments (Tied to the theme's toggle class) */
+        .dark .connect-youtube-link,
+        .dark .connect-twitter-link,
+        .dark .connect-linkedin-link,
+        .dark .connect-github-link {
+            border-color: #444; 
+            color: #e0e0e0; 
+        }
+
+        .dark .connect-youtube-link:hover,
+        .dark .connect-twitter-link:hover,
+        .dark .connect-linkedin-link:hover,
+        .dark .connect-github-link:hover {
+            background-color: #333; 
+            border-color: #666; 
         }
     </style>
 </head>
@@ -117,6 +122,6 @@
                 {{< icon "envelope" >}}
                 Mail
             </a>
-            </div>
+        </div>
     </section>
 </body>
