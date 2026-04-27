@@ -1,5 +1,5 @@
-colorScheme = "blowfish"
-defaultAppearance = "dark" # valid options: light or dark
+colorScheme = "congo"
+defaultAppearance = "light" # valid options: light or dark
 autoSwitchAppearance = true
 
 enableSearch = true

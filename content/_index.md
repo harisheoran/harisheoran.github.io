@@ -1,6 +1,6 @@
-######
+#####
 <style>
-        h1 h2 {
+        h1, h2 { /* Fixed selector from 'h1 h2' */
             text-align: left;
         }
         .tech-stack {
@@ -57,9 +57,9 @@
         .connect-github-link {
             text-decoration: none;
             padding: 8px 16px;
-            border: 1px solid #000000ff;
+            border: 1px solid #ccc; /* Updated to match contact page */
             border-radius: 8px;
-            color: #000000ff ;
+            color: #a7a7a7; /* Updated to match contact page */
             font-size: 16px;
             transition: background-color 0.3s, border-color 0.3s;
         }
@@ -68,7 +68,7 @@
         .connect-linkedin-link:hover,
         .connect-github-link:hover {
             background-color: #f0f0f0;
-            border-color: #bcbabaff;
+            border-color: #999; /* Updated to match contact page */
         }
 
         .connect-icon-youtube,
@@ -76,6 +76,20 @@
         .connect-icon-linkedin,
         .connect-icon-github {
             margin-right: 8px;
+        }
+
+        /* Dark Mode Adjustments ported from Contact Page */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a; 
+                color: #e0e0e0; 
+            }
+            h1, .intro h1 {
+                color: #e0e0e0;
+            }
+            h2, .intro .subheading {
+                color: #b0b0b0; 
+            }
         }
     </style>
 </head>
@@ -103,10 +117,6 @@
                 {{< icon "envelope" >}}
                 Mail
             </a>
-            <!--<a href="https://youtube.com/@harisheoran" target="_blank" class="connect-youtube-link">
-                {{< icon "youtube" >}}
-                YouTube
-            </a>-->
-        </div>
+            </div>
     </section>
-
+</body>
