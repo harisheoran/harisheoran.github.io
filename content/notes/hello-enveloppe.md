@@ -12,3 +12,6 @@ If you're reading this on harisheoran.com, the whole pipeline works: author in O
 - Written in the vault under `web/notes/`
 - Published to `content/notes/` on the site
 - Personal/task notes stay private (no `share: true`)
+
+
+j
