@@ -86,4 +86,4 @@ googleAnalytics = "G-5TXFZLWMBX"
   [cascade.params]
     showComments = true
   [cascade.target]
-    path = '{/blogs/**,/notes/**,/projects/**}'
+    path = '{/blogs/**,/engineering/**,/about/projects/**}'

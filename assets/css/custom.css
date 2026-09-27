@@ -1,142 +1,519 @@
-@media screen and (min-width: 0px) {
-    .customthumb {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        box-shadow: 10px 10px 30px 2px rgba(0, 0, 0, 0.6);
-    }
+/* =========================================================================
+   Site design system.
 
-    .skillicon {
-        position: relative;
-        min-width: 80px;
-        width: 80px;
-        height: 80px;
-        margin: 0px;
-        margin-left: 8px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 5px;
-        object-fit: contain;
-        border-radius: 4%;
-    } 
+   Concatenated LAST into Blowfish's CSS bundle (see the theme's head.html),
+   so plain selectors win over Tailwind utilities without !important. Two
+   caveats shape everything below:
 
-    .customEntitityLogo {
-        background-color: aliceblue;
-        position: relative;
-        min-width: 60px;
-        width: 60px;
-        height: 60px;
-        margin: 0px;
-        margin-left: 8px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 5px;
-        object-fit: contain;
-        border-radius: 4%;
-    }
+   1. Tailwind Typography wraps its rules in :where(), which has zero
+      specificity -- so `.prose p` beats it. That is why the prose overrides
+      here look deceptively simple.
+   2. A utility class on an element still outranks a bare element selector,
+      so layout utilities are stripped in layouts/_default/baseof.html rather
+      than fought with here.
 
-    .customEntitityAlbum {
-        background-color: aliceblue;
-        position: relative;
-        min-width: 60px;
-        width: 60px;
-        height: 60px;
-        margin: 0px;
-        margin-left: 8px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 0px;
-        object-fit: contain;
-        border-radius: 4%;
-    }
+   Dark mode keys off `.dark` on <html>, set by Blowfish's appearance.js from
+   localStorage, the OS preference, and the header switcher.
+   ========================================================================= */
 
-    .customPlay {
-        position: relative;
-        min-width: 40px;
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
-        padding: 0px;
-        object-fit: cover;
-        border-radius: 50%;
-    }
+:root {
+  /* Warm off-white rather than pure white: easier for long reading, and it
+     stops the greys from drifting blue. */
+  --bg: #fcfbf8;
+  --bg-sunken: #f3f1ec;
+  --ink: #1c1b19;
+  --ink-muted: #6b6862;
+  --ink-faint: #9a968e;
+  --rule: #e4e0d7;
+  --rule-strong: #cfcabd;
+  /* One accent, used only for interactive state. Warm rust reads as
+     considered rather than default-framework blue. */
+  --accent: #a4462a;
+  --selection: #f0e5d8;
 
+  --measure: 42rem;   /* ~672px of prose, roughly 70 characters */
+  --gutter: 1.25rem;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+          Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+          "Liberation Mono", monospace;
 }
 
-@media screen and (min-width: 700px) {
-    .customEntitityLogo {
-        background-color: aliceblue;
-        position: relative;
-        min-width: 80px;
-        width: 80px;
-        height: 80px;
-        margin: 0px;
-        margin-left: 8px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 8px;
-        object-fit: contain;
-        border-radius: 4%;
-    }
-
-    .customEntitityAlbum {
-        background-color: aliceblue;
-        position: relative;
-        min-width: 80px;
-        width: 80px;
-        height: 80px;
-        margin: 0px;
-        margin-left: 8px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 0px;
-        object-fit: contain;
-        border-radius: 4%;
-    }
-
+html.dark {
+  --bg: #161614;
+  --bg-sunken: #201f1c;
+  --ink: #e8e5df;
+  --ink-muted: #9d9890;
+  --ink-faint: #736f68;
+  --rule: #2c2b27;
+  --rule-strong: #403e39;
+  --accent: #e0906a;   /* lifted for contrast on dark; the rust goes muddy */
+  --selection: #33302a;
 }
 
-@media screen and (min-width: 1250px) {
-    .customthumb {
-        width: 300px;
-        height: 180px;
-        object-fit: cover;
-        box-shadow: 10px 10px 30px 2px rgba(0, 0, 0, 0.6);
-        margin-right: 30px;
-    }
+/* ------------------------------------------------------------------ shell */
 
-    .customEntitityLogo {
-        background-color: aliceblue;
-        position: relative;
-        min-width: 100px;
-        width: 100px;
-        height: 100px;
-        margin: 0px;
-        margin-left: 8px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 8px;
-        object-fit: contain;
-        border-radius: 4%;
-    }
+html { background-color: var(--bg); }
 
-    .customEntitityAlbum {
-        background-color: aliceblue;
-        position: relative;
-        min-width: 100px;
-        width: 100px;
-        height: 100px;
-        margin: 0px;
-        margin-left: 8px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 0px;
-        object-fit: contain;
-        border-radius: 4%;
-    }
-
+body.site-body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;      /* 17px */
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
-td {
-    vertical-align: middle !important;
+::selection { background: var(--selection); }
+
+/* One column, one width. Everything on the page lines up to this. */
+.site-shell {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
+
+body.site-body > main { flex: 1 0 auto; }
+
+/* ----------------------------------------------------------------- header */
+
+body.site-body header#site-header {
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 3rem;
+}
+
+#site-header .main-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  height: auto;
+}
+
+/* Site name, doubling as the home link. */
+#site-header .main-menu > a:first-of-type {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  padding-block: 1.1rem;
+}
+#site-header .main-menu > a:first-of-type:hover { color: var(--accent); }
+
+#site-header nav { gap: 1.4rem; height: auto; }
+
+/* Nav items: small caps, wide tracking, quiet until hovered. */
+#site-header nav a span,
+#site-header nav > a span {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  transition: color 0.15s ease;
+}
+#site-header nav a:hover span { color: var(--accent); }
+#site-header nav a span.active { color: var(--ink); }
+
+/* Icon-only nav entries (X, LinkedIn) keep their own size. */
+#site-header nav a svg { width: 0.9rem; height: 0.9rem; color: var(--ink-muted); }
+#site-header nav a:hover svg { color: var(--accent); }
+
+/* Appearance switcher + search trigger: strip Blowfish's chrome. */
+#site-header #appearance-switcher svg { width: 1rem; height: 1rem; }
+#site-header #search-button {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink-faint);
+  padding: 0.2rem 0.45rem;
+  gap: 0.3rem;
+}
+#site-header #search-button:hover { border-color: var(--rule-strong); color: var(--ink); }
+#site-header #search-button svg { width: 0.85rem; height: 0.85rem; }
+#site-header #search-shortcut-hint { font-size: 0.6875rem; color: var(--ink-faint); }
+
+/* ----------------------------------------------------------- typography */
+
+.prose { color: var(--ink); max-width: none; }
+
+.prose h1, .prose h2, .prose h3, .prose h4,
+h1.article-title {
+  color: var(--ink);
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.prose h2 {
+  font-size: 1.1875rem;
+  margin-top: 2.75rem;
+  margin-bottom: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.prose h3 { font-size: 1.0625rem; margin-top: 2rem; margin-bottom: 0.5rem; }
+.prose h4 { font-size: 1rem; color: var(--ink-muted); margin-top: 1.5rem; }
+
+.prose p, .prose li { color: var(--ink); }
+.prose p { margin-block: 1.15em; }
+
+/* Links: underlined in the text so they are findable without colour, and
+   they pick up the accent only on hover. */
+.prose a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  font-weight: inherit;
+}
+.prose a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+.prose blockquote {
+  border-inline-start: 2px solid var(--rule-strong);
+  color: var(--ink-muted);
+  font-style: normal;
+  font-weight: 400;
+  padding-inline-start: 1.1rem;
+  margin-inline-start: 0;
+}
+.prose blockquote p::before, .prose blockquote p::after { content: ""; }
+
+.prose hr { border-color: var(--rule); margin-block: 2.5rem; }
+
+.prose strong { font-weight: 650; color: var(--ink); }
+
+/* Code: monospace is the one place a second typeface earns its keep. */
+.prose :not(pre) > code {
+  font-family: var(--mono);
+  font-size: 0.875em;
+  background: var(--bg-sunken);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.1em 0.32em;
+  font-weight: 400;
+  color: var(--ink);
+}
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after { content: ""; }
+
+.prose pre {
+  background: var(--bg-sunken);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-size: 0.8438rem;
+  line-height: 1.6;
+  padding: 0.9rem 1rem;
+}
+
+.prose table { font-size: 0.9375rem; width: 100%; }
+.prose thead { border-bottom: 1px solid var(--rule-strong); }
+.prose thead th {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  font-weight: 600;
+  padding-block: 0.5rem;
+}
+.prose tbody tr { border-bottom: 1px solid var(--rule); }
+.prose td { vertical-align: middle; padding-block: 0.65rem; }
+
+.prose img { border-radius: 3px; }
+
+/* ------------------------------------------------- article & list headers */
+
+.article-title, article header h1, main > header h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+/* Date / updated / view-count row under a title. */
+main > header .article-meta,
+article header .article-meta,
+.article-meta {
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.01em;
+}
+
+/* --------------------------------------------------------- list of posts */
+
+/* Replaces Blowfish's card grid: a dated index, one rule between entries. */
+.entry-index { display: flex; flex-direction: column; }
+
+.entry {
+  display: block;
+  padding-block: 1.15rem;
+  border-bottom: 1px solid var(--rule);
+}
+.entry:first-child { border-top: 1px solid var(--rule); }
+
+.entry-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.2rem;
+}
+.entry-title a { color: var(--ink); text-decoration: none; }
+.entry-title a:hover { color: var(--accent); }
+
+.entry-meta {
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.entry-summary {
+  font-size: 0.9375rem;
+  color: var(--ink-muted);
+  margin: 0.3rem 0 0;
+  line-height: 1.55;
+}
+
+/* Year headings in a grouped index. */
+.entry-year {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  margin: 2.5rem 0 0.25rem;
+}
+.entry-year:first-child { margin-top: 0; }
+
+/* -------------------------------------------------------------------- TOC */
+
+.toc {
+  border-inline-start: 1px solid var(--rule);
+  padding-inline-start: 1rem;
+  font-size: 0.8125rem;
+}
+.toc a { color: var(--ink-muted); text-decoration: none; }
+.toc a:hover { color: var(--accent); }
+.toc ul { list-style: none; padding-inline-start: 0.75rem; margin: 0; }
+
+/* ----------------------------------------------------------------- footer */
+
+body.site-body footer#site-footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 5rem;
+  padding-block: 2rem 3rem;
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+}
+#site-footer a { color: var(--ink-muted); text-decoration: none; }
+#site-footer a:hover { color: var(--accent); }
+#site-footer p { font-size: 0.75rem; color: var(--ink-faint); }
+#site-footer svg { width: 0.9rem; height: 0.9rem; }
+
+/* ------------------------------------------------- content-authored bits */
+
+/* Logo strip on /about/. */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-block: 1.25rem;
+}
+.tech-stack img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin: 0;
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+.tech-stack img:hover { filter: grayscale(0); opacity: 1; }
+
+/* Employer marks in the /about/ work table. */
+.entity-logo {
+  width: 30px; height: 30px;
+  object-fit: contain;
+  border-radius: 3px;
+  margin: 0;
+}
+
+/* Inline list of links, no bullets. */
+.prose ul.contact-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+}
+.prose ul.contact-links li { margin: 0; padding: 0; }
+.prose ul.contact-links li::marker { content: ""; }
+
+/* ------------------------------------------------------------- giscus gap */
+
+.giscus { margin-top: 1rem; }
+
+/* ------------------------------------------------------------- responsive */
+
+@media (max-width: 640px) {
+  :root { --gutter: 1.1rem; }
+  body.site-body { font-size: 1rem; }
+  .article-title, article header h1, main > header h1 { font-size: 1.55rem; }
+  body.site-body header#site-header { margin-bottom: 2rem; }
+}
+
+/* --------------------------------------------------------------- printing */
+
+@media print {
+  body.site-body { font-size: 11pt; }
+  #site-header, #site-footer, .toc, .giscus { display: none; }
+}
+
+/* ------------------------------------------- reining in Blowfish's layout
+
+   single.html and list.html wrap the article body in
+   `flex flex-col ... lg:flex-row`, which puts the table of contents in a
+   sidebar from the `lg` breakpoint up. That breakpoint is a *viewport* query,
+   not a container query, so on a wide screen it still fires inside our 42rem
+   column and splits it in two, squeezing the prose to nothing. Force the
+   single column back and let the TOC sit above the article instead. */
+
+main article > section.prose,
+main section.prose.lg\:flex-row { flex-direction: column; }
+
+/* `max-w-fit` / `max-w-prose` on the inner wrappers would otherwise shrink
+   the text block below the column width. */
+main article > section.prose > div,
+main .article-content { max-width: 100%; width: 100%; }
+
+main .toc {
+  margin-bottom: 2.5rem;
+  padding-inline-start: 1rem;
+  max-width: 100%;
+}
+main article > section.prose > div:has(> .toc) { padding-inline-start: 0; }
+
+/* Article title: #single_header outranks the theme's text-4xl utility. */
+#single_header h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+  color: var(--ink);
+}
+#single_header > div { font-size: 0.75rem; color: var(--ink-faint); margin-bottom: 2.25rem; }
+#single_header { max-width: 100%; }
+
+/* List/section page heading, same treatment. */
+main > .site-shell > header h1,
+main header > h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  margin-top: 0;
+  color: var(--ink);
+}
+
+/* Sharing links and article pagination: shrink to footnote scale. */
+.sharing-links a, .sharing-links svg { color: var(--ink-faint); }
+.sharing-links a:hover { color: var(--accent); }
+article > footer { border-top: 1px solid var(--rule); margin-top: 3rem; padding-top: 1.5rem; }
+
+/* ------------------------------------------------------- index scaffolding */
+
+.list-intro { margin-bottom: 2.5rem; }
+.list-intro p { color: var(--ink-muted); font-size: 0.9375rem; }
+.list-empty { color: var(--ink-faint); font-size: 0.9375rem; }
+
+.recent { margin-top: 4rem; }
+.recent-more { margin-top: 1.25rem; font-size: 0.8125rem; }
+.recent-more a { color: var(--ink-muted); text-decoration: none; }
+.recent-more a:hover { color: var(--accent); }
+
+.entry-draft {
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.05rem 0.3rem;
+  margin-inline-start: 0.4rem;
+  vertical-align: middle;
+}
+
+/* ------------------------------------------------------------ work history
+
+   A headerless table was the wrong shape for two rows: it rendered an empty
+   <thead> band. A grid keeps the logo, role and dates aligned without one. */
+
+.prose ul.work { list-style: none; padding: 0; margin-block: 1.25rem; }
+.prose ul.work > li {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  align-items: baseline;
+  column-gap: 0.85rem;
+  row-gap: 0.1rem;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--rule);
+  margin: 0;
+}
+.prose ul.work > li:first-child { border-top: 1px solid var(--rule); }
+.prose ul.work > li::marker { content: ""; }
+.prose ul.work .entity-logo { grid-row: span 2; align-self: center; }
+.prose ul.work .work-org { font-weight: 600; }
+.prose ul.work .work-org a { text-decoration: none; }
+.prose ul.work .work-org a:hover { color: var(--accent); }
+.prose ul.work .work-role { grid-column: 2; font-size: 0.9375rem; color: var(--ink-muted); }
+.prose ul.work .work-when {
+  grid-column: 3; grid-row: 1 / span 2;
+  font-size: 0.75rem; color: var(--ink-faint); text-align: end;
+  align-self: center;
+}
+
+@media (max-width: 560px) {
+  .prose ul.work > li { grid-template-columns: 30px 1fr; }
+  .prose ul.work .work-when { grid-column: 2; grid-row: auto; text-align: start; }
+}
+
+/* ------------------------------------------------- article footer furniture */
+
+.share {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.share-label {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+}
+.share a { color: var(--ink-faint); display: inline-flex; }
+.share a:hover { color: var(--accent); }
+.share svg { width: 0.95rem; height: 0.95rem; }
+
+.related { margin-top: 3.5rem; }
+
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-size: 0.8125rem;
+}
+.article-nav__next { text-align: end; }
+.article-nav a { color: var(--ink-muted); text-decoration: none; }
+.article-nav a:hover { color: var(--accent); }

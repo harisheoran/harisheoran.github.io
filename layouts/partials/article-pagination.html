@@ -1,0 +1,33 @@
+{{/*
+  Previous / next within the section, overriding the theme's partial.
+
+  Structurally the same as the theme's, minus the dotted rule and the
+  per-link dates -- at this size the title alone is the useful part, and the
+  dates made the row look like a broken table when a neighbour had no title.
+*/}}
+{{ if .Params.showPagination | default (site.Params.article.showPagination | default true) }}
+  {{ $next := .NextInSection }}
+  {{ $prev := .PrevInSection }}
+  {{ if .Params.invertPagination | default (site.Params.article.invertPagination | default false) }}
+    {{ $next = .PrevInSection }}
+    {{ $prev = .NextInSection }}
+  {{ end }}
+  {{/* Untitled neighbours (an Excalidraw source, a stub) would render as a
+    bare arrow, so they are skipped rather than linked. */}}
+  {{ $hasPrev := and $prev $prev.Title }}
+  {{ $hasNext := and $next $next.Title }}
+  {{ if or $hasPrev $hasNext }}
+    <nav class="article-nav" aria-label="{{ i18n "nav.pagination" | default "Article navigation" }}">
+      <span class="article-nav__prev">
+        {{ if $hasPrev }}
+          <a href="{{ $prev.RelPermalink }}">&larr;&ensp;{{ $prev.Title | emojify }}</a>
+        {{ end }}
+      </span>
+      <span class="article-nav__next">
+        {{ if $hasNext }}
+          <a href="{{ $next.RelPermalink }}">{{ $next.Title | emojify }}&ensp;&rarr;</a>
+        {{ end }}
+      </span>
+    </nav>
+  {{ end }}
+{{ end }}

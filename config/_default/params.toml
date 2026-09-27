@@ -4,7 +4,8 @@ autoSwitchAppearance = true
 
 enableSearch = true
 enableCodeCopy = true
-mainSections = ["blogs"]
+# Drives the homepage "recent" list. Engineering is where the writing is.
+mainSections = ["engineering", "blogs"]
 
 # robots = ""
 
@@ -18,7 +19,7 @@ smartTOC = true
 smartTOCHideUnfocusedChildren = true
 
 [header]
-  layout = "fixed-fill-blur" # valid options: basic, fixed, fixed-fill, fixed-fill-blur
+  layout = "basic" # plain static header; no blur bar, nothing fixed
 
 [footer]
   showMenu = true
@@ -33,7 +34,7 @@ smartTOCHideUnfocusedChildren = true
   showRecent = true
   showRecentItems = 6
   showMoreLink = true
-  showMoreLinkDest = "/projects"
+  showMoreLinkDest = "/engineering"
   cardView = false
   cardViewScreenWidth = false
   layoutBackgroundBlur = false # only used when layout equals background
@@ -48,7 +49,7 @@ smartTOCHideUnfocusedChildren = true
   heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-  showBreadcrumbs = true
+  showBreadcrumbs = false
   showDraftLabel = true
   showEdit = false
   # editURL = "https://github.com/username/repo/"
@@ -65,21 +66,24 @@ smartTOCHideUnfocusedChildren = true
   showAuthorsBadges = true
   showWordCount = false
   showSummary = false
-  sharingLinks = [ "linkedin", "twitter", "reddit", "pinterest", "facebook", "email", "whatsapp", "telegram"]
+  sharingLinks = [ "twitter", "linkedin", "email" ]
 
 [list]
   showHero = false
 #heroStyle = "big" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-  showBreadcrumbs = true
-  showSummary = false
+  showBreadcrumbs = false
+  # Falls back to the body's opening words only when a page has no
+  # description; see layouts/partials/article-link/simple.html.
+  showSummary = true
   showViews = false
   showLikes = false
-  showTableOfContents = true
-  showCards = true
+  showTableOfContents = false
+  # Cards off everywhere: indexes are a dated list.
+  showCards = false
   groupByYear = true
-  cardView = true
+  cardView = false
   cardViewScreenWidth = false
   constrainItemsWidth = false
 
@@ -122,7 +126,7 @@ smartTOCHideUnfocusedChildren = true
 
 [buymeacoffee]
   identifier = "harisheoran"
-  globalWidget = true
+  globalWidget = false
   globalWidgetMessage = "Hello"
   globalWidgetColor = "#FFDD00"
   globalWidgetPosition = "Right"

@@ -1,0 +1,67 @@
+{{/*
+  Site shell, overriding themes/blowfish/layouts/_default/baseof.html.
+
+  The only reason to override rather than restyle: Blowfish sets the page
+  width, type size and colours as Tailwind utilities on <body>
+  (`max-w-7xl`, `text-lg`, `bg-neutral` ...). A utility class outranks a bare
+  element selector, so assets/css/custom.css could not win against them no
+  matter what it said. Stripping them here hands layout to the stylesheet,
+  where `.site-shell` sets one column width for the whole site.
+
+  Everything else -- head, search, scroll-to-top, the header and footer
+  partials -- is left to the theme so submodule updates keep flowing through.
+  Blowfish's background-canvas block is dropped: it is off for this site and
+  has no place in a flat layout.
+*/}}
+<!doctype html>
+<html
+  lang="{{ with site.Params.isoCode | default (site.Language.Locale | default `en`) }}{{- . -}}{{ end }}"
+  dir="{{ cond (site.Params.rtl | default false) `rtl` `ltr` }}"
+  class="scroll-smooth"
+  data-default-appearance="{{ site.Params.defaultAppearance | default `light` }}"
+  data-auto-appearance="{{ site.Params.autoSwitchAppearance | default `true` }}">
+  {{- partial "head.html" . -}}
+  {{- partialCached "init.html" . -}}
+
+  <body class="site-body {{ if site.Params.enableStyledScrollbar | default true }}bf-scrollbar{{ end }}">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        {{ i18n "nav.skip_to_main" }}
+      </a>
+    </div>
+
+    {{/* id is what custom.css hooks the rule and spacing onto. */}}
+    <header id="site-header">
+      <div class="site-shell">
+        {{ $header := print "header/" site.Params.header.layout ".html" }}
+        {{ if templates.Exists ( printf "partials/%s" $header ) }}
+          {{ partial $header . }}
+        {{ else }}
+          {{ partial "header/basic.html" . }}
+        {{ end }}
+      </div>
+    </header>
+
+    <main id="main-content">
+      <div class="site-shell">
+        {{ block "main" . }}{{ end }}
+      </div>
+      {{ if site.Params.footer.showScrollToTop | default true }}
+        {{- partial "scroll-to-top.html" . -}}
+      {{ end }}
+    </main>
+
+    {{/* No <footer> wrapper here: the theme's footer.html emits its own
+      <footer id="site-footer">, and nesting would duplicate the id. */}}
+    <div class="site-shell">
+      {{- partial "footer.html" . -}}
+    </div>
+
+    {{ if site.Params.enableSearch | default false }}
+      {{- partial "search.html" . -}}
+    {{ end }}
+  </body>
+</html>

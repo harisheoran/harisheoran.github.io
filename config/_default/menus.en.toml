@@ -1,29 +1,21 @@
-[[main]]
-  name = "Resume"
-  pageRef = "resume"
-  weight = 10
-
-[[main]]
-  name = "Projects"
-  pageRef = "projects"
-  weight = 20
-
-[[main]]
-  name = "Blogs"
-  pageRef = "blogs"
-  weight = 30
+# Main nav, left to right. Writing first, then who I am, then social.
+# Resume and Contact were merged into /about/; College Projects lives under
+# it at /about/projects/ and is linked from that page rather than the nav.
 
 [[main]]
   name = "Engineering"
   pageRef = "engineering"
-  weight = 35
+  weight = 10
 
 [[main]]
-  identifier = "envelope"
-  pre = "envelope"
-  name = "Contact"
-  pageRef = "contact"
-  weight = 40
+  name = "Blogs"
+  pageRef = "blogs"
+  weight = 20
+
+[[main]]
+  name = "About"
+  pageRef = "about"
+  weight = 30
 
 [[main]]
   identifier = "twitter"
@@ -40,7 +32,7 @@
 [[footer]]
   name = "Contact me"
   pre = "envelope"
-  pageRef = "contact"
+  pageRef = "about"
   weight = 10
 
 [[footer]]
@@ -60,26 +52,3 @@
   pre = "linkedin"
   url = "https://linkedin.com/in/harisheoran"
   weight = 40
-
-#[[main]]
-#  name = "example sub-menu 1"
-#  parent = "Parent"
-#  pageRef = "posts"
-#  weight = 20
-
-#[[main]]
-#  name = "example sub-menu 2"
-#  parent = "Parent"
-#  pageRef = "posts"
-#  weight = 20
-
-#[[subnavigation]]
-#  name = "An interesting topic"
-#  pageRef = "tags/interesting-topic"
-#  weight = 10
-
-#[[subnavigation]]
-#  name = "My Awesome Category"
-#  pre = "github"
-#  pageRef = "categories/awesome"
-#  weight = 20

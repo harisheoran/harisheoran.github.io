@@ -1,0 +1,25 @@
+{{/*
+  Share row, overriding the theme's partial.
+
+  The theme renders filled grey pills centred under the article, which is the
+  loudest thing on an otherwise quiet page. Same links, left-aligned, at
+  footnote weight -- present for whoever wants them, invisible otherwise.
+*/}}
+{{ with .Params.sharingLinks | default (site.Params.article.sharingLinks | default false) }}
+  {{ $links := hugo.Data.sharing }}
+  <section class="share">
+    <span class="share-label">{{ i18n "article.share" | default "Share" }}</span>
+    {{ range . }}
+      {{ with index $links . }}
+        <a
+          target="_blank"
+          rel="noopener"
+          href="{{ printf .url $.Permalink $.Title | safeURL }}"
+          title="{{ i18n .title }}"
+          aria-label="{{ i18n .title }}">
+          {{ partial "icon.html" .icon }}
+        </a>
+      {{ end }}
+    {{ end }}
+  </section>
+{{ end }}

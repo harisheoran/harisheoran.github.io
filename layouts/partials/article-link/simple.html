@@ -1,0 +1,43 @@
+{{/*
+  One row of a post index, overriding the theme's partial of the same name.
+
+  Blowfish's version hunts for a feature/cover/thumbnail image and renders a
+  bordered card around it. This site's indexes are a dated list instead --
+  title, date, one line of description -- so the image lookup is dropped
+  entirely rather than hidden with CSS, which also spares every list page the
+  image-resize work at build time.
+
+  Used by list.html, term.html and the recent-articles shortcode, so all three
+  stay consistent. Styling lives in assets/css/custom.css under `.entry`.
+*/}}
+<article class="entry">
+  <h2 class="entry-title">
+    <a
+      {{ with .Params.externalUrl }}
+        href="{{ . }}" target="_blank" rel="external noopener"
+      {{ else }}
+        href="{{ .RelPermalink }}"
+      {{ end }}>
+      {{ .Title | emojify }}
+      {{ with .Params.externalUrl }}<span aria-hidden="true">&#8599;</span>{{ end }}
+    </a>
+    {{ if and .Draft site.Params.article.showDraftLabel }}
+      <span class="entry-draft">{{ i18n "article.draft" | emojify }}</span>
+    {{ end }}
+  </h2>
+
+  <div class="entry-meta">
+    {{ partial "article-meta/basic.html" . }}
+  </div>
+
+  {{/* Description first: it is written for the index. Summary is the opening
+    words of the body, which usually reads badly out of context, so it is only
+    a fallback. */}}
+  {{ $blurb := .Params.description }}
+  {{ if and (not $blurb) (.Params.showSummary | default (site.Params.list.showSummary | default false)) }}
+    {{ $blurb = .Summary | plainify }}
+  {{ end }}
+  {{ with $blurb }}
+    <p class="entry-summary">{{ . | plainify | truncate 180 }}</p>
+  {{ end }}
+</article>

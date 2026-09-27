@@ -1,0 +1,31 @@
+{{/*
+  "Recent" block on the homepage, overriding the theme's partial.
+
+  Same reason as list.html: drop the card/full-width branching and the
+  utility-sized heading so the homepage index matches every other index on
+  the site. The "show more" link is a plain link rather than a bordered
+  button -- a button here was the least minimal thing on the page.
+*/}}
+{{ if site.Params.homepage.showRecent | default false }}
+  {{ $count := site.Params.homepage.showRecentItems | default 5 }}
+  {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ $pages = $pages | first $count }}
+
+  {{ with $pages }}
+    <section class="recent">
+      <h2 class="entry-year">{{ i18n "shortcode.recent_articles" | emojify }}</h2>
+      <div class="entry-index">
+        {{ range . }}
+          {{ partial "article-link/simple.html" . }}
+        {{ end }}
+      </div>
+      {{ if site.Params.homepage.showMoreLink | default false }}
+        <p class="recent-more">
+          <a href="{{ site.Params.homepage.showMoreLinkDest | default "/" | relLangURL }}">
+            {{ i18n "recent.show_more" | markdownify }} &rarr;
+          </a>
+        </p>
+      {{ end }}
+    </section>
+  {{ end }}
+{{ end }}

@@ -1,0 +1,49 @@
+{{ define "main" }}
+  {{/*
+    Section index, overriding the theme's list.html.
+
+    The theme's version branches across card/grid/full-bleed variants and
+    carries a pile of Tailwind sizing on the year headings. This site has one
+    index style -- a dated list -- so the branching is gone and the year
+    headings use `.entry-year` from assets/css/custom.css instead of utility
+    classes that the stylesheet would have to fight.
+
+    Rows come from partials/article-link/simple.html, shared with term.html.
+  */}}
+  {{ .Scratch.Set "scope" "list" }}
+
+  <header>
+    <h1>{{ .Title | emojify }}</h1>
+  </header>
+
+  {{ with .Content }}
+    <section class="prose dark:prose-invert list-intro">{{ . }}</section>
+  {{ end }}
+
+  {{ if gt (len .Pages) 0 }}
+    {{ $groupByYear := .Params.groupByYear | default (site.Params.list.groupByYear | default false) }}
+    {{ $orderByWeight := .Params.orderByWeight | default (site.Params.list.orderByWeight | default false) }}
+    {{ $groupByYear = and (not $orderByWeight) $groupByYear }}
+
+    {{ if $orderByWeight }}
+      <div class="entry-index">
+        {{ range (.Paginate .Pages.ByWeight).Pages }}
+          {{ partial "article-link/simple.html" . }}
+        {{ end }}
+      </div>
+    {{ else }}
+      {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+        {{ if $groupByYear }}<h2 class="entry-year">{{ .Key }}</h2>{{ end }}
+        <div class="entry-index">
+          {{ range .Pages }}
+            {{ partial "article-link/simple.html" . }}
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    <p class="list-empty"><em>{{ i18n "list.no_articles" | emojify }}</em></p>
+  {{ end }}
+
+  {{ partial "pagination.html" . }}
+{{ end }}

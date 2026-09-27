@@ -1,0 +1,20 @@
+{{/*
+  Related posts, overriding the theme's partial.
+
+  The theme renders a responsive grid of bordered cards; this site has one
+  index style, so related posts reuse article-link/simple.html like every
+  other list on the site.
+*/}}
+{{ if .Params.showRelatedContent | default (site.Params.article.showRelatedContent | default false) }}
+  {{ $related := site.RegularPages.Related . | first (site.Params.article.relatedContentLimit | default 3) }}
+  {{ with $related }}
+    <section class="related">
+      <h2 class="entry-year">{{ i18n "article.related_articles" | emojify }}</h2>
+      <div class="entry-index">
+        {{ range . }}
+          {{ partial "article-link/simple.html" . }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
