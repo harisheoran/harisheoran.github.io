@@ -1,0 +1,31 @@
+{{/*
+  KaTeX for pages with `math: true` in frontmatter.
+
+  Blowfish's own loader (partials/vendor.html) keys off
+  `.Page.HasShortcode "katex"`, which would mean every maths note had to carry
+  a literal katex shortcode line -- and that line shows up as raw text in
+  Obsidian. Notes are published straight from the vault by Enveloppe, so they
+  cannot be rewritten on the way in.
+
+  `math: true` is plain YAML instead: invisible in Obsidian, and cascaded onto
+  the whole notes section from content/notes/_index.md so notes need nothing.
+
+  The theme always bundles js/katex-render.js, which listens for the load event
+  on #katex-render -- so emitting the library with that id is enough to trigger
+  renderMathInElement. The HasShortcode guard avoids loading it twice on a page
+  that does use the shortcode.
+*/}}
+{{ if and .Params.math (not (.HasShortcode "katex")) }}
+  {{ $alg := .Site.Params.fingerprintAlgorithm | default "sha512" }}
+  {{ with resources.Get "lib/katex/katex.min.css" }}
+    {{ $css := . | resources.Fingerprint $alg }}
+    <link type="text/css" rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{ end }}
+  {{ $lib := resources.Get "lib/katex/katex.min.js" }}
+  {{ $auto := resources.Get "lib/katex/auto-render.min.js" }}
+  {{ if and $lib $auto }}
+    {{ $js := slice $lib $auto | resources.Concat "js/katex.bundle.js" | resources.Fingerprint $alg }}
+    <script defer type="text/javascript" src="{{ $js.RelPermalink }}"
+            integrity="{{ $js.Data.Integrity }}" id="katex-render"></script>
+  {{ end }}
+{{ end }}

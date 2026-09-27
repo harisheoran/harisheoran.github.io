@@ -17,6 +17,16 @@ summaryLength = 0
 buildDrafts = false
 buildFuture = false
 
+# Notes arrive from Obsidian via Enveloppe. If a note carries no `date:`,
+# fall back to its git history rather than file mtime -- on CI every file
+# is checked out "now", so :fileModTime would date every note today.
+# The CI checkout already uses fetch-depth: 0, which :git needs.
+enableGitInfo = true
+
+[frontmatter]
+  date = ["date", "publishDate", ":git", "lastmod", ":default"]
+  lastmod = ["lastmod", ":git", "date", "publishDate"]
+
 googleAnalytics = "G-5TXFZLWMBX"
 
 [pagination]

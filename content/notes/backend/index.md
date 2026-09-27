@@ -1,6 +1,9 @@
-# 
-
-# Building backend services in Go
+---
+title: "Building backend services in Go"
+date: 2025-07-26
+draft: false
+description: "Database connections, models and SQL from a Go service."
+---
 
 ## Connecting to the Database
 
