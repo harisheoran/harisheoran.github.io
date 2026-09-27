@@ -1,0 +1,80 @@
+{{/*
+  giscus — comments backed by GitHub Discussions on this very repo.
+
+  Blowfish calls this partial from partials/article-comments.html, which
+  already draws the separator and the wrapping div, and which only renders
+  when the page has `showComments`. Which sections that covers is decided in
+  config/_default/config.toml ([[cascade]]), not here.
+
+  Everything is driven from [giscus] in params.toml so the embed can be
+  retuned without touching this template. If it is not configured yet the
+  partial stays silent on the page and warns at build time instead of
+  emitting a half-wired script tag.
+*/}}
+{{ $g := site.Params.giscus }}
+{{ if and $g $g.repo $g.repoId $g.categoryId }}
+  {{/*
+    The theme is injected at runtime rather than baked in, because Blowfish
+    decides dark mode in the browser: appearance.js toggles `.dark` on <html>
+    from localStorage, the OS preference, and the footer switcher. So the
+    script element is built in JS after reading that class, and a
+    MutationObserver keeps giscus in step when the switcher is used --
+    giscus only accepts theme changes via postMessage once it has loaded.
+  */}}
+  <div class="giscus"></div>
+  <script>
+    (function () {
+      var lightTheme = {{ $g.lightTheme | default "noborder_light" }};
+      var darkTheme = {{ $g.darkTheme | default "noborder_dark" }};
+      var isDark = function () {
+        return document.documentElement.classList.contains("dark");
+      };
+      var currentTheme = function () {
+        return isDark() ? darkTheme : lightTheme;
+      };
+
+      var s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      s.async = true;
+      s.crossOrigin = "anonymous";
+      var attrs = {
+        "data-repo": {{ $g.repo }},
+        "data-repo-id": {{ $g.repoId }},
+        "data-category": {{ $g.category | default "Comments" }},
+        "data-category-id": {{ $g.categoryId }},
+        "data-mapping": {{ $g.mapping | default "pathname" }},
+        "data-strict": {{ $g.strict | default "1" }},
+        "data-reactions-enabled": {{ $g.reactionsEnabled | default "1" }},
+        "data-emit-metadata": {{ $g.emitMetadata | default "0" }},
+        "data-input-position": {{ $g.inputPosition | default "top" }},
+        "data-theme": currentTheme(),
+        "data-lang": {{ $g.lang | default "en" }},
+        "data-loading": {{ $g.loading | default "lazy" }}
+      };
+      Object.keys(attrs).forEach(function (k) {
+        s.setAttribute(k, attrs[k]);
+      });
+      document.querySelector("div.giscus").appendChild(s);
+
+      // Follow the appearance switcher. class is the only signal Blowfish
+      // gives us -- there is no event to listen for.
+      var lastTheme = currentTheme();
+      new MutationObserver(function () {
+        var theme = currentTheme();
+        if (theme === lastTheme) return;
+        lastTheme = theme;
+        var frame = document.querySelector("iframe.giscus-frame");
+        if (!frame) return; // not loaded yet; it will pick up data-theme itself
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: theme } } },
+          "https://giscus.app"
+        );
+      }).observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"]
+      });
+    })();
+  </script>
+{{ else }}
+  {{ warnf "[giscus] comments enabled for %s but [giscus] in params.toml is incomplete (need repo, repoId, categoryId)" .RelPermalink }}
+{{ end }}

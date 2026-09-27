@@ -16,7 +16,6 @@ disableImageOptimization = true
 highlightCurrentMenuArea = true
 smartTOC = true
 smartTOCHideUnfocusedChildren = true
-showComments = true
 
 [header]
   layout = "fixed-fill-blur" # valid options: basic, fixed, fixed-fill, fixed-fill-blur
@@ -133,3 +132,32 @@ showComments = true
   # bing = ""
   # pinterest = ""
   # yandex = ""
+
+# -- Comments --
+# giscus stores comments as GitHub Discussions in this same repo, so there is
+# no third-party database and no tracking. Consumed by
+# layouts/partials/comments.html; which pages get it is set by the [[cascade]]
+# in config.toml.
+[giscus]
+  repo = "harisheoran/harisheoran.github.io"
+  repoId = "R_kgDOIvtn3g"
+  # Announcements-type: only the repo owner can open discussions there, so a
+  # stranger cannot pre-create one and hijack a page's thread. giscus's app
+  # opens them on first comment.
+  category = "Announcements"
+  # The partial fails closed on a blank id -- no half-wired embed ships, and
+  # the build warns instead.
+  categoryId = "DIC_kwDOIvtn3s4DGgzd"
+  # Map a discussion to a page by its path, and refuse fuzzy title matching,
+  # so renaming a post never silently adopts an unrelated discussion.
+  mapping = "pathname"
+  strict = "1"
+  reactionsEnabled = "1"
+  emitMetadata = "0"
+  inputPosition = "top"
+  # Theme is picked at runtime from Blowfish's .dark class, not from the
+  # visitor's OS preference -- the two disagree whenever the switcher is used.
+  lightTheme = "noborder_light"
+  darkTheme = "noborder_dark"
+  lang = "en"
+  loading = "lazy"

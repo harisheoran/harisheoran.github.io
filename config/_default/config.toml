@@ -7,8 +7,6 @@ defaultContentLanguage = "en"
 colorScheme = "blowfish"
 topic = "topics"
 
-disqusShortname = "harisheoran"
-
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 
 enableRobotsTXT = true
@@ -78,3 +76,14 @@ googleAnalytics = "G-5TXFZLWMBX"
       name = 'fragmentrefs'
       type = 'fragments'
       weight = 10
+
+# Comments (giscus) are opt-in per section rather than site-wide: they belong
+# on writing, not on Resume or Contact. Kept here instead of in each section's
+# _index.md so the whole policy is readable in one place -- and so blogs/ and
+# projects/, which have no _index.md, do not need one invented for a flag.
+# Blowfish reads .Params.showComments in partials/article-comments.html.
+[[cascade]]
+  [cascade.params]
+    showComments = true
+  [cascade.target]
+    path = '{/blogs/**,/notes/**,/projects/**}'
