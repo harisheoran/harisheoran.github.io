@@ -1,3 +1,12 @@
+---
+title: KEDA
+date: 2026-10-07
+draft: false
+description: "Event based scaling"
+categories: ["k8s"]
+tags: ["scaling"]
+---
+
 KEDA ("Kubernetes Event-Driven Autoscaling") lets Kubernetes scale your pods on what is actually waiting to be done, like queue messages, Kafka lag or a Prometheus query, instead of on CPU. It doesn't replace the built-in autoscaler. It plugs into it and fills two gaps it can't cover.
 
 ---
