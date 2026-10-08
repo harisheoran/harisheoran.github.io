@@ -39,11 +39,11 @@ CPU tells you how busy the pods you already have are. It doesn't tell you how mu
 **Weakness 2: the HPA can read only a few kinds of metric, and each needs an adapter.**  
 The HPA reads three Kubernetes APIs:
 
-|API|Normally served by|Holds|
-|---|---|---|
-|`metrics.k8s.io`|metrics-server|CPU and memory|
-|`custom.metrics.k8s.io`|an adapter, e.g. prometheus-adapter|metrics about Kubernetes objects|
-|`external.metrics.k8s.io`|an adapter|metrics from outside the cluster (SQS, Kafka, …)|
+| API                       | Normally served by                  | Holds                                            |
+| ------------------------- | ----------------------------------- | ------------------------------------------------ |
+| `metrics.k8s.io`          | metrics-server                      | CPU and memory                                   |
+| `custom.metrics.k8s.io`   | an adapter, e.g. prometheus-adapter | metrics about Kubernetes objects                 |
+| `external.metrics.k8s.io` | an adapter                          | metrics from outside the cluster (SQS, Kafka, …) |
 
 The catch: each API is registered with a single `APIService` object, so **a cluster can have only one external-metrics adapter**. If you want SQS, Kafka, Redis and Prometheus at the same time, separate adapters won't work. You need one adapter that knows every source.
 
