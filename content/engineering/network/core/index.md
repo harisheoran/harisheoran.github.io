@@ -54,24 +54,132 @@ networking — every protocol, every RFC, every layer — exists to bridge that 
 ### Why layers at all?
 
 You *could* write one gigantic program: "take this JSON, turn it into voltages, put it
-on the wire." People tried. It fails for three reasons:
+on the wire." The reason nobody does comes down to one piece of arithmetic.
+
+#### The arithmetic: N×M versus N+M
+
+Suppose there are no layers, so every application must produce voltages itself. Chrome
+needs code for Ethernet, *and* Wi-Fi, *and* fibre, *and* 5G. So does Slack. So does
+Postgres.
 
 ```
-┌────────────────────────────────────────────────────────────────────┐
-│  WITHOUT LAYERS                    │  WITH LAYERS                  │
-├────────────────────────────────────┼───────────────────────────────┤
-│  Swap copper → fibre?              │  Replace Layer 1 only.        │
-│  Rewrite the whole stack.          │  Nothing above notices.       │
-├────────────────────────────────────┼───────────────────────────────┤
-│  N applications × M physical media │  N + M implementations.       │
-│  = N×M implementations.            │                               │
-├────────────────────────────────────┼───────────────────────────────┤
-│  A bug could be anywhere.          │  Bisect: which layer's        │
-│                                    │  promise was broken?          │
-└────────────────────────────────────┴───────────────────────────────┘
+WITHOUT a shared layer — every app must speak every medium
+
+      Chrome      Slack     Postgres      ssh        curl
+      ╱ │ │ ╲     ╱ │ │ ╲    ╱ │ │ ╲     ╱ │ │ ╲    ╱ │ │ ╲
+     ╱  │ │  ╲   ╱  │ │  ╲  ╱  │ │  ╲   ╱  │ │  ╲  ╱  │ │  ╲
+    ▼   ▼ ▼   ▼ ▼   ▼ ▼   ▼▼   ▼ ▼   ▼ ▼   ▼ ▼   ▼▼   ▼ ▼   ▼
+   ┌──────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
+   │ Ethernet │ │  Wi-Fi  │ │  Fibre  │ │   5G    │
+   └──────────┘ └─────────┘ └─────────┘ └─────────┘
+
+   5 apps × 4 media = 20 separate implementations.
+   Add ONE new medium  →  5 new pieces of code, one per app.
+   Add ONE new app     →  4 new pieces of code, one per medium.
 ```
 
-**The core idea — memorise this one sentence:**
+Now insert one agreed intermediate format that everybody speaks:
+
+```
+WITH a shared layer — the "narrow waist"
+
+   Chrome   Slack   Postgres   ssh    curl
+      └───────┴────────┴────────┴───────┘        5 pieces: app → IP
+                       │
+              ┌────────▼────────┐
+              │       IP        │   ← everyone agrees HERE
+              └────────┬────────┘
+      ┌─────────┬──────┴──────┬─────────┐
+   Ethernet   Wi-Fi         Fibre      5G        4 pieces: IP → medium
+
+   5 + 4 = 9 implementations.
+   Add ONE new medium  →  1 new piece. All 5 apps get it FREE,
+                          without being recompiled or even rebuilt.
+```
+
+**20 → 9.** And the gap widens fast: 50 apps × 10 media is 500 versus 60.
+
+This is not theoretical. Wi-Fi did not exist when most network code was written. Neither
+did 5G, nor fibre to the home. **Not one application had to be modified for any of them.**
+Chrome's networking code has never contained a single line about radio frequencies. That
+is the dividend of this one structural decision.
+
+#### What a "layer" actually is, in code terms
+
+Strip the jargon and a layer is just **a function signature you are allowed to depend on**:
+
+```
+   your_app_code()
+        │  calls
+        ▼
+   socket.send(bytes)        ← L4's contract
+        │                       PROMISE: "these bytes arrive, in order,
+        │                        complete, at that process"
+        │                       You never said HOW. You cannot even see how.
+        ▼
+   ip_send(packet, dst_ip)   ← L3's contract
+        │                       PROMISE: "I will make a genuine effort to
+        │                        get this to that IP." — and no more
+        ▼
+   eth_send(frame, next_mac) ← L2's contract
+        │                       PROMISE: "intact, to that neighbour"
+        ▼
+   nic.transmit(bits)        ← L1
+```
+
+You already live inside exactly this arrangement every time you call `write()` on a file.
+You do not issue SSD firmware commands; you call `write()`, and underneath sits
+filesystem → block layer → driver → controller. Swap the SSD for a spinning disk or an
+NFS mount and **your code does not change.** Network layering is the same move, applied
+to a wire.
+
+#### Why the promises are deliberately *weak*
+
+This is the part that makes the whole model click.
+
+Notice that L3 promises only "best effort" — it may drop your packet and will not tell
+you. That looks like a defect. It is the central design decision.
+
+```
+  If L3 promised reliability, then EVERY router on earth would have to
+  remember every conversation passing through it, in order to know what
+  to resend.  → billions of connections × state per router = impossible.
+
+  So L3 promises LITTLE, and stays stateless and fast.
+  L4 adds the guarantee at the two ENDPOINTS, where only two machines
+  need to remember anything.
+
+        ┌─────┐                                     ┌─────┐
+        │  A  │═════ TCP remembers the whole ═══════│  B  │
+        └──┬──┘      conversation (just 2 copies)   └──▲──┘
+           │                                           │
+           ▼         ┌────┐      ┌────┐      ┌────┐    │
+           └────────►│ R1 │─────►│ R2 │─────►│ R3 │────┘
+                     └────┘      └────┘      └────┘
+                      ▲ remembers NOTHING. Forwards and forgets.
+```
+
+**Each layer promises the least it can get away with.** That is why reliability and
+routing are two layers rather than one: the split exists precisely so the expensive
+promise is kept only in the place where it is cheap to keep.
+
+#### And the easy-debugging claim, concretely
+
+If networking were one blob, a failure tells you nothing — the bug is "somewhere in the
+blob." With layers, each promise is **independently testable**, so you binary-search:
+
+```
+  link up?  ──► reach gateway?  ──► reach remote IP?  ──► port open?  ──► TLS ok?
+     L1             L2                   L3                 L4            L6
+      │              │                    │                  │             │
+      └── each one is a SEPARATE question with a SEPARATE tool,
+          and the first "no" localises the fault to one layer.
+```
+
+Without layers there is no "first no." There is only "it doesn't work." (Part 12 turns
+this into an actual debugging procedure.)
+
+#### The core idea — memorise this one sentence
 
 > Each layer makes a **promise** to the layer above it, and is allowed to make an
 > **assumption** about the layer below it.
@@ -90,6 +198,10 @@ each contract turns a messy reality into a clean abstraction.
                               ▼
         Layer N-1  ────────► "here's Y, imperfect but usable"
 ```
+
+**The summary of Part 0:** layering is not about tidiness. It is a bet that N+M beats
+N×M, paid for by accepting weaker promises at each level. Every awkward thing in the
+model — best-effort IP, the TCP/IP split, even NAT being ugly — falls out of that trade.
 
 ---
 
