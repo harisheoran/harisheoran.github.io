@@ -374,7 +374,22 @@ being ugly — falls out of that trade.
 
 Let's actually invent networking. Start with two machines and a wire.
 
+> **How to read this part.** Every step below opens with a box like the one just
+> ahead. Have a real go at it before reading on — thirty seconds of being wrong is
+> worth more than three minutes of nodding along, and nobody is marking this.
+> Several of the questions are traps. That is on purpose.
+
 ### Step 1 — "I can wiggle a voltage." → **Layer 1: PHYSICAL**
+
+> **Think first.** You and a friend are holding opposite ends of a very long copper
+> wire. You want to send them the word "yes". You are allowed to do exactly one thing:
+> change the voltage at your end. They can see the voltage at theirs.
+>
+> Go on then. Send "yes".
+>
+> You will get about four seconds in before realising you two need to agree on
+> several things that nobody has agreed on yet. Write them down. That list is
+> Layer 1's entire job description.
 
 You put +5V on the wire. The other side reads +5V. Congratulations, you sent... something.
 
@@ -398,6 +413,18 @@ Layer 1.
 ---
 
 ### Step 2 — "Bits are a soup." → **Layer 2: DATA LINK**
+
+> **Think first.** The wire works now. Your friend is dutifully receiving:
+>
+> `...101101001110001011100101011100010101...`
+>
+> Three questions, in ascending order of how annoyed you should be. Where does your
+> message *start*? How would they know a cosmic ray hadn't flipped bit 14 on the way?
+> And — since six other people have now joined this wire and all of them are shouting —
+> which of those bits were even meant for them?
+>
+> You must solve all three using nothing but **more bits**. That is the only tool you
+> have. How?
 
 You now receive `...1011010011100010111001010111...`. Three problems:
 
@@ -433,6 +460,16 @@ transmits when.
 ---
 
 ### Step 3 — "The world cannot be one wire." → **Layer 3: NETWORK**
+
+> **Think first.** Here is a tempting shortcut: skip the rest of this note, put all
+> five billion internet devices on one enormous Layer 2 network, and knock off early.
+> You already have framing, error checking and addressing. Everything "works".
+>
+> Name every reason this fails.
+>
+> Most people get two without much trouble. There is a third, it is the one that
+> actually matters, and it is hiding in the *shape* of a MAC address rather than
+> anything about wires.
 
 Why can't we just put all 5 billion internet devices on one giant Layer-2 network?
 
@@ -501,6 +538,17 @@ networking, and we'll draw it again later.
 ---
 
 ### Step 4 — "Best-effort isn't good enough, and 'a machine' isn't a destination."
+
+> **Think first.** Congratulations, your packet has reached `10.0.0.5`. It is sitting
+> on the doormat. Unfortunately that machine is running a browser, Slack, a Postgres
+> server and an SSH daemon, not one of which ordered anything, and all of which are
+> now looking at each other.
+>
+> Meanwhile three packets you sent earlier never turned up, and you have no idea
+> which three.
+>
+> Those are two completely separate problems that happen to get fixed at the same
+> layer. What are the two fixes?
 ### → **Layer 4: TRANSPORT**
 
 Two independent problems here, both solved at L4.
@@ -546,6 +594,16 @@ in the middle has no idea what the complete conversation looks like. (This is th
 ---
 
 ### Step 5 — "Bytes still aren't meaning." → **Layers 5, 6, 7**
+
+> **Think first.** You now have a flawless pipe. Bytes go in one end and come out
+> the other: in order, complete, no duplicates, delivered to exactly the right
+> program. It is perfect. Nothing below you can fail.
+>
+> You send the number `1`.
+>
+> The machine at the other end reads `16777216` and bills a customer for it.
+>
+> Nothing broke. Every layer kept every promise it made. So what is still missing?
 
 You now have a perfect pipe of bytes between two programs. Three things are still missing,
 and OSI gives each its own layer:
@@ -680,6 +738,21 @@ This is the mechanical heart of the model. Each layer takes whatever the layer a
 handed it, treats it as **opaque payload**, and wraps it in its own header.
 
 > A layer never looks inside its payload. That's the whole discipline.
+
+<figure class="osi-figure">
+  <iframe src="/figures/osi-encapsulation.html" title="The encapsulation bench: an interactive isometric figure" loading="lazy" scrolling="no"></iframe>
+</figure>
+
+<style>
+.osi-figure { margin: 2rem 0; }
+.osi-figure iframe { width: 100%; height: 600px; border: 0; display: block; overflow: hidden; }
+@media (max-width: 640px) { .osi-figure iframe { height: 460px; } }
+</style>
+
+Hover along the bench to run the carriage from station 7 to station 1, or focus it and
+use the arrow keys. Watch the parcel: it starts as 100 bytes of HTTP request and leaves
+as a 163-byte Ethernet frame, and the depth stop above each ram tells you how many bytes
+that layer cost you.
 
 ### The nesting
 
