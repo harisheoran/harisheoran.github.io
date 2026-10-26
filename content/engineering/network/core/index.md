@@ -739,21 +739,6 @@ handed it, treats it as **opaque payload**, and wraps it in its own header.
 
 > A layer never looks inside its payload. That's the whole discipline.
 
-<figure class="osi-figure">
-  <iframe src="/figures/osi-encapsulation.html" title="The encapsulation bench: an interactive isometric figure" loading="lazy" scrolling="no"></iframe>
-</figure>
-
-<style>
-.osi-figure { margin: 2rem 0; }
-.osi-figure iframe { width: 100%; height: 600px; border: 0; display: block; overflow: hidden; }
-@media (max-width: 640px) { .osi-figure iframe { height: 460px; } }
-</style>
-
-Hover along the bench to run the carriage from station 7 to station 1, or focus it and
-use the arrow keys. Watch the parcel: it starts as 100 bytes of HTTP request and leaves
-as a 163-byte Ethernet frame, and the depth stop above each ram tells you how many bytes
-that layer cost you.
-
 ### The nesting
 
 ```
