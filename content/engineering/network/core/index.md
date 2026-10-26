@@ -199,9 +199,174 @@ each contract turns a messy reality into a clean abstraction.
         Layer N-1  ────────► "here's Y, imperfect but usable"
 ```
 
-**The summary of Part 0:** layering is not about tidiness. It is a bet that N+M beats
-N×M, paid for by accepting weaker promises at each level. Every awkward thing in the
-model — best-effort IP, the TCP/IP split, even NAT being ugly — falls out of that trade.
+### Where layering actually came from
+
+Everything above is a *justification* — the reasons layering survived. It is not the
+*origin*. Layering was not chosen for elegance by someone sketching a clean design. It
+was forced, three separate times, by the same shape of problem. Knowing which problem
+is what turns the model from a taxonomy into a story.
+
+#### First: "just send it" was never an option
+
+It is tempting to picture layering as machinery bolted on top of something simpler. It
+is not. Look inside the monolith:
+
+```
+  THE MONOLITH YOU'RE PICTURING
+
+      ┌────────────────────────────┐
+      │  send_to_other_machine(    │
+      │      data                  │
+      │  )                         │
+      │                            │
+      │      "just send it"        │
+      └────────────────────────────┘
+                   │
+                   │  zoom in
+                   ▼
+  WHAT IS ACTUALLY INSIDE IT
+
+      ┌────────────────────────────┬────────────────┐
+      │ turn the JSON into bytes   │ encoding       │
+      │ which program gets it?     │ ports          │
+      │ resend it if it's lost     │ reliability    │
+      │ which machine, worldwide?  │ addressing     │
+      │ who hands it to whom next  │ local delivery │
+      │ where does it start/end?   │ framing        │
+      │ set the voltage high       │ signalling     │
+      └────────────────────────────┴────────────────┘
+
+      THE SAME SEVEN JOBS — just nameless, tangled,
+      and impossible to replace one at a time.
+```
+
+The work is irreducible. Something must carry you from "meaning" to "voltage," and every
+one of those steps happens either way. **Layering does not add the steps. It only decides
+whether the seams between them are named and enforced, or implicit and welded shut.**
+
+So "why not just send?" has no referent — there is no *direct*. The real question is what
+made people cut at these particular seams. Three moments answer it.
+
+#### 1969 — you cannot write code for computers you do not control
+
+ARPANET's first four nodes were a PDP-10, an IBM 360, an SDS Sigma 7 and a Honeywell.
+Different word sizes, different character encodings, different operating systems,
+different vendors, four different universities.
+
+BBN had the contract to build the network, and hit a wall that was **organisational, not
+technical**: they could not write networking code for four alien operating systems, and
+those universities would never have let outsiders touch their machines anyway.
+
+So they did not. They shipped a box.
+
+```
+   ┌──────────────┐                            ┌──────────────┐
+   │   PDP-10     │                            │   IBM 360    │
+   │  (Stanford)  │                            │    (UCSB)    │
+   └──────┬───────┘                            └──────▲───────┘
+          │   "talk to the box next to you"           │
+          │    ← the ONLY thing the host must learn   │
+   ┌──────▼───────┐                            ┌──────┴───────┐
+   │     IMP      │◄──── the network is ──────►│     IMP      │
+   │  (BBN's box) │       THEIR problem        │  (BBN's box) │
+   └──────────────┘                            └──────────────┘
+```
+
+The IMP — Interface Message Processor — was a separate minicomputer standing beside each
+host. **The first layer boundary in history was a piece of sheet metal.** The abstraction
+existed as *hardware* before anyone had the concept of a layer.
+
+The urge was not elegance. It was: *we cannot write your code, and you would not let us.*
+
+#### 1974 — you cannot change networks you do not own
+
+ARPANET worked. But by then there was also PRNET (packet radio in military vehicles),
+SATNET (satellite, to Europe), ALOHAnet in Hawaii, Ethernet at Xerox. Different packet
+sizes, different loss rates, wildly different latency — and, crucially, different owners.
+
+The obvious fix, "make them all the same," was dead on arrival. You cannot make radio
+behave like a leased phone line; physics says no. And you cannot order a satellite
+consortium to rewrite their network because you would prefer it tidier.
+
+Cerf and Kahn's move was to stop trying to unify them:
+
+```
+  ┌─ PRNET ──┐      ┌─ ARPANET ─┐      ┌─ SATNET ─┐
+  │  lossy   │      │ reliable  │      │  500 ms  │
+  │  radio   │      │  leased   │      │ latency  │
+  │  small   │      │   lines   │      │   big    │
+  │ packets  │      │           │      │ packets  │
+  └────┬─────┘      └─────┬─────┘      └────┬─────┘
+       │                  │                 │
+    ┌──▼───┐           ┌──▼───┐          ┌──▼───┐
+    │  GW  │───────────│  GW  │──────────│  GW  │
+    └──────┘           └──────┘          └──────┘
+       ▲
+       └─ understands ONLY the common packet format.
+          Knows nothing about what is inside either network.
+```
+
+That common format is IP. And this is where IP's famous weakness comes from: **"best
+effort" is the intersection of what *all* those networks could promise.** Packet radio
+could not guarantee delivery, so IP does not either. The promise was set by the least
+capable participant, because anything stronger would have excluded someone.
+
+Hence the rule: **a layer boundary appears where your authority ends.** You layer at the
+seam between what you control and what you merely have to interoperate with. Layering is
+what you do when you lack power.
+
+#### 1978 — a boundary cut by a single use case
+
+Originally **TCP and IP were one protocol** — a single thing doing both addressing and
+reliable delivery. It was split in two, and the reason was voice.
+
+Danny Cohen was working on real-time packet speech. For voice, retransmission is actively
+*harmful*: a packet redelivered 300 ms late does not help, it stalls the stream. He needed
+delivery *without* reliability. Everyone else still wanted it *with*.
+
+```
+   BEFORE 1978                AFTER THE SPLIT
+
+   ┌─────────────┐            ┌──────┐   ┌──────┐
+   │     TCP     │            │ TCP  │   │ UDP  │   ← pick your promise
+   │  addressing │   ──────►  └───┬──┘   └───┬──┘
+   │      +      │                └────┬─────┘
+   │ reliability │                ┌────▼────┐
+   └─────────────┘                │   IP    │   ← addressing only
+                                  └─────────┘
+```
+
+You cannot let an application **opt out** of reliability unless reliability is a separable
+piece. So the boundary was cut exactly where the requirements diverged. Somebody wanting
+to make a phone call is why there are two layers there instead of one.
+
+#### The pattern
+
+```
+  you don't control all the parts   →  ARPANET / the IMP box
+  you can't make the parts agree    →  internetworking / IP's weak promise
+  you can't predict future needs    →  the TCP/UDP split
+        │
+        └──► put a NAMED SEAM wherever control, agreement,
+             or foresight runs out.
+```
+
+Flip it around and the point sharpens. **If one organisation owned every machine, knew
+every physical medium that would ever exist, and knew every application that would ever
+be written — a monolith would genuinely be simpler and faster.** Layering would be pure
+overhead. That world has never existed for a single second.
+
+One last thing, which reframes the rest of this note: **the seven-layer model came
+afterwards.** ISO formalised it between roughly 1977 and 1984, largely *describing*
+structure that working systems had already grown under these pressures. The layers were
+discovered, then named — which is exactly why the names fit so awkwardly in places (TLS,
+ARP, NAT, QUIC, covered in Part 11). The map was drawn after the territory had settled.
+
+**The summary of Part 0:** layering is not a matter of taste. It is what you build when
+you cannot control all the parts, cannot make them agree, and cannot predict what will be
+asked of them next — and you pay for it with weaker promises at every level. Every
+awkward thing that follows in this note — best-effort IP, the TCP/IP split, even NAT
+being ugly — falls out of that trade.
 
 ---
 

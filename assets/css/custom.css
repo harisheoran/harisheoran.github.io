@@ -375,6 +375,22 @@ body.site-body footer#site-footer {
 @media print {
   body.site-body { font-size: 11pt; }
   #site-header, #site-footer, .toc, .giscus { display: none; }
+
+  /* Blowfish's own print block sets `white-space: pre-wrap` on `pre` and
+     `pre *`, which re-flows long lines onto the following row. That is right
+     for shell commands but it shreds box-drawing diagrams: every border and
+     arrow lands a column out, and a wrapped diagram is unreadable rather
+     than merely narrow. Keep the lines intact and shrink the type instead --
+     the widest diagram on the site is ~81 columns, which clears the
+     printable width of A4 at 9pt mono.
+
+     `.prose pre` (0,1,1) outranks the theme's bare `pre` (0,0,1), and
+     custom.css is appended after css/compiled/main.css, so this wins on
+     specificity and on source order. The theme stays untouched, per the
+     note in layouts/_default/baseof.html. */
+  .prose pre,
+  .prose pre * { white-space: pre !important; }
+  .prose pre { font-size: 9pt; line-height: 1.45; }
 }
 
 /* ------------------------------------------- reining in Blowfish's layout
