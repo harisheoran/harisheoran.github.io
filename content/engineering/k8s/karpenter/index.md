@@ -71,6 +71,7 @@ Everything Karpenter does belongs to one of two loops. Keep them apart in your h
 | Guarded by     | NodePool `limits`, requirements, weights                 | disruption budgets, PDBs, `do-not-disrupt`, `consolidateAfter`, `terminationGracePeriod` |
 | Saves money by | right-sizing new nodes                                   | removing waste after the fact (this is the big one)                                      |
 
+
 ---
 
 ## 3. The components
@@ -151,13 +152,13 @@ kubectl describe nodeclaim <name>        # conditions + events: start here when 
 
 An SQS queue that EventBridge rules feed. The reference template has five rules:
 
-| EventBridge `detail-type` | What Karpenter does |
-|---|---|
-| `EC2 Spot Instance Interruption Warning` | 2-minute notice → taint, start a replacement, drain now |
-| `AWS Health Event` (scheduled change) | drain and replace ahead of the maintenance |
-| `EC2 Instance State-change Notification` | instance stopping/terminating → clean up |
-| `EC2 Instance Rebalance Recommendation` | **event only**, no drain |
-| `EC2 Capacity Reservation Instance Interruption Warning` | interruptible ODCR reclaim (v1.10+) |
+| EventBridge `detail-type`                                | What Karpenter does                                     |
+| -------------------------------------------------------- | ------------------------------------------------------- |
+| `EC2 Spot Instance Interruption Warning`                 | 2-minute notice → taint, start a replacement, drain now |
+| `AWS Health Event` (scheduled change)                    | drain and replace ahead of the maintenance              |
+| `EC2 Instance State-change Notification`                 | instance stopping/terminating → clean up                |
+| `EC2 Instance Rebalance Recommendation`                  | **event only**, no drain                                |
+| `EC2 Capacity Reservation Instance Interruption Warning` | interruptible ODCR reclaim (v1.10+)                     |
 
 Set it with `settings.interruptionQueue`. **Without it, a spot reclaim is a hard power-off**: pods die without draining and you only find out when the node goes `NotReady`. Treat it as required whenever spot is in use, and useful even without spot.
 
