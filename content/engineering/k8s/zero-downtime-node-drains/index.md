@@ -159,11 +159,11 @@ spec:
   unhealthyPodEvictionPolicy: AlwaysAllow   # optional, see below
 ```
 
-| Field | Meaning | Notes |
-|---|---|---|
-| `minAvailable` | At least this many must stay Ready | A number or `"%"`. Percentages **round up** |
-| `maxUnavailable` | At most this many may be down | A number or `"%"`. Percentages **round up** too. It **scales with replicas**, so it's usually the better choice |
-| `selector` | Which pods it guards | Must match the Deployment's pod labels |
+| Field                        | Meaning                                           | Notes                                                                                                                                            |
+| ---------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `minAvailable`               | At least this many must stay Ready                | A number or `"%"`. Percentages **round up**                                                                                                      |
+| `maxUnavailable`             | At most this many may be down                     | A number or `"%"`. Percentages **round up** too. It **scales with replicas**, so it's usually the better choice                                  |
+| `selector`                   | Which pods it guards                              | Must match the Deployment's pod labels                                                                                                           |
 | `unhealthyPodEvictionPolicy` | Can pods that are *already* not Ready be evicted? | `IfHealthyBudget` (default): only if the budget allows. `AlwaysAllow`: yes, always. This stops a crash-looping pod from blocking a drain forever |
 
 ### The trap: budgets that allow zero
