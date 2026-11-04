@@ -25,11 +25,11 @@ pod marked Terminating
 
 If **B finishes before A**, the load balancer still sends requests to a process that is gone, and you get `502`. If *every* replica goes at once, there's nothing to send to, and you get `503`.
 
-| Error | Usually means | Fix |
-|---|---|---|
-| 502 | Connection reset: the pod died with requests in flight | preStop delay + graceful SIGTERM |
-| 503 | No healthy targets left | ≥2 replicas + PDB + readiness gates |
-| 504 | A slow request outlived the grace period | Longer `terminationGracePeriodSeconds` |
+| Error | Usually means                                          | Fix                                    |
+| ----- | ------------------------------------------------------ | -------------------------------------- |
+| 502   | Connection reset: the pod died with requests in flight | preStop delay + graceful SIGTERM       |
+| 503   | No healthy targets left                                | ≥2 replicas + PDB + readiness gates    |
+| 504   | A slow request outlived the grace period               | Longer `terminationGracePeriodSeconds` |
 
 ---
 
