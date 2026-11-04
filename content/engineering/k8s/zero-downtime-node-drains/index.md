@@ -2,7 +2,7 @@
 title: Zero-downtime node drains
 date: 2026-11-04
 draft: false
-description: "Why replacing a node can cause 5xx errors, and the small set of settings that prevent it: PDBs, spread, preStop, grace period, readiness gates"
+description: "Why replacing a node can cause 5xx errors, and the small set of settings that prevent it: the shutdown timers, PDBs, spread, readiness gates"
 categories: ["k8s"]
 tags: ["reliability", "pdb", "load-balancing"]
 ---
@@ -10,37 +10,73 @@ Nodes get replaced all the time: kernel patches, AMI updates, autoscaler consoli
 
 ---
 
-## 1. The race behind most errors
+## 1. Shutting down one pod: the race and the three timers
 
 When a pod is evicted, two things start **at the same time**:
 
+- **Track A, stop the traffic:** the pod is removed from the Service endpoints. kube-proxy updates in ~1–2 s. The load balancer deregisters the pod IP in ~5–20 s.
+- **Track B, stop the process:** the kubelet starts shutting the container down.
+
+If B finishes before A, the load balancer still sends requests to a dead process, and you get `502`. Three timers control track B. **They're one sequence, so set them together:**
+
 ```
-pod marked Terminating
-   ├─► A: remove it from traffic
-   │      EndpointSlice → kube-proxy on every node      ~1–2 s
-   │      EndpointSlice → load-balancer controller → LB deregisters the pod IP   ~5–20 s
-   └─► B: shut it down
-          preStop hook → SIGTERM → (grace period runs out) → SIGKILL
+t=0  pod evicted ─────────────────────────────────────────────────────────────►
+     │
+     │◄──────────── terminationGracePeriodSeconds (pod spec, total budget) ───────────►│
+     │                                                                                 │
+     │◄─ preStop sleep ─►│◄────── app graceful timeout ──────►│                        │
+     │   (pod spec)      │       (inside the app: gunicorn     │                        │
+     │                   │        graceful_timeout, Go         │                        │
+     │                   │        Shutdown(ctx), ...)          │                        │
+     │  still serving,   │ SIGTERM: stop accepting new conns,  │ app exits    ...or     │ SIGKILL
+     │  LB draining us   │ finish in-flight requests           │ (clean)               │ (hard)
+     │                   │                                     │                        │
+Track A: ── LB/kube-proxy stop sending new requests ──►│ done by here (~20 s)
 ```
 
-If **B finishes before A**, the load balancer still sends requests to a process that is gone, and you get `502`. If *every* replica goes at once, there's nothing to send to, and you get `503`.
+| Timer | Where it lives | What it does | Typical value |
+|---|---|---|---|
+| `preStop` sleep | pod spec, `lifecycle.preStop.sleep.seconds` | Keeps serving while track A finishes. SIGTERM is only sent **after** preStop ends | 15–20 s |
+| App graceful timeout | the app server's own setting | After SIGTERM: how long the app waits for in-flight requests before it kills them itself | ≥ your longest request |
+| `terminationGracePeriodSeconds` | pod spec | **Total** budget, counted **from t=0, including preStop**. When it runs out: SIGKILL | preStop + app timeout + ~10 s buffer |
 
-| Error | Usually means                                          | Fix                                    |
-| ----- | ------------------------------------------------------ | -------------------------------------- |
-| 502   | Connection reset: the pod died with requests in flight | preStop delay + graceful SIGTERM       |
-| 503   | No healthy targets left                                | ≥2 replicas + PDB + readiness gates    |
-| 504   | A slow request outlived the grace period               | Longer `terminationGracePeriodSeconds` |
+**The rule:** `terminationGracePeriodSeconds ≥ preStop + app graceful timeout + buffer`
+
+```yaml
+spec:
+  terminationGracePeriodSeconds: 60      # 20 + 30 + 10 buffer
+  containers:
+    - name: web
+      lifecycle:
+        preStop:
+          sleep:
+            seconds: 20                  # built-in since k8s 1.30 (stable 1.34)
+      # app side: e.g. gunicorn --graceful-timeout 30
+```
+
+What goes wrong when they don't line up:
+
+| Mistake | Result |
+|---|---|
+| No preStop | SIGTERM arrives while the LB still sends traffic → **502** |
+| App graceful timeout < longest request | The app kills its own slow requests → **502** |
+| Grace period < preStop + app timeout | The kubelet SIGKILLs mid-request → **502/504** |
+| Grace period still at the 30 s default with a 20 s preStop | The app gets only 10 s to drain |
+
+Two more app-side details:
+- The app's **keep-alive idle timeout should be longer than the load balancer's**. Otherwise the app closes an idle connection at the exact moment the LB reuses it, and you get a random 502.
+- On SIGTERM, close idle keep-alive connections, so clients reconnect elsewhere.
 
 ---
 
-## 2. PodDisruptionBudget (PDB)
+## 2. PodDisruptionBudget (PDB): how many pods may be down at once
 
-A PDB says: **"of these pods, never voluntarily take down more than N at once."**
+Section 1 makes **one** pod's shutdown clean. A PDB makes sure that **not too many** pods of the same app shut down together.
 
 ### How it works
-- `kubectl drain`, cluster autoscalers and managed node upgrades evict pods through the **Eviction API**. They don't delete pods directly.
-- Before each eviction, the API server checks the PDB. If evicting this pod would break the budget, it answers **429: try again later**, and the drain waits and retries.
-- As soon as a replacement pod becomes **Ready**, the budget frees up and the next eviction goes through.
+- Node drains, autoscalers and managed node upgrades **evict** pods through the **Eviction API**. They don't delete them directly.
+- Before each eviction, the API server checks the PDB. If evicting the pod would break the budget, it answers **429: try again later**, and the drain retries.
+- When a replacement pod becomes **Ready**, the budget frees up and the next eviction goes through.
 
 ```
 3 replicas, maxUnavailable: 1
@@ -86,7 +122,7 @@ A blocked drain doesn't fail safely. The upgrade times out, or a hard deadline f
 ### What a PDB does *not* cover
 - **Involuntary loss:** a node crash or kernel panic ignores PDBs.
 - `kubectl delete pod`: that's a delete, not an eviction.
-- **Deployment rollouts:** those follow the Deployment's own `maxSurge`/`maxUnavailable`.
+- **Deployment rollouts:** those use the Deployment's own settings (see §3).
 - **Single-replica apps:** no budget can keep 1 pod up while moving it.
 
 ### Getting started
@@ -97,62 +133,85 @@ A blocked drain doesn't fail safely. The upgrade times out, or a hard deadline f
 
 ---
 
-## 3. Spread replicas across nodes
+## 3. A Deployment's own `maxUnavailable`, and how it differs from the PDB's
 
-A PDB lets only one replica go *at a time*. But if both replicas sit on the **same node**, a node failure still takes out both. Spread them:
+A Deployment has its **own** `maxUnavailable`, but it controls something different:
 
+```yaml
+kind: Deployment
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%          # default: extra NEW pods allowed above replicas (rounds up)
+      maxUnavailable: 25%    # default: OLD pods that may be down below replicas (rounds down)
+```
+
+| | Deployment `maxUnavailable` | PDB `maxUnavailable` |
+|---|---|---|
+| Guards against | **Your own rollout**: a new image or config | **Evictions**: node drain, upgrade, autoscaler |
+| Who enforces it | The Deployment controller, as it replaces pods | The API server, on each eviction request |
+| Mechanism | Creates new pods (surge) and removes old ones step by step | Answers 429 to the eviction until it's safe |
+| Is the other one consulted? | No, rollouts ignore PDBs | No, drains ignore the Deployment strategy |
+
+They don't know about each other, so you need **both**:
+- the Deployment strategy makes `kubectl set image` safe;
+- the PDB makes a node drain safe.
+
+A common safe rollout setting is `maxSurge: 1, maxUnavailable: 0`: start a new pod, wait for Ready, then remove an old one.
+
+---
+
+## 4. Spread replicas across nodes: how the scheduler does it
+
+A PDB limits **how many** pods go at once. It doesn't control **where** they run. If both replicas sit on the same node, then:
+- that node dying takes out both (a PDB can't help with a crash);
+- during a drain, the second pod's eviction waits, so the drain gets slow.
+
+### Without any rule
+The scheduler applies built-in **soft** defaults: per node `maxSkew: 3`, per zone `maxSkew: 5`, both `ScheduleAnyway`. So **2 replicas landing on the same node is perfectly "fine"** by default.
+
+### With `topologySpreadConstraints`
 ```yaml
 topologySpreadConstraints:
   - maxSkew: 1
-    topologyKey: kubernetes.io/hostname      # or topology.kubernetes.io/zone
-    whenUnsatisfiable: ScheduleAnyway
+    topologyKey: kubernetes.io/hostname       # the "domain" = one node
+    whenUnsatisfiable: DoNotSchedule          # hard rule (or ScheduleAnyway = preference)
     labelSelector:
-      matchLabels: { app: web }
+      matchLabels: { app: web }               # must match the pod's own labels
 ```
+
+**How it decides, for each new pod:**
+1. Group the nodes into **domains** by `topologyKey`: each node (hostname), or each zone.
+2. Count the pods matching `labelSelector` in each domain.
+3. **skew = count in the chosen domain (after placing) − the lowest count of any domain.**
+4. Only domains where the skew stays **≤ maxSkew** are allowed.
+
+```
+replicas: 4, maxSkew: 1, per node
+
+pod 1:  node-a [1]  node-b [0]  node-c [0]
+pod 2:  node-a [1]  node-b [1]  node-c [0]     node-a would be 2−0 = 2 > 1 ✗
+pod 3:  node-a [1]  node-b [1]  node-c [1]
+pod 4:  node-a [2]  node-b [1]  node-c [1]     2−1 = 1 ✓ (any node is fine now)
+```
+
+| Option | Meaning |
+|---|---|
+| `whenUnsatisfiable: DoNotSchedule` | Hard. The pod stays `Pending` rather than break the spread. A node autoscaler then adds a node |
+| `whenUnsatisfiable: ScheduleAnyway` | Soft. It prefers balanced nodes, but will stack if it must |
+| `topologyKey: topology.kubernetes.io/zone` | Spread across AZs instead of nodes. You can use **both** keys |
+| `minDomains` | "Assume at least N domains exist". This forces spreading even when fewer nodes exist yet |
+
+**Things to know:**
+- It's checked **only when a pod is scheduled**. It never moves running pods. After a scale-down or a node roll, the layout can become unbalanced until pods are recreated (or a Descheduler runs).
+- The `labelSelector` must match the pod's own labels. Otherwise the pod doesn't count itself, and the pods silently pile up.
+- An alternative is `podAntiAffinity` ("never two `app=web` on one node"). It's stricter: with more replicas than nodes, the extra pods can't schedule.
 
 ---
 
-## 4. preStop: wait for traffic to stop first
-
-This fixes the race in §1. Before SIGTERM, keep serving while the load balancer catches up:
-
-```yaml
-lifecycle:
-  preStop:
-    sleep:
-      seconds: 20      # built-in since k8s 1.30 (stable in 1.34); no shell needed
-```
-
-The order is guaranteed: **preStop finishes first, then SIGTERM is sent.**
-
----
-
-## 5. terminationGracePeriodSeconds: the total budget
-
-The countdown starts **before** preStop, and it includes it:
-
-```
-|←────────── terminationGracePeriodSeconds ──────────→|
-| preStop (20 s) | SIGTERM → app finishes in-flight work | SIGKILL
-```
-
-Rule: **grace ≥ preStop + the longest request.** The default of 30 s leaves only 10 s after a 20 s preStop, which isn't enough for slow APIs or streams.
-
----
-
-## 6. The app must handle SIGTERM
-
-On SIGTERM, the app should:
-1. stop accepting **new** connections;
-2. finish the requests it already has;
-3. close idle keep-alive connections;
-4. exit.
-
-Most servers do this when configured: gunicorn `graceful_timeout`, uvicorn, Go `http.Server.Shutdown`, nginx `quit`. Also keep the app's **keep-alive idle timeout longer than the load balancer's**. Otherwise the app closes a connection at the exact moment the LB reuses it, and you get a random 502.
-
----
-
-## 7. Load-balancer readiness gates
+## 5. Load-balancer readiness gates
 
 "Ready" in Kubernetes means *the probe passed*. It does **not** mean *the load balancer is sending traffic here yet*. During a drain, a new pod can be Ready, so the PDB frees up and the old pod is evicted, while the LB is still registering the new one. The target group then has no healthy targets, and you get a 503.
 
@@ -170,16 +229,16 @@ Caveats:
 
 ---
 
-## 8. Checklist
+## 6. Checklist
 
 | # | Item | Prevents |
 |---|---|---|
-| 1 | ≥2 replicas | 503: nothing left to serve |
-| 2 | PDB `maxUnavailable: 1` (never 0 allowed) | 503: all replicas evicted at once; and stuck drains |
-| 3 | Topology spread | Losing all replicas with one node |
-| 4 | `preStop` sleep ~20 s | 502: the shutdown-vs-deregistration race |
-| 5 | Grace ≥ preStop + longest request | 504 and SIGKILL mid-request |
-| 6 | Graceful SIGTERM + keep-alive > LB idle | 502: resets and keep-alive races |
+| 1 | preStop + app graceful timeout + grace period, set together (§1) | 502/504 when a pod stops |
+| 2 | ≥2 replicas | 503: nothing left to serve |
+| 3 | PDB `maxUnavailable: 1` (never 0 allowed) | 503: too many evicted at once; and stuck drains |
+| 4 | Deployment `maxSurge: 1, maxUnavailable: 0` | 503 during your own rollouts |
+| 5 | Topology spread (node and zone) | Losing all replicas with one node |
+| 6 | Keep-alive idle > LB idle | Random 502s |
 | 7 | LB readiness gates | 503: "Ready" before the LB is actually sending traffic |
 
 **Prove it:** run steady load through the load balancer, drain a node, and count non-2xx responses. Do it once before the changes and once after. The goal is zero.
