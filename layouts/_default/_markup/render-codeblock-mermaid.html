@@ -1,0 +1,17 @@
+{{- /*
+  Render ```mermaid fenced blocks as diagrams.
+
+  Notes are written in Obsidian, which draws fenced mermaid natively, so the
+  site has to accept the same syntax (no {{< mermaid >}} shortcode in notes).
+  Blowfish only loads mermaid.js for pages using its shortcode
+  (partials/vendor.html), so this hook loads the same bundle itself, once per
+  page, the first time a mermaid block is rendered.
+*/ -}}
+{{- if not (.Page.Store.Get "mermaidLoaded") -}}
+  {{- .Page.Store.Set "mermaidLoaded" true -}}
+  {{- $lib := resources.Get "lib/mermaid/mermaid.min.js" -}}
+  {{- $cfg := resources.Get "js/mermaid.js" | resources.Minify -}}
+  {{- $js := slice $lib $cfg | resources.Concat "js/mermaid.bundle.js" | resources.Fingerprint (site.Params.fingerprintAlgorithm | default "sha512") -}}
+  <script defer type="text/javascript" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+{{- end }}
+<pre class="not-prose mermaid">{{ .Inner | htmlEscape | safeHTML }}</pre>
