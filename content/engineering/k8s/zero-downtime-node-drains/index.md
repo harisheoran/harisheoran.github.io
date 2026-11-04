@@ -81,6 +81,48 @@ spec:
       # app side: e.g. gunicorn --graceful-timeout 30
 ```
 
+### The load balancer's own timer: deregistration delay
+
+The pod's timers say how long the **pod** stays alive. A cloud load balancer has its own timer that decides how long it keeps **existing connections** to that pod. On AWS it's the target group's `deregistration_delay` (also called *connection draining*).
+
+It **doesn't delay** the removal. The moment a pod is removed (rollout, eviction, scale-down, node drain, or the pod going NotReady), the target goes into **draining**:
+
+```mermaid
+sequenceDiagram
+    participant C as Clients
+    participant LB as Load balancer
+    participant P as Old pod (still alive)
+    participant N as Other pods
+
+    Note over LB,P: t = 0 s pod removed, target = draining
+    C->>LB: new request
+    LB->>N: goes to a healthy pod, never to the draining one
+    Note over C,P: existing connections to the old pod keep working
+    alt they all finish before the delay ends
+        Note over LB: deregistration completes early
+    else still open when the delay ends
+        Note over LB,P: t = delay, LB DROPS them (client sees an error or a closed socket)
+    end
+```
+
+| Question | Answer |
+|---|---|
+| Does it stop new requests? | Yes, immediately. Draining targets get no new requests |
+| What does it protect? | Requests and connections that were **already open** |
+| What happens when it runs out? | The LB drops whatever is still open, **even if the pod is still alive** |
+| Default on AWS | 300 s. Often lowered to 30 s so rollouts finish faster |
+| When is it too short? | When connections live longer than it: WebSockets, streaming, long uploads, slow requests |
+
+**The rule:** `deregistration delay ≥ how long the pod keeps serving its existing connections`. For short HTTP requests that's ~the app's longest request. For a long-lived-connection service that uses a long preStop as its drain (next section), it's ≥ the preStop.
+
+With the AWS Load Balancer Controller it's set per target group with an Ingress (or Service) annotation:
+
+```yaml
+alb.ingress.kubernetes.io/target-group-attributes: deregistration_delay.timeout_seconds=60
+```
+
+**How it looks in the app's logs when it's too short:** the pod stops getting new connections, a few sessions end normally, and then, exactly one delay later, a **burst** of connections closes at the same instant, cut mid-stream. The pod itself stays alive for minutes afterwards, serving nobody.
+
 ### SIGTERM and your code
 
 SIGTERM is only an OS **signal** sent to the container's main process (PID 1). Kubernetes does nothing else. **Whether it becomes a graceful shutdown is decided entirely by the code running in the container.**
