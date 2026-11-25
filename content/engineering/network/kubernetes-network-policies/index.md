@@ -10,7 +10,7 @@ A fresh Kubernetes cluster is one flat network: **every pod can open a connectio
 
 Network policies are the firewall for that flat network. This note builds them from first principles: why ordinary firewalls don't work for pods, what the NetworkPolicy API actually means, how a plugin turns YAML into kernel state, what eBPF is, how Cilium uses it, and what all of it costs in latency.
 
-Read [Kubernetes Networking](../kubernetes-networking/) first. This note assumes you know what a veth, conntrack, DNAT and a Service ClusterIP are.
+Read [Kubernetes Networking](../kubernetes-networking/) first. This note assumes you know what a veth, conntrack, DNAT and a Service ClusterIP are. Part 3, [Network Policies on EKS](../eks-network-policies/), applies all of this to Amazon EKS (VPC CNI, Cilium, Calico).
 
 Versions this note is written against (October 2026):
 
