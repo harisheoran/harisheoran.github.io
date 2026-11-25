@@ -307,40 +307,90 @@ flowchart LR
 
 ## 4. How enforcement works under the hood
 
-Every enforcer, whatever its brand, runs the same loop:
+A NetworkPolicy is just YAML stored in the API server. Something has to turn "pods labelled `app=frontend` may reach pods labelled `app=orders` on port 8080" into a check the kernel runs on real packets. The kernel knows nothing about labels or namespaces. It only sees packets with a source IP, a destination IP and a port.
+
+Every enforcer (the VPC CNI agent, Cilium, Calico) bridges that gap in **two separate phases**:
+
+| | Phase 1: compile (control plane) | Phase 2: check (data plane) |
+|---|---|---|
+| Runs when | Something **changes**: a policy is applied, a pod starts or dies, a label changes | **Every new connection** |
+| Who runs it | A user-space program (controller / agent) | The Linux kernel |
+| What it does | Reads policies and pods from the API server, resolves labels to IPs, writes a **rule table** into the kernel | Looks the packet up in that rule table: allow or drop |
+| Speed | Milliseconds to seconds (it's fine to be slow) | Nanoseconds (it must be fast) |
+
+All the expensive thinking happens in advance, in phase 1. Per packet, there's only a cheap lookup. The rest of this section walks through both phases with one concrete example.
+
+**The example.** Namespace `shop` has one `orders` pod (`10.0.40.17`, on node 1) and two `frontend` pods (`10.0.40.30` on node 1, `10.0.41.8` on node 2). We apply the `orders-ingress` policy from §3.3: orders accepts TCP 8080 from frontend.
+
+### 4.1 Phase 1: turning YAML into a rule table
 
 ```mermaid
-flowchart LR
-    A["API server<br/>(NetworkPolicy, Pods,<br/>Namespaces, labels)"] -->|"watch"| B["Policy controller / agent"]
-    B -->|"compute: which pods are<br/>selected, which peers<br/>are allowed"| C["Per-pod rule set<br/>(IPs or identities + ports)"]
-    C -->|"program"| D["Kernel data plane<br/>eBPF maps or iptables/nftables"]
-    D -->|"every packet<br/>(really: every new flow)"| E{"allowed?"}
-    E -->|"yes"| F["forward + create<br/>conntrack entry"]
-    E -->|"no"| G["drop (optionally log)"]
+flowchart TD
+    Y["1. You apply the policy<br/>orders accepts TCP 8080 from app=frontend"] --> W["2. The agent gets notified<br/>(it keeps a watch open on the API server)"]
+    W --> R["3. Resolve labels to real pods and their IPs<br/>app=orders → 10.0.40.17 (node 1)<br/>app=frontend → 10.0.40.30, 10.0.41.8"]
+    R --> T["4. Build the rule table for the orders pod<br/>INGRESS allow 10.0.40.30 on TCP 8080<br/>INGRESS allow 10.0.41.8 on TCP 8080<br/>anything else in: deny"]
+    T --> K["5. Write it into the kernel on node 1,<br/>where the orders pod runs<br/>(eBPF map entries or iptables rules)"]
+    NEW["Later: a 3rd frontend replica starts<br/>with IP 10.0.42.5"] -.->|"redo steps 3 to 5:<br/>add one row to the table"| R
 ```
 
-Where the check happens matters. Each pod's traffic passes through the **node-side end of its veth pair**. That's the perfect chokepoint: it's per pod, it sees same-node traffic, and the pod can't tamper with it.
+Step 3 is why labels work even though IPs keep changing. Nobody edits YAML when a new replica starts. The agent sees the new pod, re-resolves the selector and adds a row. The YAML says **who** (labels). The rule table says **which IPs, right now**.
+
+The same five steps happen in every engine, but different components do them:
+
+| Engine | Steps 2–3 (watch and resolve) | Steps 4–5 (build and load) |
+|---|---|---|
+| VPC CNI | Network policy controller **in the EKS control plane**, which writes `PolicyEndpoint` objects | `aws-network-policy-agent` in `aws-node` on each node |
+| Cilium | `cilium-agent` on each node (stores label **identities**, not IP lists) | same agent |
+| Calico | `calico-node` (Felix) on each node | same |
+
+### 4.2 Phase 2: checking a packet
+
+Now frontend `10.0.40.30` opens a connection to `10.0.40.17:8080`. The kernel on node 1 does this:
+
+```mermaid
+flowchart TD
+    PKT["Packet reaches the orders pod's interface<br/>from 10.0.40.30 to 10.0.40.17:8080"] --> CT{"Already part of an allowed<br/>connection? (conntrack lookup)"}
+    CT -->|"yes: a reply, or a later packet<br/>of a connection already checked"| PASS["Deliver to the pod"]
+    CT -->|"no: first packet of a<br/>new connection (TCP SYN)"| LOOK{"Look up the rule table:<br/>10.0.40.30 on TCP 8080 allowed?"}
+    LOOK -->|"row found"| REC["Remember this connection<br/>in conntrack"] --> PASS
+    LOOK -->|"no row"| DROP["Drop the packet (optionally log it).<br/>The client sees a timeout."]
+```
+
+Only the **first packet** of a connection goes through the rule lookup. Every later packet, and every reply, matches the conntrack entry and goes straight through. That's what "stateful" means, and it's why you never write rules for reply traffic (rule 5 in §3.2).
+
+A dropped connection looks like a **timeout**, not a "connection refused". The packet just disappears. Keep that in mind when debugging.
+
+### 4.3 Where the check sits: the pod's veth
+
+Each pod's `eth0` is one end of a **veth pair**, a virtual cable. The other end sits on the node (on the VPC CNI it's named like `eni1a2b3c…`). **Every packet into or out of the pod has to cross that cable**, and the pod can't route around it. So the host end of the veth is the natural checkpoint:
+
+- **Egress** is checked at the host end of the *sender's* veth, on the sender's node.
+- **Ingress** is checked at the host end of the *receiver's* veth, on the receiver's node.
 
 ```mermaid
 flowchart LR
-    subgraph N1["Node 1"]
-        PA["Pod A<br/>eth0"] --- VA["veth (host side)<br/>EGRESS check for A"]
-        VA --- R1["node routing"]
-    end
     subgraph N2["Node 2"]
-        R2["node routing"] --- VB["veth (host side)<br/>INGRESS check for B"]
-        VB --- PB["Pod B<br/>eth0"]
+        FE["frontend pod<br/>eth0 10.0.41.8"] -->|"1. packet leaves the pod"| VF["host end of frontend's veth<br/>2. EGRESS check:<br/>may frontend send this?"]
+        VF -->|"3. node routing"| X2["node's ENI"]
     end
-    R1 -->|"VPC network"| R2
+    subgraph N1["Node 1"]
+        X1["node's ENI"] -->|"5. node routing"| VO["host end of orders' veth<br/>6. INGRESS check:<br/>may orders receive this?"]
+        VO -->|"7. delivered"| OR["orders pod<br/>eth0 10.0.40.17"]
+    end
+    X2 -->|"4. across the VPC"| X1
 ```
 
-There are two ways to implement the check:
+If both pods are on the **same node**, steps 3–5 disappear: the packet goes straight from one veth to the other inside the node and never touches an ENI. Both checks still happen, because both veths are crossed. That's exactly the traffic VPC security groups can never see (§1.2), and the reason enforcement lives on the veth and not on the ENI.
+
+### 4.4 Two ways to store the rule table
+
+Phase 1's "rule table" can be stored in the kernel in two ways:
 
 | | iptables / nftables | eBPF |
 |---|---|---|
-| How | Chains of rules + ipsets per pod | Programs on the veth's tc hook + hash maps |
-| Per-packet cost | Small, but new-flow cost grows with rule count | A few hash lookups, roughly flat |
-| Updates | Rewrite rule tables (slow at scale) | Update map entries (fast) |
+| What phase 1 writes | Chains of rules + ipsets per pod | Entries in eBPF hash maps, used by a small program attached to the veth (tc hook) |
+| Per-packet cost | Small, but the new-connection cost grows with the number of rules | A few hash lookups, roughly flat |
+| Cost of updates | Rewrite rule tables (slow at large scale) | Update a map entry (fast) |
 | Who uses it | Classic Calico, kube-router | VPC CNI policy agent, Cilium, Calico eBPF mode |
 
 For L3/L4 policy, eBPF enforcement adds no latency you'd notice at the application level. Part 2 §7 explains why.
@@ -349,40 +399,146 @@ For L3/L4 policy, eBPF enforcement adds no latency you'd notice at the applicati
 
 ## 5. EKS networking baseline: the Amazon VPC CNI
 
-You can't understand any of the three options on EKS without knowing what the VPC CNI does, because two of them build on it.
+You can't understand any of the three options on EKS without knowing what the VPC CNI does, because two of them build on it. This section answers four questions: how a node can have several network cards, what a secondary IP is, where the max-pods limit comes from, and what "IP exhaustion" means (it has nothing to do with network policy).
 
-### 5.1 How pods get VPC IPs
+### 5.1 ENIs: one EC2 instance, several network cards
 
-The VPC CNI runs as the `aws-node` DaemonSet. Its IPAM daemon (`ipamd`) attaches extra ENIs to the node and reserves **secondary private IPs** (or `/28` **prefixes** with prefix delegation) from the node's subnet. It keeps a warm pool so new pods start fast. When a pod starts, the CNI picks an IP from the pool and wires up a veth.
+A physical server can have several network cards plugged in. An EC2 instance is the same. Each virtual network card is an **ENI (Elastic Network Interface)**:
+
+- The **primary ENI** is created with the instance and can't be detached. Inside Linux it shows up as `eth0` (on newer AMIs the name can be `ens5`; same thing).
+- **Secondary ENIs** can be attached and detached while the instance runs. They show up as `eth1`, `eth2`, … (or `ens6`, `ens7`, …).
+- Each ENI lives in **one subnet** and has **its own security groups**.
+- Each **instance type** has a fixed maximum number of ENIs and a fixed maximum number of IPv4 addresses per ENI. Bigger instances get more of both.
+
+| Instance type | Max ENIs | Max IPv4 addresses per ENI |
+|---|---|---|
+| t3.medium | 3 | 6 |
+| m5.large | 3 | 10 |
+| m5.xlarge | 4 | 15 |
+| m5.4xlarge | 8 | 30 |
+
+You can look these numbers up for any type:
+
+```bash
+aws ec2 describe-instance-types --instance-types m5.large \
+  --query 'InstanceTypes[].NetworkInfo.[MaximumNetworkInterfaces,Ipv4AddressesPerInterface]'
+```
+
+A normal EC2 instance only ever uses `eth0`. On EKS the VPC CNI attaches `eth1`, `eth2`, … **itself**, when it needs more IPs for pods.
+
+### 5.2 Secondary IPs: extra addresses on the same card
+
+Every ENI has one **primary private IP**. You can also put extra private IPs on the same ENI: **secondary private IPs**.
+
+- They're **not** a backup or failover address. All of them are **active at the same time**, like having several phone numbers that ring the same phone.
+- They come from **the same subnet as the ENI**, which means from your **VPC CIDR**. Nowhere else.
+- The VPC keeps a mapping "`10.0.40.17` lives on ENI `eni-0abc…`". Packets for that IP get delivered to that ENI, just like packets for the primary IP.
+
+**The VPC CNI's trick:** it asks EC2 for secondary IPs, doesn't use them for the node itself, and hands **each one to one pod**. Then it adds a route on the node: "to reach `10.0.40.17`, go down this pod's veth". To the rest of the VPC, a pod's IP looks exactly like any other EC2 address.
 
 ```mermaid
 flowchart TB
-    subgraph VPC["VPC 10.0.0.0/16"]
-        subgraph SUB["Subnet 10.0.32.0/19"]
-            subgraph EC2["EC2 node"]
-                ENI0["ENI eth0 (primary)<br/>node IP 10.0.40.5<br/>+ secondary IPs<br/>security groups: node SGs"]
-                ENI1["ENI eth1<br/>secondary IPs or /28 prefixes<br/>security groups: node SGs"]
-                P1["pod 10.0.40.17"]
-                P2["pod 10.0.40.18"]
-                P3["pod 10.0.41.3"]
-                ENI0 -.-> P1
-                ENI0 -.-> P2
-                ENI1 -.-> P3
+    subgraph SUB["Subnet 10.0.32.0/19, part of VPC 10.0.0.0/16"]
+        subgraph EC2["EC2 node, m5.large (max 3 ENIs, 10 IPs each)"]
+            subgraph E0["eth0: primary ENI (created with the instance)"]
+                E0P["primary IP 10.0.40.5<br/>= the node's own IP"]
+                E0S["9 secondary IPs<br/>10.0.40.17, 10.0.40.18, ..."]
             end
+            subgraph E1["eth1: secondary ENI (attached by the VPC CNI)"]
+                E1P["primary IP 10.0.41.2<br/>(never given to a pod)"]
+                E1S["9 secondary IPs<br/>10.0.41.3, 10.0.41.4, ..."]
+            end
+            P1["pod A<br/>10.0.40.17"]
+            P2["pod B<br/>10.0.40.18"]
+            P3["pod C<br/>10.0.41.3"]
         end
-        RDS[("RDS 10.0.80.9")]
     end
-    P1 -->|"direct VPC routing, no NAT"| RDS
+    E0S --> P1
+    E0S --> P2
+    E1S --> P3
 ```
 
-Consequences you should remember:
+The CNI works **ahead of time**. It keeps a **warm pool** of spare IPs on the node, so a new pod gets an IP instantly instead of waiting for an EC2 API call:
 
-- **Pod IPs are VPC IPs.** Other VPC resources (RDS, EC2, peered VPCs, on-prem via VPN/Direct Connect) see the **real pod IP** as the source.
-- **All pods on a node share the node's security groups** (the SGs of the ENI they borrow IPs from). The SG can't tell pods apart.
-- **Max pods per node is limited by ENIs × IPs per ENI**, unless you use prefix delegation.
-- **IP exhaustion** is a real risk in small subnets. That's a reason some people pick an overlay (Calico VXLAN, Cilium overlay). It's also why "custom networking" (pods in separate secondary-CIDR subnets) exists.
+```mermaid
+sequenceDiagram
+    participant EC2 as EC2 API
+    participant CNI as VPC CNI (ipamd in aws-node)
+    participant K as kubelet
+    Note over EC2,CNI: ahead of time: fill the warm pool
+    CNI->>EC2: attach ENI eth1 to this node
+    CNI->>EC2: assign secondary IPs to eth0 and eth1
+    EC2-->>CNI: 10.0.40.17, 10.0.40.18, 10.0.41.3, ...
+    Note over CNI,K: when a pod is scheduled here
+    K->>CNI: set up networking for pod orders-7d9f
+    CNI->>CNI: take 10.0.40.17 from the warm pool
+    CNI->>CNI: create veth, set pod eth0 = 10.0.40.17, add node route
+    CNI-->>K: done, pod can start
+```
 
-### 5.2 Which AWS layer controls what
+**Prefix delegation** is the same idea, but denser. Instead of one IP per slot on the ENI, EC2 puts a whole `/28` **prefix** (16 consecutive IPs) in each slot. The CNI hands out IPs from those prefixes.
+
+### 5.3 Max pods per node: where the limit comes from
+
+Every normal pod needs its own secondary IP, and an instance can only hold **ENIs × IPs per ENI** addresses. So the instance type caps the number of pods. The formula EKS uses:
+
+```
+max pods = ENIs × (IPs per ENI − 1) + 2
+```
+
+- **− 1**: each ENI's primary IP is never given to a pod.
+- **+ 2**: pods with `hostNetwork: true` (like `aws-node` and `kube-proxy`) use the node's own IP and need no extra address. The +2 makes room for them.
+
+| Instance type | Calculation | Max pods |
+|---|---|---|
+| t3.medium | 3 × (6 − 1) + 2 | **17** |
+| m5.large | 3 × (10 − 1) + 2 | **29** |
+| m5.xlarge | 4 × (15 − 1) + 2 | **58** |
+| m5.4xlarge | 8 × (30 − 1) + 2 | **234** |
+
+**Why you may never have noticed it:** the EKS AMIs, managed node groups and Karpenter all set the kubelet's max pods from this table automatically. The scheduler just never puts a 30th pod on an m5.large: it goes to another node, or Karpenter launches one. You see it in two ways:
+
+- pods `Pending` with `Too many pods`, while the node still has plenty of free CPU and memory, or
+- Karpenter or the cluster autoscaler adding more (or bigger) nodes than CPU/memory alone would need, because many small pods hit the pod limit first.
+
+Check your nodes:
+
+```bash
+kubectl get nodes -o 'custom-columns=NAME:.metadata.name,TYPE:.metadata.labels.node\.kubernetes\.io/instance-type,MAXPODS:.status.capacity.pods'
+```
+
+With **prefix delegation** the IP limit mostly goes away: an m5.large could address 3 × 9 × 16 = 432 IPs. AWS then recommends capping max pods at **110** for instances with fewer than 30 vCPUs and **250** above that, because the kubelet and CPU become the real limits before IPs do.
+
+### 5.4 IP exhaustion, and why it has nothing to do with network policy
+
+**Network policy uses zero IPs.** Turning on the VPC CNI's network policy, adding Calico in policy-only mode, or adding Cilium in chaining mode changes **nothing** about how many IPs your pods use. Policy only **filters** traffic between IPs that already exist.
+
+What decides IP usage is **who hands out pod IPs** (IPAM):
+
+| Setup | Where pod IPs come from | Uses subnet IPs per pod? |
+|---|---|---|
+| VPC CNI (with or without its network policy) | Your subnets (VPC CIDR) | Yes |
+| Calico policy-only / Cilium chaining on VPC CNI | Your subnets (the VPC CNI still does IPAM) | Yes, same as above |
+| Cilium ENI mode | Your subnets (Cilium does IPAM, same idea) | Yes |
+| Calico VXLAN / Cilium overlay | A private range that isn't in the VPC | **No**. Only nodes use subnet IPs. |
+
+So why does IP exhaustion come up when choosing a CNI (§8.2, §10.2)? Because with the VPC CNI, **every pod, plus the warm pool, eats real addresses from your subnets**. Small subnets run out:
+
+- With the default `WARM_ENI_TARGET=1`, the CNI keeps roughly one whole spare ENI's worth of IPs attached to every node. On an m5.large that's about 20 subnet IPs taken as soon as the first pod lands, even if only a few pods run.
+- A `/24` subnet has 251 usable addresses (AWS reserves 5). At ~20 per node, that's only about a dozen nodes per subnet.
+- The symptom: new pods stuck in `ContainerCreating` with an error like `failed to assign an IP address to container`, while nodes still have room.
+
+How people fix it, from least to most disruptive:
+
+1. **Tune the warm pool**: set `WARM_IP_TARGET` / `MINIMUM_IP_TARGET` so each node holds a few spare IPs instead of a whole ENI's worth. The cost is more EC2 API calls as pods churn.
+2. **Prefix delegation**: denser per node. It needs free, contiguous `/28` blocks in the subnet, which fragmented subnets may not have.
+3. **Custom networking**: add a secondary CIDR to the VPC (often from `100.64.0.0/10`) with subnets used only for pods.
+4. **IPv6 cluster**: effectively unlimited addresses.
+5. **Switch to an overlay CNI** (Calico VXLAN, Cilium overlay): pods no longer use VPC IPs at all. The cost: the VPC can't route to pods directly. The EKS control plane can't call webhook pods, load balancers can't target pod IPs, and traffic leaving the cluster is SNATed to the node IP.
+
+That last option is why "IP exhaustion" shows up when choosing a CNI: it's a **networking** reason to pick Calico or Cilium in overlay mode, separate from network policy. If you keep the VPC CNI for networking (the plan for most EKS clusters), choosing the policy engine has no effect on IPs.
+
+### 5.5 Which AWS layer controls what
 
 ```mermaid
 flowchart TB
